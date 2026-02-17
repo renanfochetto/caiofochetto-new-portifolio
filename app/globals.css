@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 10 10 10;
+    --foreground: 250 250 250;
+    --card: 17 17 17;
+    --card-foreground: 250 250 250;
+    --primary: 202 255 0;
+    --primary-foreground: 10 10 10;
+    --secondary: 26 26 26;
+    --secondary-foreground: 250 250 250;
+    --muted: 26 26 26;
+    --muted-foreground: 161 161 161;
+    --border: 38 38 38;
+    --input: 38 38 38;
+    --ring: 202 255 0;
+  }
+
+  html.light {
+    --background: 255 255 255;
+    --foreground: 10 10 10;
+    --card: 245 245 245;
+    --card-foreground: 10 10 10;
+    --primary: 217 70 239;
+    --primary-foreground: 255 255 255;
+    --secondary: 240 240 240;
+    --secondary-foreground: 10 10 10;
+    --muted: 240 240 240;
+    --muted-foreground: 99 99 99;
+    --border: 229 229 229;
+    --input: 229 229 229;
+    --ring: 217 70 239;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Display Headings - Fraunces (Editorial, memorable) */
+  .display-3xl {
+    @apply font-display text-display-3xl font-bold;
+  }
+
+  .display-2xl {
+    @apply font-display text-display-2xl font-bold;
+  }
+
+  .display-xl {
+    @apply font-display text-display-xl font-bold;
+  }
+
+  /* Headings - Space Grotesk (Modern, impactful) */
+  h1 {
+    @apply font-heading text-h1;
+  }
+
+  h2 {
+    @apply font-heading text-h2;
+  }
+
+  h3 {
+    @apply font-heading text-h3;
+  }
+
+  h4 {
+    @apply font-heading text-h4;
+  }
+
+  /* Body - Manrope (Humanist, legible) */
+  p, span, a, li {
+    @apply font-sans text-body-base;
+  }
+
+  /* Scrollbar styling - WebKit (Chrome, Safari) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded;
+    transition: background-color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/80;
+  }
+
+  /* Firefox scrollbar - only for Firefox */
+  @supports (scrollbar-width: thin) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgb(var(--primary)) rgb(var(--background));
+    }
+  }
+}
+
+::selection {
+  @apply bg-primary text-primary-foreground;
+}
