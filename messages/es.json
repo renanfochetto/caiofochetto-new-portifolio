@@ -1,0 +1,127 @@
+{
+  "header": {
+    "work": "Trabajo",
+    "experience": "Experiencia",
+    "about": "Sobre mí",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "Abierto a nuevas oportunidades",
+    "headingLine1": "Conectando marca, cultura",
+    "headingLine2": "y performance a través",
+    "headingLine3": "de creators y datos.",
+    "subtitle": "15 años liderando estrategias de Creator Economy para Budweiser, Betfair, Ambev, Jellysmack y A+E Networks en América Latina.",
+    "revenueGrowth": "Crecimiento de ingresos",
+    "campaignReach": "Alcance de campañas",
+    "engagementRate": "Tasa de engagement",
+    "yearsExperience": "Años de experiencia",
+    "cta": "Ver trabajos",
+    "trustedBy": "Marcas que confían"
+  },
+  "work": {
+    "sectionLabel": "Trabajos seleccionados",
+    "heading": "Cases que generan resultados",
+    "video": "Video",
+    "viewCase": "Ver case completo",
+    "togglePerformance": "Performance",
+    "toggleProduction": "Producción",
+    "ariaPerformance": "Ver cases de performance",
+    "ariaProduction": "Ver cases de producción"
+  },
+  "experience": {
+    "sectionLabel": "Trayectoria",
+    "heading": "Experiencia profesional",
+    "present": "Actual",
+    "showMore": "Ver anteriores",
+    "showLess": "Ver menos"
+  },
+  "experienceRoles": {
+    "directorDigitalContent": "Director de Contenido Digital, Marketing de Influencia y Talento",
+    "latamOperationsLead": "Líder de Operaciones LATAM",
+    "contentProductManager": "Content and Product Manager",
+    "digitalPlatformsManager": "Digital Platforms Manager",
+    "digitalContentProducer": "Productor de Contenido Digital",
+    "webContentProducer": "Productor de Contenido Web",
+    "tvProducerCoordinator": "Coordinador de Producción TV"
+  },
+  "about": {
+    "sectionLabel": "Sobre mí",
+    "heading": "Caio Fochetto",
+    "p1": "Líder en Creator Economy y Marketing de Performance con más de 15 años conectando marca, cultura y resultados. Especialista en traducir comportamiento de audiencia en estrategia — combinando datos, creatividad e inteligencia de plataforma.",
+    "p2": "Construí y lideré operaciones de marketing de influencia para marcas como Budweiser, Betfair y Ambev en Octagon, y escalé la operación de Jellysmack en América Latina desde cero. Antes de eso, pasé casi 8 años en A+E Networks gestionando plataformas digitales de HISTORY, A&E, Lifetime y Formula E.",
+    "p3": "Actúo en la intersección entre creatividad, datos y cultura — donde las marcas globales necesitan hablar con comunidades reales.",
+    "coreExpertise": "Especialidades",
+    "expertise": [
+      "Creator Economy",
+      "Marketing de Performance",
+      "Influencer Marketing",
+      "Estrategia Digital",
+      "Brand Building",
+      "Liderazgo de Equipos"
+    ]
+  },
+  "footer": {
+    "cta": "¿Conversamos?",
+    "ctaDescription": "Abierto a oportunidades en Creator Economy, Performance Marketing y liderazgo de marketing.",
+    "ctaButton": "Enviar correo",
+    "developedBy": "Desarrollado por"
+  },
+  "cases": {
+    "history-ae-digital-transformation": {
+      "title": "Monetización de Plataformas Digitales: +634% de Crecimiento",
+      "client": "HISTORY, A&E, Lifetime",
+      "company": "A+E Networks",
+      "year": "2015",
+      "description": "Estrategia de distribución y monetización de contenido en las plataformas digitales de las tres marcas, usando canales sociales como vectores de ingresos y crecimiento de audiencia.",
+      "challenge": "Expandir audiencias digitales y crear nuevas oportunidades de monetización de catálogo en un escenario de consumo cada vez más fragmentado, donde las plataformas tradicionales perdían espacio frente a lo social.",
+      "solution": "Uso estratégico de los canales sociales como plataformas de distribución — publicando episodios seleccionados y cortes editoriales de las series en ventanas de tiempo específicas para atraer nuevas audiencias y convertir en ingresos de plataforma.",
+      "insights": [
+        "Las plataformas sociales pueden ser canales de monetización tan eficientes como el broadcast tradicional",
+        "La ventana de distribución estratégica genera descubrimiento orgánico e ingresos simultáneos",
+        "La gestión multi-marca exige identidad editorial distinta por canal para no canibalizar audiencia"
+      ]
+    },
+    "formula-e-community": {
+      "title": "Construcción de Comunidad para Formula E: 7% de Engagement",
+      "client": "Formula E",
+      "company": "A+E Networks",
+      "year": "2016",
+      "description": "Estrategia digital y de comunidad para el campeonato global de Fórmula E en Brasil, construyendo presencia local para una marca internacional de alto impacto.",
+      "challenge": "Establecer presencia digital local y construir relación con comunidades para un campeonato global que llegaba a Brasil por primera vez, sin base de fans consolidada.",
+      "solution": "Desarrollo de estrategia digital y de comunidad desde cero: posicionamiento, guías de comunidad, gestión de crisis, planificación de contenido always-on y cobertura en tiempo real a través de contenido e influencers.",
+      "insights": [
+        "Comunidad construida con consistencia supera campañas puntuales en engagement de largo plazo",
+        "Activación en tiempo real durante eventos exige protocolos de crisis robustos y decisión ágil",
+        "Herramientas nativas de plataforma bien utilizadas pueden impulsar conversión significativa en ventas"
+      ]
+    },
+    "budweiser-fifa-influencer": {
+      "title": "Influencer Marketing a Escala: 75M de Alcance en FIFA",
+      "client": "Budweiser",
+      "company": "Octagon",
+      "year": "2023",
+      "description": "Estrategia de influencer marketing para activación de Budweiser en la FIFA Club World Cup, combinando escala, autenticidad y performance a través de un ecosistema diversificado de creators.",
+      "challenge": "Activar un evento deportivo global con relevancia cultural masiva, garantizando presencia de marca fuerte en plataformas digitales mientras se equilibra escala, autenticidad y resultado — sin parecer forzado o genérico.",
+      "solution": "Liderazgo de la estrategia de influencer marketing con un ecosistema diversificado de creators: macro influencers para amplificación, mid-tier para storytelling auténtico y creadores de comunidad para engagement. Supervisión de selección, briefing, co-creación y activación en tiempo real.",
+      "insights": [
+        "Ecosistemas diversificados de creators — macro + mid-tier — entregan escala sin sacrificar autenticidad",
+        "Roles diferenciados por creador (amplificación, storytelling, engagement) optimizan resultado de cada perfil",
+        "Activación en tiempo real en los picos del evento es donde la visibilidad de marca se consolida"
+      ]
+    },
+    "betfair-always-on": {
+      "title": "Estrategia Always-On para Betfair: 7.5% de Engagement",
+      "client": "Betfair",
+      "company": "Octagon",
+      "year": "2024",
+      "description": "Estrategia de influencer marketing always-on para Betfair, patrocinadora master de Vasco da Gama y Cruzeiro, transformando patrocinio en presencia cultural continua dentro de las comunidades de hinchas.",
+      "challenge": "En un mercado de apuestas deportivas altamente competitivo, Betfair necesitaba ir más allá de la exposición de logo y transformar el patrocinio en presencia cultural genuina — hablando el idioma de los hinchas, no del marketing corporativo.",
+      "solution": "Desarrollo de estrategia always-on con squads de creators especializados, profundamente insertados en la cultura de cada hinchada. El enfoque combinó contenido nativo de plataforma, alineamiento editorial con el calendario del fútbol y monitoreo de performance en tiempo real vía dashboard Power BI.",
+      "insights": [
+        "Comunidades especializadas entregan más autenticidad y engagement real que alcance masivo",
+        "Creators culturalmente insertados en la hinchada generan contenido que no parece publicidad",
+        "Optimización basada en datos (Power BI) garantiza performance sostenido en vez de picos aislados"
+      ]
+    }
+  }
+}

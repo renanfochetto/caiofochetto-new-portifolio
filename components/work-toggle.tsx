@@ -11,7 +11,7 @@ interface WorkToggleProps {
 }
 
 export function WorkToggle({ value, onChange }: WorkToggleProps) {
-  const { locale } = useI18n();
+  const { t } = useI18n();
 
   return (
     <div className="flex justify-center mb-12">
@@ -28,13 +28,9 @@ export function WorkToggle({ value, onChange }: WorkToggleProps) {
             }
           `}
           aria-pressed={value === "performance"}
-          aria-label={
-            locale === "pt"
-              ? "Ver cases de performance"
-              : "View performance cases"
-          }
+          aria-label={t.work.ariaPerformance}
         >
-          {locale === "pt" ? "Performance" : "Performance"}
+          {t.work.togglePerformance}
         </button>
         
         <button
@@ -49,13 +45,9 @@ export function WorkToggle({ value, onChange }: WorkToggleProps) {
             }
           `}
           aria-pressed={value === "production"}
-          aria-label={
-            locale === "pt"
-              ? "Ver cases de produção"
-              : "View production cases"
-          }
+          aria-label={t.work.ariaProduction}
         >
-          {locale === "pt" ? "Produção" : "Production"}
+          {t.work.toggleProduction}
         </button>
       </div>
     </div>

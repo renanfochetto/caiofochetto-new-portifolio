@@ -63,7 +63,7 @@ export function Footer({ hideContact = false }: FooterProps) {
                     "
                   >
                     <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                    Email
+                    E-Mail
                   </a>
                 </div>
               </AnimatedItem>
@@ -77,7 +77,7 @@ export function Footer({ hideContact = false }: FooterProps) {
         <div className="flex flex-row flex-wrap items-center justify-center sm:justify-between gap-2 sm:gap-4 text-xs text-muted-foreground">
           <p className="text-xs">&copy; {new Date().getFullYear()} Caio Fochetto.</p>
           <p className="text-xs">
-            Desenvolvido por{" "}
+            {t.footer.developedBy}{" "}
             <a
               href="https://renanfochetto.dev"
               target="_blank"

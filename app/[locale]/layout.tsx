@@ -25,7 +25,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const manrope = Manrope({
-  variable: "--font-body",
+  variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -46,18 +46,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title =
     locale === "pt"
       ? "Caio Fochetto | Creator Economy & Marketing"
+      : locale === "es"
+      ? "Caio Fochetto | Creator Economy & Marketing"
       : "Caio Fochetto | Creator Economy & Marketing";
 
   const description =
     locale === "pt"
       ? "15+ anos conectando marca, cultura e performance atraves de creators e dados."
+      : locale === "es"
+      ? "15+ años conectando marca, cultura y performance a través de creators y datos."
       : "15+ years connecting brand, culture, and performance through creators and data.";
 
   return {
     metadataBase: new URL(SITE_URL),
     alternates: {
       canonical: `/${locale}`,
-      languages: { "pt-BR": "/pt", "en-US": "/en" },
+      languages: { "pt-BR": "/pt", "en-US": "/en", "es-ES": "/es" },
     },
     title: { default: title, template: `%s | Caio Fochetto` },
     description,
@@ -67,7 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `${SITE_URL}/${locale}`,
       siteName: "Caio Fochetto",
       type: "website",
-      locale: locale === "pt" ? "pt_BR" : "en_US",
+      locale: locale === "pt" ? "pt_BR" : locale === "es" ? "es_ES" : "en_US",
     },
     twitter: {
       card: "summary_large_image",

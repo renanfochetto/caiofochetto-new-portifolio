@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useI18n } from "@/lib/i18n";
-import { Menu, X, Globe, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useTheme } from "./theme-provider";
 import { motion, AnimatePresence } from "framer-motion";
+import LanguageDropdown from "./LanguageDropdown";
 
 export function Header() {
   const { locale, t } = useI18n();
@@ -38,9 +39,6 @@ export function Header() {
       }
     };
   }, [menuOpen]);
-
-  const otherLocale = locale === "pt" ? "en" : "pt";
-  const localeHref = `/${otherLocale}`;
 
   const navItems = [
     { label: t.header.work, href: `/${locale}#work` },
@@ -101,26 +99,8 @@ export function Header() {
             )}
           </button>
 
-          {/* Language toggle */}
-          <Link
-            href={localeHref}
-            className="
-              flex items-center justify-center gap-1.5 
-              rounded-full 
-              border border-neutral-600
-              hover:border-primary
-              active:scale-95
-              px-3 py-1 
-              min-w-[44px]
-              text-xs font-medium 
-              text-muted-foreground
-              hover:text-primary
-              transition-all duration-200
-            "
-          >
-            <Globe className="h-3.5 w-3.5" />
-            {otherLocale.toUpperCase()}
-          </Link>
+          {/* Language dropdown */}
+          <LanguageDropdown />
         </div>
 
         {/* Mobile - apenas hamburguer */}
@@ -204,25 +184,8 @@ export function Header() {
                   )}
                 </button>
 
-                {/* Language toggle */}
-                <Link
-                  href={localeHref}
-                  className="
-                    flex items-center justify-center gap-2
-                    rounded-full 
-                    border border-neutral-600
-                    hover:border-primary
-                    active:scale-95
-                    px-4 py-2
-                    text-sm font-medium 
-                    text-muted-foreground
-                    hover:text-primary
-                    transition-all duration-200
-                  "
-                >
-                  <Globe className="h-4 w-4" />
-                  <span>{otherLocale.toUpperCase()}</span>
-                </Link>
+                {/* Language dropdown */}
+                <LanguageDropdown />
               </motion.div>
             </div>
           </motion.div>

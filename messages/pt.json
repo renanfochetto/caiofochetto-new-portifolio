@@ -22,13 +22,27 @@
     "sectionLabel": "Trabalhos selecionados",
     "heading": "Cases que geram resultado",
     "viewCase": "Ver case completo",
+    "video": "Vídeo",
     "togglePerformance": "Performance",
-    "toggleProduction": "Produção"
+    "toggleProduction": "Produção",
+    "ariaPerformance": "Ver cases de performance",
+    "ariaProduction": "Ver cases de produção"
   },
   "experience": {
     "sectionLabel": "Trajetória",
     "heading": "Experiência profissional",
-    "present": "Atual"
+    "present": "Atual",
+    "showMore": "Ver anteriores",
+    "showLess": "Ver menos"
+  },
+  "experienceRoles": {
+    "directorDigitalContent": "Diretor de Conteúdo Digital, Marketing de Influência e Talentos",
+    "latamOperationsLead": "Líder de Operações LATAM",
+    "contentProductManager": "Content and Product Manager",
+    "digitalPlatformsManager": "Digital Platforms Manager",
+    "digitalContentProducer": "Digital Content Producer",
+    "webContentProducer": "Web Content Producer",
+    "tvProducerCoordinator": "TV Producer Coordinator"
   },
   "about": {
     "sectionLabel": "Sobre",
@@ -50,7 +64,7 @@
     "cta": "Vamos conversar?",
     "ctaDescription": "Aberto a oportunidades em Creator Economy, Performance Marketing e liderança de marketing.",
     "ctaButton": "Enviar e-mail",
-    "copyright": "Todos os direitos reservados."
+    "developedBy": "Desenvolvido por"
   },
   "cases": {
     "history-ae-digital-transformation": {

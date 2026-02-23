@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useTheme } from "./theme-provider";
+import { useI18n } from "@/lib/i18n";
 import { AnimatedCounter } from "./animated-counter";
 import {
   ArrowUpRight,
@@ -36,34 +37,52 @@ interface CaseCardProps {
   slug: string;
   brand: string;
   brandLogo?: string;
-  title: string;
+  title_pt: string;
+  title_en: string;
+  title_es: string;
   metrics: Array<{
     value: string;
-    label: string;
+    label_pt: string;
+    label_en: string;
+    label_es: string;
   }>;
-  tags: string[];
-  locale: string;
+  tags_pt: string[];
+  tags_en: string[];
+  tags_es: string[];
 }
 
 export function CaseCard({
-  slug,
-  brand,
-  brandLogo,
-  title,
-  metrics,
-  tags,
-  locale
-}: CaseCardProps) {
+                           slug,
+                           brand,
+                           brandLogo,
+                           title_pt,
+                           title_en,
+                           title_es,
+                           metrics,
+                           tags_pt,
+                           tags_en,
+                           tags_es,
+                         }: CaseCardProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { t, locale } = useI18n();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // ✅ Selecionar conteúdo baseado no locale com fallback
+  const title = locale === 'pt' ? title_pt :
+    locale === 'en' ? title_en :
+      title_es || title_en || title_pt; // Fallback chain
+
+  const tags = locale === 'pt' ? tags_pt :
+    locale === 'en' ? tags_en :
+      tags_es || tags_en || tags_pt; // Fallback chain
+
   const logoFolder = theme === "dark" ? "white" : "black";
-  const displayTags = tags.slice(0, 3);
-  const displayMetrics = metrics.slice(0, 3);
+  const displayTags = (tags || []).slice(0, 3);
+  const displayMetrics = (metrics || []).slice(0, 3);
 
   return (
     <Link
@@ -71,10 +90,10 @@ export function CaseCard({
       className="group relative block"
     >
       <div className="
-        relative overflow-hidden 
-        rounded-lg 
-        border border-neutral-600 
-        bg-card 
+        relative overflow-hidden
+        rounded-lg
+        border border-neutral-600
+        bg-card
         p-4 sm:p-6
         transition-all duration-200
         hover:border-primary
@@ -103,7 +122,7 @@ export function CaseCard({
             <div className="flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-1 sm:px-3 sm:py-1.5">
               <Play className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-primary" />
               <span className="text-xs font-medium text-primary">
-                {locale === "pt" ? "Vídeo" : "Video"}
+                {t.work.video}
               </span>
             </div>
             {/* Seta decorativa - APENAS em tablet+ */}
@@ -119,7 +138,13 @@ export function CaseCard({
         {/* Métricas - 2 colunas no mobile, 3 no tablet+ */}
         <div className="mb-4 sm:mb-6 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           {displayMetrics.map((metric, index) => {
-            const IconComponent = getMetricIcon(metric.label);
+            // ✅ Selecionar label baseado no locale
+            const label = locale === 'pt' ? metric.label_pt :
+              locale === 'en' ? metric.label_en :
+                metric.label_es;
+
+            const IconComponent = getMetricIcon(label);
+
             return (
               <div key={index} className="flex flex-col gap-1">
                 <div className="flex items-center gap-1.5">
@@ -131,7 +156,7 @@ export function CaseCard({
                   />
                 </div>
                 <p className="text-xs text-muted-foreground line-clamp-1">
-                  {metric.label}
+                  {label}
                 </p>
               </div>
             );
@@ -152,7 +177,7 @@ export function CaseCard({
 
         {/* CTA - seta funcional SEMPRE visível */}
         <div className="mt-4 sm:mt-6 flex items-center gap-2 text-xs sm:text-sm font-medium text-primary">
-          <span>{locale === "pt" ? "Ver case completo" : "View full case"}</span>
+          <span>{t.work.viewCase}</span>
           <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
         </div>
 

@@ -26,14 +26,14 @@ const brandLogoMap: Record<string, string> = {
 const productionBrandLogoMap: Record<string, string> = {
   "Netflix": "netflix",
   "Natura": "natura",
-  "Havaianas + Netflix": "havaianas",
+  "Havaianas": "havaianas",
   "Playground": "playground",
   "Bohemia": "bohemia",
   "Nestlé": "nestle",
 };
 
 export function WorkSection() {
-  const { locale, t } = useI18n();
+  const { t } = useI18n();
 
   // Estado do toggle (default: performance)
   const [view, setView] = useState<"performance" | "production">("performance");
@@ -60,27 +60,15 @@ export function WorkSection() {
         {/* Cases Grid - Muda baseado no view */}
         <div className="mt-12 grid gap-6 md:grid-cols-2 md:gap-8">
           {view === "performance" ? (
-            // PERFORMANCE CASES
+            // ✅ PERFORMANCE CASES - CORRIGIDO
             <>
               {caseStudies.map((study, idx) => {
-                // Extrair título baseado no locale
-                const title = locale === 'pt' ? study.title_pt : study.title_en;
-
                 // Extrair brand (pode ser string ou array)
                 const brandArray = Array.isArray(study.brand) ? study.brand : [study.brand];
                 const brandDisplay = brandArray.join(', ');
 
-                // Pegar logo do primeiro brand (se houver múltiplos)
+                // Pegar logo do primeiro brand
                 const brandLogo = brandLogoMap[brandArray[0]] || undefined;
-
-                // Extrair métricas com labels traduzidos
-                const metrics = study.metrics.map(m => ({
-                  value: m.value,
-                  label: locale === 'pt' ? m.label_pt : m.label_en,
-                }));
-
-                // Tags já vêm prontas
-                const tags = study.tags;
 
                 return (
                   <AnimatedItem key={study.slug} index={idx}>
@@ -88,25 +76,44 @@ export function WorkSection() {
                       slug={study.slug}
                       brand={brandDisplay}
                       brandLogo={brandLogo}
-                      title={title}
-                      metrics={metrics}
-                      tags={tags}
-                      locale={locale}
+                      title_pt={study.title_pt}
+                      title_en={study.title_en}
+                      title_es={study.title_es}
+                      metrics={study.metrics}
+                      tags_pt={study.tags_pt}
+                      tags_en={study.tags_en}
+                      tags_es={study.tags_es}
                     />
                   </AnimatedItem>
                 );
               })}
             </>
           ) : (
-            // PRODUCTION CASES
+            // ✅ PRODUCTION CASES - CORRIGIDO
             <>
-              {productionCases.map((prodCase, idx) => (
-                <AnimatedItem key={prodCase.slug} index={idx}>
-                  <ProductionCard
-                    case={prodCase}
-                  />
-                </AnimatedItem>
-              ))}
+              {productionCases.map((prodCase, idx) => {
+                // Pegar logo da marca
+                const brandLogo = productionBrandLogoMap[prodCase.brand] || undefined;
+
+                return (
+                  <AnimatedItem key={prodCase.slug} index={idx}>
+                    <ProductionCard
+                      slug={prodCase.slug}
+                      brand={prodCase.brand}
+                      brandLogo={brandLogo}
+                      title_pt={prodCase.title_pt}
+                      title_en={prodCase.title_en}
+                      title_es={prodCase.title_es}
+                      description_pt={prodCase.description_pt}
+                      description_en={prodCase.description_en}
+                      description_es={prodCase.description_es}
+                      tags_pt={prodCase.tags_pt}
+                      tags_en={prodCase.tags_en}
+                      tags_es={prodCase.tags_es}
+                    />
+                  </AnimatedItem>
+                );
+              })}
             </>
           )}
         </div>

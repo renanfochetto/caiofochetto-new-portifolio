@@ -1,9 +1,10 @@
+// /types/production.ts
 export interface ProductionCaseMedia {
   thumbnail: string;
   hero: {
-    type: "video" | "playlist" | "multiple"; // ✅ 3 tipos agora
-    videoId?: string;      // ✅ Para playlist OU video único
-    videoIds?: string[];   // ✅ Para múltiplos vídeos
+    type: "video" | "playlist" | "multiple";
+    videoId?: string;      // Para playlist OU video único
+    videoIds?: string[];   // Para múltiplos vídeos
     placeholder?: string;
     alt: string;
   };
@@ -16,8 +17,12 @@ export interface ProductionCaseMedia {
 }
 
 export interface ProductionCaseSEO {
-  metaTitle: string;
-  metaDescription: string;
+  metaTitle_pt: string;
+  metaTitle_en: string;
+  metaTitle_es: string;
+  metaDescription_pt: string;
+  metaDescription_en: string;
+  metaDescription_es: string;
   ogImage: string;
 }
 
@@ -26,21 +31,36 @@ export interface ProductionCase {
   id: string;
   slug: string;
 
-  // Informações básicas
-  title: string;
+  // Informações básicas (traduzidas)
+  title_pt: string;
+  title_en: string;
+  title_es: string;
   brand: string;
-  company: string;        // ✅ ADICIONADO - Empresa onde trabalhava (Playground)
+  company: string;
   year: string;
   type: string;
 
-  // Conteúdo principal
-  role: string;
-  description: string;    // ✅ ADICIONADO - Descrição breve para cards
-  what: string;
-  myRole: string;
+  // Conteúdo principal (traduzido)
+  role_pt: string;
+  role_en: string;
+  role_es: string;
 
-  // Categorização
-  tags: string[];
+  description_pt: string;
+  description_en: string;
+  description_es: string;
+
+  what_pt: string;
+  what_en: string;
+  what_es: string;
+
+  myRole_pt: string;
+  myRole_en: string;
+  myRole_es: string;
+
+  // Categorização (traduzida)
+  tags_pt: string[];
+  tags_en: string[];
+  tags_es: string[];
 
   // Media
   media: ProductionCaseMedia;

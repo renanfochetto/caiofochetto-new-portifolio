@@ -7,29 +7,25 @@ import { AnimatedSection, AnimatedItem } from "./animated-section";
 
 const experiences = [
   {
-    role: "Diretor de Conteúdo Digital, Marketing de Influência e Talentos",
-    roleEn: "Director of Digital Content, Influencer Marketing & Talent",
+    roleKey: "directorDigitalContent", // ← usar key
     company: "Octagon",
     logo: "/companies/octagon.avif",
     period: "2023 - 2026"
   },
   {
-    role: "Líder de Operações LATAM",
-    roleEn: "LATAM Operations Lead",
+    roleKey: "latamOperationsLead",
     company: "Jellysmack",
     logo: "/companies/jellysmack.avif",
     period: "2021 - 2023"
   },
   {
-    role: "Content and Product Manager",
-    roleEn: "Content and Product Manager",
+    roleKey: "contentProductManager",
     company: "Playground",
     logo: "/companies/playground.avif",
     period: "2020 - 2021"
   },
   {
-    role: "Digital Platforms Manager",
-    roleEn: "Digital Platforms Manager",
+    roleKey: "digitalPlatformsManager",
     company: "A+E Networks",
     logo: "/companies/aenetworks.avif",
     period: "2012 - 2019"
@@ -38,29 +34,25 @@ const experiences = [
 
 const experiencesOlder = [
   {
-    role: "Digital Content Producer",
-    roleEn: "Digital Content Producer",
+    roleKey: "digitalContentProducer",
     company: "Portal R7",
     logo: "/companies/portalr7.avif",
     period: "2010 - 2012"
   },
   {
-    role: "Digital Content Producer",
-    roleEn: "Digital Content Producer",
+    roleKey: "digitalContentProducer",
     company: "TV Cultura",
     logo: "/companies/tvcultura.avif",
     period: "2009 - 2010"
   },
   {
-    role: "Web Content Producer",
-    roleEn: "Web Content Producer",
+    roleKey: "webContentProducer",
     company: "Rede Boa Nova",
     logo: "/companies/redeboanova.avif",
     period: "2009 - 2010"
   },
   {
-    role: "TV Producer Coordinator",
-    roleEn: "TV Producer Coordinator",
+    roleKey: "tvProducerCoordinator",
     company: "TV Mundo Maior",
     logo: "/companies/tvmundomaior.avif",
     period: "2005 - 2008"
@@ -68,7 +60,7 @@ const experiencesOlder = [
 ];
 
 export function ExperienceSection() {
-  const { t, locale } = useI18n();
+  const { t } = useI18n(); // ← remover locale
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -89,7 +81,6 @@ export function ExperienceSection() {
               index={i}
               className="flex gap-3 sm:gap-4 border-b border-neutral-600 py-4 sm:py-6 first:border-t"
             >
-              {/* Logo responsivo */}
               <div className="flex items-center justify-center flex-shrink-0">
                 <Image
                   src={exp.logo}
@@ -98,9 +89,9 @@ export function ExperienceSection() {
                   height={64}
                   className="w-12 h-12 sm:w-16 sm:h-16 rounded object-contain"
                   unoptimized={true}
-                />              </div>
+                />
+              </div>
 
-              {/* Conteúdo */}
               <div className="flex-1 min-w-0">
                 <p className="font-mono text-xs text-muted-foreground sm:text-sm">
                   {exp.period.endsWith("- ")
@@ -110,7 +101,7 @@ export function ExperienceSection() {
                 <h3 className="mt-1.5 sm:mt-2 flex items-center gap-2 text-base sm:text-lg font-semibold text-foreground">
                   <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
                   <span className="line-clamp-2">
-                    {locale === "en" ? exp.roleEn : exp.role}
+                    {t.experienceRoles[exp.roleKey as keyof typeof t.experienceRoles]}
                   </span>
                 </h3>
                 <p className="mt-1 text-sm font-medium text-primary">{exp.company}</p>
@@ -118,7 +109,7 @@ export function ExperienceSection() {
             </AnimatedItem>
           ))}
 
-          {/* Experiências antigas (só quando expandido) */}
+          {/* Experiências antigas */}
           {isExpanded && (
             <div className="space-y-0">
               {experiencesOlder.map((exp, i) => (
@@ -146,7 +137,7 @@ export function ExperienceSection() {
                     <h3 className="mt-1.5 sm:mt-2 flex items-center gap-2 text-base sm:text-lg font-semibold text-foreground">
                       <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
                       <span className="line-clamp-2">
-                        {locale === "en" ? exp.roleEn : exp.role}
+                        {t.experienceRoles[exp.roleKey as keyof typeof t.experienceRoles]}
                       </span>
                     </h3>
                     <p className="mt-1 text-sm font-medium text-primary">{exp.company}</p>
@@ -161,9 +152,9 @@ export function ExperienceSection() {
             <button
               onClick={() => setIsExpanded(!isExpanded)}
               className="
-                group 
-                flex items-center gap-2 
-                rounded-full 
+                group
+                flex items-center gap-2
+                rounded-full
                 border border-neutral-600
                 hover:border-primary
                 active:scale-95
@@ -172,10 +163,7 @@ export function ExperienceSection() {
               "
             >
               <span className="text-xs sm:text-sm text-muted-foreground transition-colors group-hover:text-primary">
-                {isExpanded
-                  ? (locale === "pt" ? "Ver menos" : "Show less")
-                  : (locale === "pt" ? "Ver anteriores" : "Show older")
-                }
+                {isExpanded ? t.experience.showLess : t.experience.showMore} {/* ✅ USAR t */}
               </span>
               {isExpanded ? (
                 <ChevronUp className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground transition-all group-hover:text-primary group-hover:-translate-y-0.5" />
