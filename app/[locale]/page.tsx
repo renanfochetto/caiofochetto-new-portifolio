@@ -1,11 +1,11 @@
-import { Header } from "@/components/header";
-import { Hero } from "@/components/hero";
-import { LogoCarousel } from "@/components/logo-carousel";
-import { AnimatedSection } from "@/components/animated-section";
-import { WorkSection } from "@/components/work-section";
-import { ExperienceSection } from "@/components/experience-section";
-import { AboutSection } from "@/components/about-section";
-import { Footer } from "@/components/footer";
+import { Header } from "@/components/layout/header";
+import { Hero } from "@/components/sections/hero";
+import { LogoCarousel } from "@/components/ui/logo-carousel";
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { WorkSection } from "@/components/sections/work-section";
+import { ExperienceSection } from "@/components/sections/experience-section";
+import { AboutSection } from "@/components/sections/about-section";
+import { Footer } from "@/components/layout/footer";
 
 export default function HomePage() {
   return (
