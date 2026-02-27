@@ -77,10 +77,16 @@ export const caseStudies: CaseData[] = [
     ],
 
     capabilities_pt: [
-      'Estratégia Always-On de Influenciadores',
-      'Marketing para Comunidades de Nicho',
-      'Integração de Analytics e BI',
-      'Gestão de Squads de Criadores'
+      'Marketing de Influência',
+      'Creator Management',
+      'Digital Culture',
+      'Branding',
+      'Brand Experience',
+      'Community Management',
+      'Performance & Metrics',
+      'Growth Marketing',
+      'Strategic Planning',
+      'Project Management'
     ],
     capabilities_en: [
       'Always-On Influencer Strategy',
@@ -262,12 +268,12 @@ export const caseStudies: CaseData[] = [
     title_pt: 'Construção de Comunidade em Alta Performance',
     title_en: 'Community Building in High-Performance',
     title_es: 'Construcción de Comunidad en Alta Performance',
-    company: 'A+E Networks',
-    role_pt: 'Digital Platforms Manager',
-    role_en: 'Digital Platforms Manager',
-    role_es: 'Digital Platforms Manager',
-    period: '2012-2019',
-    year_display: '2016',
+    company: 'Octagon',
+    role_pt: 'Diretor de Conteúdo Digital, Marketing de Influência e Talentos',
+    role_en: 'Director of Digital Content, Influencer Marketing & Talent',
+    role_es: 'Director de Contenido Digital, Marketing de Influencia y Talento',
+    period: '2023-2024',
+    year_display: '2024',
     industry: 'Sports',
     type: 'Community Building',
     icon: 'Zap', // Ícone para "performance"

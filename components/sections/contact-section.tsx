@@ -22,10 +22,30 @@ export function ContactSection() {
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
                   {t.footer.cta}
                 </h2>
-                <p className="mt-2 max-w-md text-sm sm:text-base text-muted-foreground">
-                  {t.footer.ctaDescription}
-                </p>
                 <div className="mt-4 sm:mt-6 flex flex-wrap gap-2 sm:gap-3">
+                  {/* Email - Inverte tema */}
+                  <a
+                    href="mailto:caiofochetto@gmail.com"
+                    className={`
+                      inline-flex items-center justify-center gap-2
+                      rounded-full
+                      bg-transparent
+                      active:scale-95
+                      border border-foreground/95
+                      px-4 py-2.5 sm:px-6 sm:py-3
+                      text-xs sm:text-sm font-medium
+                      text-foreground
+                      transition-all duration-200
+                      ${
+                      isLight
+                        ? "hover:bg-black hover:border-white hover:text-white"
+                        : "hover:bg-white hover:border-black hover:text-black"
+                    }
+                    `}
+                  >
+                    <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    E-Mail
+                  </a>
                   {/* LinkedIn - Padrão */}
                   <a
                     href="https://linkedin.com/in/caiofochetto"
@@ -48,30 +68,6 @@ export function ContactSection() {
                   >
                     <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     LinkedIn
-                  </a>
-
-                  {/* Email - Inverte tema */}
-                  <a
-                    href="mailto:caiofochetto@gmail.com"
-                    className={`
-                      inline-flex items-center justify-center gap-2
-                      rounded-full
-                      bg-transparent
-                      active:scale-95
-                      border border-foreground/95
-                      px-4 py-2.5 sm:px-6 sm:py-3
-                      text-xs sm:text-sm font-medium
-                      text-foreground
-                      transition-all duration-200
-                      ${
-                        isLight
-                          ? "hover:bg-black hover:border-white hover:text-white"
-                          : "hover:bg-white hover:border-black hover:text-black"
-                      }
-                    `}
-                  >
-                    <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                    E-Mail
                   </a>
                 </div>
               </AnimatedItem>

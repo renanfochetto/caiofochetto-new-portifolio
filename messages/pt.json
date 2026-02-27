@@ -1,26 +1,21 @@
 {
   "header": {
-    "work": "Trabalho",
-    "experience": "Experiência",
+    "work": "Cases",
+    "experience": "Carreira",
     "about": "Sobre",
     "contact": "Contato"
   },
   "hero": {
-    "badge": "Disponível para novas oportunidades",
-    "headingLine1": "Conectando marca, cultura",
-    "headingLine2": "e performance através",
-    "headingLine3": "de creators e dados.",
-    "subtitle": "15 anos liderando estratégias de Creator Economy para Budweiser, Betfair, Ambev, Jellysmack e A+E Networks na América Latina.",
-    "revenueGrowth": "Crescimento de receita",
-    "campaignReach": "Alcance de campanhas",
-    "engagementRate": "Taxa de engajamento",
-    "yearsExperience": "Anos de experiência",
-    "cta": "Ver trabalhos",
-    "trustedBy": "Marcas que confiam"
+    "badge": "Disponível para propostas e colaborações",
+    "headingLine1": "Conectando marcas à cultura",
+    "headingLine2": "e à performance com",
+    "headingLine3": "estratégias de conteúdo e influência.",
+    "subtitle": "Mais de 15 anos à frente de estratégias para marcas globais na América Latina.",
+    "cta": "Confira alguns Cases"
   },
   "work": {
-    "sectionLabel": "Trabalhos selecionados",
-    "heading": "Cases que geram resultado",
+    "sectionLabel": "Cases em Destaque",
+    "heading": "Estratégia e execução lado a lado. Explore cases de performance e produções audiovisuais que conduzi.",
     "viewCase": "Ver case completo",
     "video": "Vídeo",
     "togglePerformance": "Performance",
@@ -29,7 +24,7 @@
     "ariaProduction": "Ver cases de produção"
   },
   "experience": {
-    "sectionLabel": "Trajetória",
+    "sectionLabel": "Carreira",
     "heading": "Experiência profissional",
     "present": "Atual",
     "showMore": "Ver anteriores",
@@ -47,17 +42,18 @@
   "about": {
     "sectionLabel": "Sobre",
     "heading": "Caio Fochetto",
-    "p1": "Líder em Creator Economy e Marketing de Performance com mais de 15 anos conectando marca, cultura e resultado. Especialista em traduzir comportamento de audiência em estratégia — combinando dados, criatividade e inteligência de plataforma.",
-    "p2": "Construí e liderei operações de marketing de influência para marcas como Budweiser, Betfair e Ambev na Octagon, e escalei a operação da Jellysmack na América Latina do zero. Antes disso, passei quase 8 anos na A+E Networks gerenciando plataformas digitais de HISTORY, A&E, Lifetime e Formula E.",
-    "p3": "Atuo na interseção entre criatividade, dados e cultura — onde marcas globais precisam falar com comunidades reais.",
-    "coreExpertise": "Especialidades",
+    "p1": "Líder em estratégia, conteúdo e influência com mais de 15 anos conectando marca, cultura e resultado. Transformo comportamento de audiência em direcionamento estratégico, unindo dados, criatividade e inteligência de plataformas.",
+    "p2": "Atuação focada em estratégia de marca, liderança de equipes, conteúdo multiplataforma, análise de desempenho, parcerias e posicionamento cultural.",
+    "p3": "Atuo na interseção entre criatividade, dados e cultura, onde marcas globais precisam falar com comunidades reais.",
+    "coreExpertise": "Competências",
     "expertise": [
-      "Creator Economy",
-      "Marketing de Performance",
-      "Influencer Marketing",
-      "Estratégia Digital",
-      "Brand Building",
-      "Liderança de Equipes"
+      "Planejamento Estratégico",
+      "Direcionamento Criativo",
+      "Gestão de Projetos",
+      "Gestão de Equipes",
+      "Narrativas de Marcas",
+      "Posicionamento de Marcas",
+      "Estruturação de Operações"
     ]
   },
   "footer": {

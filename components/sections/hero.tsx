@@ -24,7 +24,7 @@ export function Hero() {
             {t.hero.headingLine2}
             <br />
             {/* Forçar mesmo tamanho que as linhas acima */}
-            <span className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-7xl">
+            <span className="font-heading text-primary text-3xl sm:text-4xl md:text-5xl lg:text-7xl">
               {t.hero.headingLine3}
             </span>
           </h1>

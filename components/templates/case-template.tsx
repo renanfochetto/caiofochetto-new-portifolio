@@ -67,7 +67,7 @@ export function CaseTemplate({
   const sectionLabels = locale === "pt"
     ? {
       capabilities: "Competências",
-      relatedContent: "CONTEÚDO RELACIONADO",
+      relatedContent: "EXEMPLOS DE MÍDIA DESTE PROJETO",
       viewFullPlaylist: "Ver playlist completa no YouTube",
       back: "Voltar",
       previous: "Anterior",
