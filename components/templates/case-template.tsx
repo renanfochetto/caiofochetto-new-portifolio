@@ -10,6 +10,8 @@ import { YouTubeEmbed } from "@/components/media/youtube-embed";
 import { PerformanceSections } from "@/components/case/performance-sections";
 import { ProductionSections } from "@/components/case/production-sections";
 import { companyLogos, brandLogos } from "@/lib/helpers/case-helpers";
+import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
+import { motion } from "framer-motion";
 import type { CaseData } from "@/types/performance-case";
 import type { ProductionCase } from "@/types/production-case";
 
@@ -98,26 +100,26 @@ export function CaseTemplate({
 
       {/* ✅ HERO - NOVO LAYOUT */}
       <section className="px-6 pt-28 pb-16 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <AnimatedSection className="mx-auto max-w-4xl">
 
           {/* Topo: Voltar (esquerda) + Ano (direita) */}
           <div className="flex items-center justify-between mb-8">
             <Link
               href={`/${locale}`}
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-all hover:text-primary active:scale-95"
+              className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-all hover:text-primary active:scale-95"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" />
               {sectionLabels.back}
             </Link>
 
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Calendar className="h-4 w-4" />
-              <span className="font-medium text-foreground">{period}</span>
+            <div className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-primary">
+              <Calendar className="h-4 w-4 transition-transform duration-200 group-hover:rotate-12 group-hover:scale-110" />
+              <span className="font-medium text-foreground transition-colors duration-200 group-hover:text-primary">{period}</span>
             </div>
           </div>
 
           {/* Título */}
-          <h1 className="text-3xl font-bold text-foreground md:text-5xl mb-8">
+          <h1 className="text-3xl font-bold text-foreground md:text-5xl mb-8 transition-colors duration-200 hover:text-primary">
             {title}
           </h1>
 
@@ -129,7 +131,7 @@ export function CaseTemplate({
             {/* Esquerda: Logo Empresa + Info */}
             <div className="flex items-center gap-3">
               {companyLogo && (
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-neutral-600 bg-card overflow-hidden">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-neutral-600 bg-card overflow-hidden transition-transform duration-200 hover:scale-105">
                   <Image
                     src={`/companies/${companyLogo}`}
                     alt={`${company} logo`}
@@ -143,13 +145,13 @@ export function CaseTemplate({
 
               <div>
                 <p className="text-sm font-semibold text-foreground">{company}</p>
-                <p className="text-xs text-muted-foreground">{role}</p>
+                <p className="text-xs text-muted-foreground transition-colors duration-200 hover:text-primary">{role}</p>
               </div>
             </div>
 
             {/* Direita: Logo Brand */}
             {brandLogo && (
-              <div className="flex h-16 w-32 items-center justify-end">
+              <div className="flex h-16 w-32 items-center justify-end transition-transform duration-200 hover:scale-105">
                 <Image
                   src={`/logos/${logoFolder}/${brandLogo}.svg`}
                   alt={`${firstBrand} logo`}
@@ -162,7 +164,7 @@ export function CaseTemplate({
               </div>
             )}
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* VIDEO SECTION */}
@@ -182,7 +184,7 @@ export function CaseTemplate({
 
         return (
           <section className="px-0 sm:px-6 py-12 sm:py-16 lg:px-8">
-            <div className="mx-auto w-full sm:max-w-4xl">
+            <AnimatedSection className="mx-auto w-full sm:max-w-4xl">
               <div className="px-6 sm:px-0 mb-6 sm:mb-8">
                 <div className="flex items-center gap-2">
                   <Play className="h-4 w-4 text-primary" />
@@ -192,7 +194,7 @@ export function CaseTemplate({
                 </div>
               </div>
 
-              <div className="relative aspect-video w-full overflow-hidden sm:rounded-lg border-0 sm:border sm:border-neutral-600 bg-background">
+              <div className="relative aspect-video w-full overflow-hidden sm:rounded-lg border-0 sm:border sm:border-neutral-600 bg-card/50 backdrop-blur-sm">
                 <iframe
                   width="100%"
                   height="100%"
@@ -209,13 +211,13 @@ export function CaseTemplate({
                   href={(caseData as CaseData).playlist_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                  className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   <span>{sectionLabels.viewFullPlaylist}</span>
-                  <ArrowUpRight className="h-4 w-4" />
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </a>
               </div>
-            </div>
+            </AnimatedSection>
           </section>
         );
       })()}
@@ -227,7 +229,7 @@ export function CaseTemplate({
 
         return (
           <section className="px-0 sm:px-6 py-12 sm:py-16 lg:px-8">
-            <div className="mx-auto w-full sm:max-w-4xl">
+            <AnimatedSection className="mx-auto w-full sm:max-w-4xl">
               <div className="px-6 sm:px-0 mb-6 sm:mb-8">
                 <div className="flex items-center gap-2">
                   <Play className="h-4 w-4 text-primary" />
@@ -237,7 +239,7 @@ export function CaseTemplate({
                 </div>
               </div>
 
-              <div className="sm:rounded-lg overflow-hidden border-0 sm:border sm:border-neutral-600">
+              <div className="sm:rounded-lg overflow-hidden border-0 sm:border sm:border-neutral-600 bg-card/50 backdrop-blur-sm">
                 <YouTubeEmbed
                   type={type}
                   videoId={videoId}
@@ -246,7 +248,7 @@ export function CaseTemplate({
                   placeholder={(caseData as ProductionCase).media.hero.placeholder}
                 />
               </div>
-            </div>
+            </AnimatedSection>
           </section>
         );
       })()}
@@ -260,7 +262,7 @@ export function CaseTemplate({
 
       {/* CAPABILITIES / TAGS */}
       <section className="px-6 py-16 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <AnimatedSection className="mx-auto max-w-4xl">
           <div className="mb-4 flex items-center gap-2">
             <Tag className="h-4 w-4 text-primary" />
             <p className="text-xs font-medium uppercase tracking-widest text-primary">
@@ -271,26 +273,26 @@ export function CaseTemplate({
             {capabilities.map((capability: string, index: number) => (
               <span
                 key={index}
-                className="rounded-full border border-neutral-600 px-4 py-2 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:border-primary hover:text-primary"
+                className="rounded-full border border-neutral-600 px-4 py-2 text-sm font-medium text-muted-foreground transition-all duration-200 hover:border-primary hover:text-primary hover:scale-105"
               >
                 {capability}
               </span>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* NAVIGATION */}
       <section className="px-6 py-16 lg:px-8">
-        <div className="mx-auto max-w-4xl border-t border-neutral-600 pt-12">
+        <AnimatedSection className="mx-auto max-w-4xl border-t border-neutral-600 pt-12">
           <div className="grid gap-6 md:grid-cols-2">
             {navigation.prev && (
               <Link
                 href={`/${locale}/${baseUrl}/${navigation.prev.slug}`}
-                className="group flex flex-col gap-3 rounded-lg border border-neutral-600 p-6 transition-all duration-200 hover:border-primary hover:bg-card/50 active:scale-[0.98]"
+                className="group flex flex-col gap-3 rounded-lg border border-neutral-600 bg-card p-6 transition-all duration-200 hover:border-primary active:scale-[0.98]"
               >
                 <div className="flex items-center gap-2 text-xs font-semibold text-primary">
-                  <ArrowLeft className="h-4 w-4" />
+                  <ArrowLeft className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" />
                   {sectionLabels.previous}
                 </div>
                 <div>
@@ -313,11 +315,11 @@ export function CaseTemplate({
             {navigation.next && (
               <Link
                 href={`/${locale}/${baseUrl}/${navigation.next.slug}`}
-                className="group flex flex-col gap-3 rounded-lg border border-neutral-600 p-6 transition-all duration-200 hover:border-primary hover:bg-card/50 active:scale-[0.98]"
+                className="group flex flex-col gap-3 rounded-lg border border-neutral-600 bg-card p-6 transition-all duration-200 hover:border-primary active:scale-[0.98]"
               >
                 <div className="flex items-center justify-end gap-2 text-xs font-semibold text-primary">
                   {sectionLabels.next}
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </div>
                 <div className="text-right">
                   <p className="text-xs text-muted-foreground">
@@ -336,10 +338,11 @@ export function CaseTemplate({
               </Link>
             )}
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
-      <Footer hideContact={true} />
+      {/* ✅ FOOTER SIMPLES */}
+      <Footer />
     </div>
   );
 }

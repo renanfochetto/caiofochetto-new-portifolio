@@ -22,7 +22,7 @@
   html.light {
     --background: 255 255 255;
     --foreground: 10 10 10;
-    --card: 245 245 245;
+    --card: 240 240 240;
     --card-foreground: 10 10 10;
     --primary: 217 70 239;
     --primary-foreground: 255 255 255;
@@ -75,7 +75,7 @@
   }
 
   /* Body - Manrope (Humanist, legible) */
-  p, span, a, li {
+  p, li {
     @apply font-sans text-body-base;
   }
 

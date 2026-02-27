@@ -12,7 +12,7 @@ export function Hero() {
       <AnimatedSection className="mx-auto w-full max-w-6xl">
         <div className="flex flex-col gap-6 md:gap-8">
           {/* Badge */}
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1.5 md:px-4 md:py-2">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1.5 md:px-4 md:py-2 hover:bg-primary/15">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
             <span className="text-xs font-medium text-primary md:text-sm">{t.hero.badge}</span>
           </div>

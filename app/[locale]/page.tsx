@@ -5,6 +5,7 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 import { WorkSection } from "@/components/sections/work-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { AboutSection } from "@/components/sections/about-section";
+import { ContactSection } from "@/components/sections/contact-section";
 import { Footer } from "@/components/layout/footer";
 
 export default function HomePage() {
@@ -24,6 +25,7 @@ export default function HomePage() {
         <WorkSection />
         <ExperienceSection />
         <AboutSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>

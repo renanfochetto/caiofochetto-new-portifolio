@@ -2,6 +2,7 @@
 "use client";
 
 import { BookOpen, User } from "lucide-react";
+import { AnimatedSection } from "@/components/ui/animated-section";
 import type { ProductionCase } from "@/types/production-case";
 
 interface ProductionSectionsProps {
@@ -38,28 +39,28 @@ export function ProductionSections({ caseData, locale }: ProductionSectionsProps
     <>
       {/* O QUE É? */}
       <section className="px-6 py-12 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <AnimatedSection className="mx-auto max-w-4xl">
           <div className="flex items-center gap-2 mb-4">
             <BookOpen className="h-4 w-4 text-primary" />
             <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
               {sectionLabels.what}
             </h2>
           </div>
-          <p className="text-base leading-relaxed text-muted-foreground">{what}</p>
-        </div>
+          <p className="text-base leading-relaxed text-muted-foreground transition-colors duration-200 hover:text-foreground">{what}</p>
+        </AnimatedSection>
       </section>
 
       {/* MEU PAPEL */}
       <section className="px-6 py-12 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <AnimatedSection className="mx-auto max-w-4xl">
           <div className="flex items-center gap-2 mb-4">
             <User className="h-4 w-4 text-primary" />
             <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
               {sectionLabels.myRole}
             </h2>
           </div>
-          <p className="text-base leading-relaxed text-muted-foreground">{myRole}</p>
-        </div>
+          <p className="text-base leading-relaxed text-muted-foreground transition-colors duration-200 hover:text-foreground">{myRole}</p>
+        </AnimatedSection>
       </section>
     </>
   );

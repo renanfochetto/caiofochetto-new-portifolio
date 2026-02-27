@@ -49,7 +49,7 @@ export function WorkSection() {
                 const brandLogo = brandLogos[brandArray[0]] || undefined;
 
                 return (
-                  <div key={study.slug} className="break-inside-avoid mb-6 md:mb-8 last:mb-0">
+                  <div key={study.slug} className="mb-6 break-inside-avoid">
                     <AnimatedItem index={idx}>
                       <PerformanceCard
                         slug={study.slug}
@@ -76,7 +76,7 @@ export function WorkSection() {
                 const brandLogo = brandLogos[prodCase.brand] || undefined;
 
                 return (
-                  <div key={prodCase.slug} className="break-inside-avoid mb-6 md:mb-8 last:mb-0">
+                  <div key={prodCase.slug} className="mb-6 break-inside-avoid">
                     <AnimatedItem index={idx}>
                       <ProductionCard
                         slug={prodCase.slug}

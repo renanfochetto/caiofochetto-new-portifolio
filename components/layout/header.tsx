@@ -6,7 +6,7 @@ import { Menu, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useTheme } from "../providers/theme-provider";
 import { motion, AnimatePresence } from "framer-motion";
-import LanguageDropdown from "../ui/language-dropdown";
+import { LanguageSwitcher } from "../ui/language-switcher";
 
 export function Header() {
   const { locale, t } = useI18n();
@@ -68,7 +68,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-primary"
+              className="text-xs text-muted-foreground transition-colors hover:text-primary"
             >
               {item.label}
             </Link>
@@ -83,9 +83,9 @@ export function Header() {
               border border-neutral-600
               hover:border-primary
               active:scale-95
-              px-3 py-1 
+              px-2.5 py-1
               min-w-[44px]
-              text-xs font-medium 
+              text-xs
               text-muted-foreground
               hover:text-primary
               transition-all duration-200
@@ -99,18 +99,33 @@ export function Header() {
             )}
           </button>
 
-          {/* Language dropdown */}
-          <LanguageDropdown />
+          {/* Language switcher */}
+          <LanguageSwitcher variant="desktop" />
         </div>
 
         {/* Mobile - apenas hamburguer */}
         <div className="flex items-center md:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-foreground transition-all duration-200"
+            className="relative h-10 w-10 text-foreground flex items-center justify-center transition-all duration-200"
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={menuOpen ? "close" : "open"}
+                initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                {menuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </motion.div>
+            </AnimatePresence>
           </button>
         </div>
       </nav>
@@ -128,7 +143,7 @@ export function Header() {
           >
             <div className="flex h-full flex-col items-center justify-between px-6 py-8">
               {/* Navigation links */}
-              <div className="flex flex-col gap-8 text-center">
+              <div className="flex flex-col gap-6 text-center">
                 {navItems.map((item, idx) => (
                   <motion.div
                     key={item.href}
@@ -139,7 +154,7 @@ export function Header() {
                     <Link
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
-                      className="text-3xl font-bold text-foreground transition-all duration-200 hover:text-primary active:text-primary/80 active:scale-95"
+                      className="text-2xl font-bold text-foreground transition-all duration-200 hover:text-primary active:text-primary/80 active:scale-95"
                     >
                       {item.label}
                     </Link>
@@ -152,8 +167,13 @@ export function Header() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
-                className="flex flex-col items-center gap-4 border-t border-neutral-600 pt-8 w-full"
+                className="flex flex-col items-center gap-6 border-t border-neutral-600 pt-8 w-full mt-4"
               >
+                {/* Language switcher */}
+                <div className="flex justify-center w-full">
+                  <LanguageSwitcher variant="mobile" />
+                </div>
+
                 {/* Theme toggle */}
                 <button
                   onClick={toggleTheme}
@@ -163,7 +183,7 @@ export function Header() {
                     border border-neutral-600
                     hover:border-primary
                     active:scale-95
-                    px-4 py-2
+                    px-6 py-2.5
                     text-sm font-medium 
                     text-muted-foreground
                     hover:text-primary
@@ -183,11 +203,6 @@ export function Header() {
                     </>
                   )}
                 </button>
-
-                {/* Language dropdown */}
-                <div className="flex justify-center w-full">
-                  <LanguageDropdown />
-                </div>
               </motion.div>
             </div>
           </motion.div>

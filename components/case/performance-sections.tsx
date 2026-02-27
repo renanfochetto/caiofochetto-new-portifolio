@@ -3,6 +3,7 @@
 
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { getMetricIcon } from "@/lib/helpers/case-helpers";
+import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
 import {
   Target,
   Lightbulb,
@@ -56,7 +57,7 @@ export function PerformanceSections({ caseData, locale }: PerformanceSectionsPro
     <>
       {/* Challenge */}
       <section className="px-6 py-12 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <AnimatedSection className="mx-auto max-w-4xl">
           <div className="flex items-center gap-2 mb-4">
             <Target className="h-4 w-4 text-primary" />
             <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
@@ -66,12 +67,12 @@ export function PerformanceSections({ caseData, locale }: PerformanceSectionsPro
           <p className="text-base leading-relaxed text-muted-foreground">
             {challenge}
           </p>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* Solution */}
       <section className="px-6 py-12 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <AnimatedSection className="mx-auto max-w-4xl">
           <div className="flex items-center gap-2 mb-4">
             <Lightbulb className="h-4 w-4 text-primary" />
             <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
@@ -81,12 +82,12 @@ export function PerformanceSections({ caseData, locale }: PerformanceSectionsPro
           <p className="text-base leading-relaxed text-muted-foreground">
             {solution}
           </p>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* Results */}
       <section className="px-6 py-16 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <AnimatedSection className="mx-auto max-w-4xl">
           <div className="flex items-center gap-2 mb-8">
             <TrendingUp className="h-4 w-4 text-primary" />
             <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
@@ -108,10 +109,10 @@ export function PerformanceSections({ caseData, locale }: PerformanceSectionsPro
               return (
                 <div
                   key={index}
-                  className="rounded-lg border border-neutral-600 bg-card p-6 transition-colors hover:border-primary"
+                  className="group rounded-lg border border-neutral-600 bg-card p-6 transition-all duration-200 hover:border-primary hover:scale-[1.02]"
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <IconComponent className="h-6 w-6 text-primary flex-shrink-0" />
+                    <IconComponent className="h-6 w-6 text-primary flex-shrink-0 transition-transform duration-200 group-hover:scale-110" />
                     <AnimatedCounter
                       value={metric.value}
                       duration={2}
@@ -124,12 +125,12 @@ export function PerformanceSections({ caseData, locale }: PerformanceSectionsPro
               );
             })}
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* Key Learnings */}
       <section className="px-6 py-16 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <AnimatedSection className="mx-auto max-w-4xl">
           <div className="flex items-center gap-2 mb-6">
             <BookOpen className="h-4 w-4 text-primary" />
             <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
@@ -138,13 +139,13 @@ export function PerformanceSections({ caseData, locale }: PerformanceSectionsPro
           </div>
           <ul className="space-y-4">
             {learnings.map((learning, i) => (
-              <li key={i} className="flex gap-3">
-                <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-                <p className="text-sm leading-relaxed text-muted-foreground">{learning}</p>
+              <li key={i} className="flex gap-3 group">
+                <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary transition-transform duration-200 group-hover:scale-110" />
+                <p className="text-sm leading-relaxed text-muted-foreground transition-colors duration-200 group-hover:text-foreground">{learning}</p>
               </li>
             ))}
           </ul>
-        </div>
+        </AnimatedSection>
       </section>
     </>
   );
