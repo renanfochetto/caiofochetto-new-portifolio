@@ -42,11 +42,6 @@ export interface CaseData {
   key_learnings_en: string[];
   key_learnings_es: string[];
 
-  // Capabilities
-  capabilities_pt: string[];
-  capabilities_en: string[];
-  capabilities_es: string[];
-
   // Tags
   tags_pt: string[];
   tags_en: string[];

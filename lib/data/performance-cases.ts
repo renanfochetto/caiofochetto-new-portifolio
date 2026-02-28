@@ -6,8 +6,8 @@ export const caseStudies: CaseData[] = [
     slug: 'betfair-vasco-cruzeiro',
     brand: 'Betfair',
     title_pt: 'Estratégia de Influencer Marketing para Comunidades de Fãs de Futebol de Nicho',
-    title_en: 'Influencer Marketing Strategy for Football Niche Fan Communities',
-    title_es: 'Estrategia de Influencer Marketing para Comunidades de Fans de Fútbol de Nicho',
+    title_en: 'Influencer Marketing Strategy for Niche Football Fan Communities',
+    title_es: 'Estrategia de Influencer Marketing para Comunidades de Aficionados de Fútbol de Nicho',
     company: 'Octagon',
     role_pt: 'Diretor de Conteúdo Digital, Marketing de Influência e Talentos',
     role_en: 'Director of Digital Content, Influencer Marketing & Talent',
@@ -16,15 +16,15 @@ export const caseStudies: CaseData[] = [
     year_display: '2024',
     industry: 'Sports Betting',
     type: 'Always-On Influencer Strategy',
-    icon: 'Users', // Ícone para "comunidades"
+    icon: 'Users',
 
     challenge_pt: 'Em um mercado de apostas esportivas altamente competitivo e como patrocinadora máster do Vasco da Gama e do Cruzeiro, a Betfair precisava ir além da exposição de logo e transformar o patrocínio em presença cultural contínua.',
-    challenge_en: 'In a highly competitive sports betting market, and as master sponsor of Vasco da Gama and Cruzeiro, Betfair needed to move beyond logo exposure and transform sponsorship into continuous cultural presence.',
+    challenge_en: 'In a highly competitive sports betting market, and as master sponsor of Vasco da Gama and Cruzeiro, Betfair needed to go beyond logo exposure and transform sponsorship into continuous cultural presence.',
     challenge_es: 'En un mercado de apuestas deportivas altamente competitivo y como patrocinadora máster de Vasco da Gama y Cruzeiro, Betfair necesitaba ir más allá de la exposición de logo y transformar el patrocinio en presencia cultural continua.',
 
     solution_pt: 'Desenvolvimento de uma estratégia always-on de influencer marketing, estruturada em squads de criadores de nicho profundamente conectados à cultura de cada torcida. A abordagem combinou conteúdo nativo de plataforma, alinhamento editorial ao calendário do futebol e monitoramento de performance em tempo real por meio de um dashboard em Power BI, desenvolvido em parceria com times de BI, permitindo otimização contínua de criadores, formatos e narrativas.',
-    solution_en: 'Development of an always-on influencer marketing strategy, structured around niche creator squads deeply embedded in each club\'s fan culture. The approach combined platform-native content, editorial alignment with football calendars, and real-time performance monitoring through a Power BI dashboard, built in partnership with BI teams, enabling ongoing optimization of creators, formats, and narratives.',
-    solution_es: 'Desarrollo de una estrategia always-on de influencer marketing, estructurada en squads de creadores de nicho profundamente conectados a la cultura de cada hinchada. El enfoque combinó contenido nativo de plataforma, alineamiento editorial con el calendario del fútbol y monitoreo de performance en tiempo real mediante un dashboard en Power BI, desarrollado en colaboración con equipos de BI, permitiendo optimización continua de creadores, formatos y narrativas.',
+    solution_en: 'Development of an always-on influencer marketing strategy, structured around niche creator squads deeply connected to each fanbase\'s culture. The approach combined platform-native content, editorial alignment with the football calendar, and real-time performance monitoring through a Power BI dashboard, developed in partnership with BI teams, enabling continuous optimization of creators, formats, and narratives.',
+    solution_es: 'Desarrollo de una estrategia always-on de influencer marketing, estructurada en squads de creadores de nicho profundamente conectados a la cultura de cada afición. El enfoque combinó contenido nativo de plataforma, alineación editorial con el calendario del fútbol y monitoreo de performance en tiempo real mediante un dashboard en Power BI, desarrollado en colaboración con equipos de BI, permitiendo optimización continua de creadores, formatos y narrativas.',
 
     metrics: [
       {
@@ -35,7 +35,6 @@ export const caseStudies: CaseData[] = [
         description_pt: 'Posts individuais alcançando mais de 1M de usuários',
         description_en: 'Individual posts reaching over 1M users',
         description_es: 'Posts individuales alcanzando más de 1M de usuarios'
-
       },
       {
         value: '86K+',
@@ -43,7 +42,7 @@ export const caseStudies: CaseData[] = [
         label_en: 'Interactions',
         label_es: 'Interacciones',
         description_pt: 'Por post, incluindo curtidas, comentários e compartilhamentos',
-        description_en: 'Per post engagement',
+        description_en: 'Per post, including likes, comments and shares',
         description_es: 'Por post, incluyendo likes, comentarios y compartidos'
       },
       {
@@ -64,10 +63,10 @@ export const caseStudies: CaseData[] = [
       'Estratégia always-on constrói presença contínua vs. picos de campanha'
     ],
     key_learnings_en: [
-      'Niche communities > mass reach for authentic brand integration',
+      'Niche communities outperform mass reach for authentic brand integration',
       'Cultural embeddedness of creators drives genuine engagement',
       'Data-driven optimization (Power BI) enables sustained performance',
-      'Always-on strategy builds continuous brand presence vs. campaign spikes'
+      'Always-on strategy builds continuous presence vs. campaign spikes'
     ],
     key_learnings_es: [
       'Comunidades de nicho superan alcance masivo para integración auténtica de marca',
@@ -76,7 +75,7 @@ export const caseStudies: CaseData[] = [
       'Estrategia always-on construye presencia continua vs. picos de campaña'
     ],
 
-    capabilities_pt: [
+    tags_pt: [
       'Marketing de Influência',
       'Creator Management',
       'Digital Culture',
@@ -88,42 +87,30 @@ export const caseStudies: CaseData[] = [
       'Strategic Planning',
       'Project Management'
     ],
-    capabilities_en: [
-      'Always-On Influencer Strategy',
-      'Niche Community Marketing',
-      'Data Analytics & BI Integration',
-      'Creator Squad Management'
-    ],
-    capabilities_es: [
-      'Estrategia Always-On de Influencers',
-      'Marketing para Comunidades de Nicho',
-      'Integración de Analytics y BI',
-      'Gestión de Squads de Creadores'
-    ],
-
-    tags_pt: [
-      'Marketing de Influência',
-      'Gestão de Criadores de Conteúdo',
-      'Cultura Digital',
-      'Branding',
-      'Performance e métricas'
-    ],
     tags_en: [
       'Influencer Marketing',
       'Creator Management',
       'Digital Culture',
       'Branding',
-      'Performance & Metrics'
+      'Brand Experience',
+      'Community Management',
+      'Performance & Metrics',
+      'Growth Marketing',
+      'Strategic Planning',
+      'Project Management'
     ],
     tags_es: [
       'Marketing de Influencia',
       'Gestión de Creadores',
       'Cultura Digital',
       'Branding',
-      'Performance y métricas'
+      'Brand Experience',
+      'Gestión de Comunidad',
+      'Performance y Métricas',
+      'Growth Marketing',
+      'Planificación Estratégica',
+      'Gestión de Proyectos'
     ],
-
-
 
     playlist_url: 'https://www.youtube.com/playlist?list=PLC85G0r1H2eGsSwmjQSpkUPFRnBxdiyuz',
     thumbnail: '/images/cases/betfair-vasco-cruzeiro/thumbnail.jpg',
@@ -143,9 +130,9 @@ export const caseStudies: CaseData[] = [
   {
     slug: 'budweiser-fifa-world-cup',
     brand: 'Budweiser',
-    title_pt: 'Influencer Marketing em Escala para um Grande Momento Global',
-    title_en: 'Influencer Marketing at Scale for a Global Sports Moment',
-    title_es: 'Influencer Marketing a Escala para un Gran Momento Global',
+    title_pt: 'Influencer Marketing em Escala para um Grande Momento Global do Esporte',
+    title_en: 'Large-Scale Influencer Marketing for a Major Global Sports Moment',
+    title_es: 'Influencer Marketing a Gran Escala para un Gran Momento Deportivo Global',
     company: 'Octagon',
     role_pt: 'Diretor de Conteúdo Digital, Marketing de Influência e Talentos',
     role_en: 'Director of Digital Content, Influencer Marketing & Talent',
@@ -154,14 +141,14 @@ export const caseStudies: CaseData[] = [
     year_display: '2023',
     industry: 'Sports Marketing',
     type: 'Influencer at Scale',
-    icon: 'TrendingUp', // Ícone para "escala"
+    icon: 'TrendingUp',
 
-    challenge_pt: 'Ativar um evento esportivo global de enorme relevância cultural, garantindo forte presença de marca nas plataformas digitais, equilibrando escala, autenticidade e performance.',
-    challenge_en: 'Activate a global sports event with massive cultural relevance, ensuring strong brand presence across digital platforms while balancing scale, authenticity, and performance.',
-    challenge_es: 'Activar un evento deportivo global de enorme relevancia cultural, garantizando fuerte presencia de marca en plataformas digitales, equilibrando escala, autenticidad y performance.',
+    challenge_pt: 'Ativar um evento esportivo global de enorme relevância cultural, garantindo forte presença de marca nas plataformas digitais, equilibrando escala, autenticidade e performance por meio de storytelling liderado por influenciadores.',
+    challenge_en: 'Activate a global sports event with massive cultural relevance, ensuring strong brand presence across digital platforms while balancing scale, authenticity, and performance through influencer-led storytelling.',
+    challenge_es: 'Activar un evento deportivo global de enorme relevancia cultural, garantizando fuerte presencia de marca en plataformas digitales, equilibrando escala, autenticidad y performance mediante storytelling liderado por influencers.',
 
     solution_pt: 'Liderança da estratégia de influencer marketing com ecossistema diversificado de criadores, combinando influenciadores macro e mid-tier com papéis distintos.',
-    solution_en: 'Led the influencer marketing strategy by structuring a diversified creator ecosystem, combining macro and mid-tier influencers with distinct roles.',
+    solution_en: 'Leadership of the influencer marketing strategy with a diversified creator ecosystem, combining macro and mid-tier influencers with distinct roles.',
     solution_es: 'Liderazgo de la estrategia de influencer marketing con ecosistema diversificado de creadores, combinando influencers macro y mid-tier con roles distintos.',
 
     metrics: [
@@ -210,42 +197,45 @@ export const caseStudies: CaseData[] = [
       'Activación en tiempo real maximiza visibilidad'
     ],
 
-    capabilities_pt: [
-      'Influencer Marketing em Escala',
-      'Design de Ecossistema de Criadores',
-      'Gestão em Tempo Real'
-    ],
-    capabilities_en: [
-      'Influencer Marketing at Scale',
-      'Creator Ecosystem Design',
-      'Real-Time Management'
-    ],
-    capabilities_es: [
-      'Influencer Marketing a Escala',
-      'Diseño de Ecosistema de Creadores',
-      'Gestión en Tiempo Real'
-    ],
-
     tags_pt: [
       'Marketing de Influência',
-      'Gestão de Criadores',
+      'Creator Management',
+      'Storytelling',
+      'Digital Culture',
+      'Branding',
       'Brand Experience',
-      'Performance'
+      'Live Marketing',
+      'Live Content',
+      'Performance & Metrics',
+      'Strategic Planning',
+      'Project Management'
     ],
     tags_en: [
       'Influencer Marketing',
       'Creator Management',
+      'Storytelling',
+      'Digital Culture',
+      'Branding',
       'Brand Experience',
-      'Performance'
+      'Live Marketing',
+      'Live Content',
+      'Performance & Metrics',
+      'Strategic Planning',
+      'Project Management'
     ],
     tags_es: [
       'Marketing de Influencia',
       'Gestión de Creadores',
+      'Storytelling',
+      'Cultura Digital',
+      'Branding',
       'Brand Experience',
-      'Performance'
+      'Live Marketing',
+      'Contenido en Vivo',
+      'Performance y Métricas',
+      'Planificación Estratégica',
+      'Gestión de Proyectos'
     ],
-
-
 
     playlist_url: 'https://www.youtube.com/playlist?list=PLC85G0r1H2eGPiWNyCgj2Ir8fgzfqqBFR',
     thumbnail: '/images/cases/budweiser-fifa/thumbnail.jpg',
@@ -253,8 +243,8 @@ export const caseStudies: CaseData[] = [
     hero_placeholder: '/images/cases/budweiser-fifa/hero.jpg',
 
     meta_title_pt: 'Budweiser FIFA: Influencer Marketing em Escala | Caio Fochetto',
-    meta_title_en: 'Budweiser FIFA: Influencer Marketing at Scale | Caio Fochetto',
-    meta_title_es: 'Budweiser FIFA: Influencer Marketing a Escala | Caio Fochetto',
+    meta_title_en: 'Budweiser FIFA: Large-Scale Influencer Marketing | Caio Fochetto',
+    meta_title_es: 'Budweiser FIFA: Influencer Marketing a Gran Escala | Caio Fochetto',
     meta_description_pt: '75M+ alcance, 126M+ impressões, 4.5% engajamento.',
     meta_description_en: '75M+ reach, 126M+ impressions, 4.5% engagement.',
     meta_description_es: '75M+ alcance, 126M+ impresiones, 4.5% engagement.',
@@ -265,9 +255,9 @@ export const caseStudies: CaseData[] = [
   {
     slug: 'formula-e-community',
     brand: 'Formula E',
-    title_pt: 'Construção de Comunidade em Alta Performance',
-    title_en: 'Community Building in High-Performance',
-    title_es: 'Construcción de Comunidad en Alta Performance',
+    title_pt: 'Construção de Comunidade e Marca em um ambiente de Alta Performance',
+    title_en: 'Community and Brand Building in a High-Performance Environment',
+    title_es: 'Construcción de Comunidad y Marca en un Entorno de Alta Performance',
     company: 'Octagon',
     role_pt: 'Diretor de Conteúdo Digital, Marketing de Influência e Talentos',
     role_en: 'Director of Digital Content, Influencer Marketing & Talent',
@@ -276,15 +266,15 @@ export const caseStudies: CaseData[] = [
     year_display: '2024',
     industry: 'Sports',
     type: 'Community Building',
-    icon: 'Zap', // Ícone para "performance"
+    icon: 'Zap',
 
     challenge_pt: 'Estabelecer presença digital local e construir relacionamento com comunidades para um campeonato global.',
-    challenge_en: 'Establish a local digital presence and build community relationships for a global championship.',
+    challenge_en: 'Establish local digital presence and build community relationships for a global championship.',
     challenge_es: 'Establecer presencia digital local y construir relación con comunidades para un campeonato global.',
 
-    solution_pt: 'Desenvolvimento de estratégia digital e de comunidade, incluindo gestão de crises e cobertura em tempo real.',
-    solution_en: 'Development of digital and community strategy, including crisis management and real-time coverage.',
-    solution_es: 'Desarrollo de estrategia digital y de comunidad, incluyendo gestión de crisis y cobertura en tiempo real.',
+    solution_pt: 'Desenvolvimento de uma estratégia digital e de comunidade, incluindo definição de posicionamento, diretrizes de comunidade e gestão de crises, planejamento de conteúdo always-on e cobertura em tempo real com conteúdo e influenciadores.',
+    solution_en: 'Development of a digital and community strategy, including positioning definition, community guidelines and crisis management, always-on content planning, and real-time coverage with content and influencers.',
+    solution_es: 'Desarrollo de una estrategia digital y de comunidad, incluyendo definición de posicionamiento, directrices de comunidad y gestión de crisis, planificación de contenido always-on y cobertura en tiempo real con contenido e influencers.',
 
     metrics: [
       {
@@ -332,39 +322,47 @@ export const caseStudies: CaseData[] = [
       'Comunidad local es esencial para marcas globales'
     ],
 
-    capabilities_pt: [
-      'Gestão de Comunidade',
-      'Marketing em Tempo Real',
-      'Gestão de Crises'
-    ],
-    capabilities_en: [
-      'Community Management',
-      'Real-Time Marketing',
-      'Crisis Management'
-    ],
-    capabilities_es: [
-      'Gestión de Comunidad',
-      'Marketing en Tiempo Real',
-      'Gestión de Crisis'
-    ],
-
     tags_pt: [
-      'Estratégia de Conteúdo',
-      'Gerenciamento de Comunidade',
-      'Gestão de Crise',
-      'Performance'
+      'Content Strategy',
+      'Influencer Marketing',
+      'Creator Management',
+      'Digital Culture',
+      'Branding',
+      'Brand Experience',
+      'Community Management',
+      'Crisis Management',
+      'Live Content',
+      'Performance & Metrics',
+      'Strategic Planning',
+      'Project Management'
     ],
     tags_en: [
       'Content Strategy',
+      'Influencer Marketing',
+      'Creator Management',
+      'Digital Culture',
+      'Branding',
+      'Brand Experience',
       'Community Management',
       'Crisis Management',
-      'Performance'
+      'Live Content',
+      'Performance & Metrics',
+      'Strategic Planning',
+      'Project Management'
     ],
     tags_es: [
       'Estrategia de Contenido',
+      'Marketing de Influencia',
+      'Gestión de Creadores',
+      'Cultura Digital',
+      'Branding',
+      'Brand Experience',
       'Gestión de Comunidad',
       'Gestión de Crisis',
-      'Performance'
+      'Contenido en Vivo',
+      'Performance y Métricas',
+      'Planificación Estratégica',
+      'Gestión de Proyectos'
     ],
 
     playlist_url: 'https://www.youtube.com/playlist?list=PLC85G0r1H2eH2_xv0yojqC88BJ8lb5-I7',
@@ -396,15 +394,15 @@ export const caseStudies: CaseData[] = [
     year_display: '2015',
     industry: 'Media',
     type: 'Digital Transformation',
-    icon: 'Play', // Ícone para "streaming"
+    icon: 'Play',
 
-    challenge_pt: 'Expandir audiências digitais e criar oportunidades de monetização em cenário fragmentado.',
-    challenge_en: 'Expand digital audiences and create monetization opportunities in fragmented landscape.',
-    challenge_es: 'Expandir audiencias digitales y crear oportunidades de monetización en escenario fragmentado.',
+    challenge_pt: 'Expandir audiências digitais e criar novas oportunidades de monetização de catálogo em um cenário de consumo altamente fragmentado.',
+    challenge_en: 'Expand digital audiences and create new catalog monetization opportunities in a highly fragmented consumption landscape.',
+    challenge_es: 'Expandir audiencias digitales y crear nuevas oportunidades de monetización de catálogo en un escenario de consumo altamente fragmentado.',
 
-    solution_pt: 'Uso estratégico de canais sociais como plataformas de distribuição com janelas específicas.',
-    solution_en: 'Strategic use of social channels as distribution platforms with specific time windows.',
-    solution_es: 'Uso estratégico de canales sociales como plataformas de distribución con ventanas específicas.',
+    solution_pt: 'Uso estratégico dos canais sociais como plataformas de distribuição, publicando episódios selecionados e cortes editoriais de séries dentro de janelas específicas para atrair novas audiências.',
+    solution_en: 'Strategic use of social channels as distribution platforms, publishing selected episodes and editorial cuts of series within specific time windows to attract new audiences.',
+    solution_es: 'Uso estratégico de los canales sociales como plataformas de distribución, publicando episodios seleccionados y cortes editoriales de series dentro de ventanas específicas para atraer nuevas audiencias.',
 
     metrics: [
       {
@@ -452,36 +450,32 @@ export const caseStudies: CaseData[] = [
       'Distribución cross-platform multiplica alcance'
     ],
 
-    capabilities_pt: [
-      'Estratégia de Plataforma',
-      'Monetização de Conteúdo',
-      'Analytics de Performance'
-    ],
-    capabilities_en: [
-      'Platform Strategy',
-      'Content Monetization',
-      'Performance Analytics'
-    ],
-    capabilities_es: [
-      'Estrategia de Plataforma',
-      'Monetización de Contenido',
-      'Analytics de Performance'
-    ],
-
     tags_pt: [
-      'Estratégia de Conteúdo',
+      'Content Strategy',
+      'Audiovisual Production',
+      'Digital Culture',
       'Growth Marketing',
-      'Performance'
+      'Performance & Metrics',
+      'Strategic Planning',
+      'Project Management'
     ],
     tags_en: [
       'Content Strategy',
+      'Audiovisual Production',
+      'Digital Culture',
       'Growth Marketing',
-      'Performance'
+      'Performance & Metrics',
+      'Strategic Planning',
+      'Project Management'
     ],
     tags_es: [
       'Estrategia de Contenido',
+      'Producción Audiovisual',
+      'Cultura Digital',
       'Growth Marketing',
-      'Performance'
+      'Performance y Métricas',
+      'Planificación Estratégica',
+      'Gestión de Proyectos'
     ],
 
     playlist_url: 'https://www.youtube.com/playlist?list=PLC85G0r1H2eGx1IHCjyD3YL8DyQYvsl_1',
@@ -502,9 +496,9 @@ export const caseStudies: CaseData[] = [
   {
     slug: 'betfair-ambassadors-ronaldo-rivaldo',
     brand: 'Betfair',
-    title_pt: 'Maximizando Embaixadores por PR Stunts',
-    title_en: 'Maximizing Ambassadors Through PR Stunts',
-    title_es: 'Maximizando Embajadores a través de PR Stunts',
+    title_pt: 'Maximizando o Escopo de Embaixadores de Marca por Meio de PR Stunts',
+    title_en: 'Maximizing Brand Ambassadors Scope Through PR Stunts',
+    title_es: 'Maximizando el Alcance de Embajadores de Marca mediante PR Stunts',
     company: 'Octagon',
     role_pt: 'Diretor de Conteúdo Digital, Marketing de Influência',
     role_en: 'Director of Digital Content, Influencer Marketing',
@@ -513,15 +507,15 @@ export const caseStudies: CaseData[] = [
     year_display: '2023',
     industry: 'Sports Betting',
     type: 'Brand Ambassadors',
-    icon: 'Star', // Ícone para "embaixadores"
+    icon: 'Star',
 
-    challenge_pt: 'Embaixadores subutilizados sem calendário estratégico claro.',
-    challenge_en: 'Underutilized ambassadors without clear strategic calendar.',
-    challenge_es: 'Embajadores subutilizados sin calendario estratégico claro.',
+    challenge_pt: 'A marca enfrentava um desafio de percepção e contava com embaixadores que não estavam sendo utilizados de forma adequada. O escopo contratado não estava conectado a um calendário claro nem a momentos estratégicos do ano, resultando em ativações pontuais, pouco integradas e de impacto limitado.',
+    challenge_en: 'The brand faced a perception challenge and had ambassadors who were not being properly utilized. The contracted scope was not connected to a clear calendar or strategic moments of the year, resulting in one-off activations with little integration and limited impact.',
+    challenge_es: 'La marca enfrentaba un desafío de percepción y contaba con embajadores que no estaban siendo utilizados de forma adecuada. El alcance contratado no estaba conectado a un calendario claro ni a momentos estratégicos del año, resultando en activaciones puntuales, poco integradas y de impacto limitado.',
 
-    solution_pt: 'Estratégia de PR stunts com papéis definidos para cada talento.',
-    solution_en: 'PR stunt strategy with clearly defined roles for each talent.',
-    solution_es: 'Estrategia de PR stunts con roles definidos para cada talento.',
+    solution_pt: 'Estratégia de ativação baseada em PR stunts, com definição clara de papéis. Rivaldo foi direcionado para conteúdos ligados a lançamento e contextualização de produto, enquanto Ronaldo atuou em ativações de marca e experiências, explorando storytelling, surpresa e geração de earned media.',
+    solution_en: 'PR stunt-based activation strategy with clear role definition. Rivaldo was directed toward product launch and contextualization content, while Ronaldo worked on brand activations and experiences, exploring storytelling, surprise, and earned media generation.',
+    solution_es: 'Estrategia de activación basada en PR stunts, con definición clara de roles. Rivaldo fue direccionado hacia contenidos ligados a lanzamiento y contextualización de producto, mientras que Ronaldo actuó en activaciones de marca y experiencias, explorando storytelling, sorpresa y generación de earned media.',
 
     metrics: [
       {
@@ -569,36 +563,41 @@ export const caseStudies: CaseData[] = [
       'Calendario estratégico garantiza consistencia'
     ],
 
-    capabilities_pt: [
-      'Gestão de Embaixadores',
-      'PR Stunts',
-      'Earned Media'
-    ],
-    capabilities_en: [
-      'Ambassador Management',
-      'PR Stunts',
-      'Earned Media'
-    ],
-    capabilities_es: [
-      'Gestión de Embajadores',
-      'PR Stunts',
-      'Earned Media'
-    ],
-
     tags_pt: [
       'Marketing de Influência',
-      'PR Digital',
-      'Brand Experience'
+      'Creator Management',
+      'Storytelling',
+      'Branding',
+      'Brand Experience',
+      'Digital PR',
+      'Image Strategy',
+      'Performance & Metrics',
+      'Strategic Planning',
+      'Project Management'
     ],
     tags_en: [
       'Influencer Marketing',
+      'Creator Management',
+      'Storytelling',
+      'Branding',
+      'Brand Experience',
       'Digital PR',
-      'Brand Experience'
+      'Image Strategy',
+      'Performance & Metrics',
+      'Strategic Planning',
+      'Project Management'
     ],
     tags_es: [
       'Marketing de Influencia',
+      'Gestión de Creadores',
+      'Storytelling',
+      'Branding',
+      'Brand Experience',
       'PR Digital',
-      'Brand Experience'
+      'Estrategia de Imagen',
+      'Performance y Métricas',
+      'Planificación Estratégica',
+      'Gestión de Proyectos'
     ],
 
     playlist_url: 'https://www.youtube.com/playlist?list=PLC85G0r1H2eE0yoIJ3_eG01N23htkZH4J',
@@ -619,9 +618,9 @@ export const caseStudies: CaseData[] = [
   {
     slug: 'bud-live-maroon-5',
     brand: 'Budweiser',
-    title_pt: 'Ativando Conversas entre Fãs',
-    title_en: 'Activating Fan Conversations',
-    title_es: 'Activando Conversaciones entre Fans',
+    title_pt: 'Alavancando Influenciadores para Ativar Conversas entre Fãs',
+    title_en: 'Leveraging Influencers to Activate Fan Conversations',
+    title_es: 'Aprovechando Influencers para Activar Conversaciones entre Fans',
     company: 'Octagon',
     role_pt: 'Diretor de Conteúdo Digital',
     role_en: 'Director of Digital Content',
@@ -630,15 +629,15 @@ export const caseStudies: CaseData[] = [
     year_display: '2024',
     industry: 'Music',
     type: 'Fan Activation',
-    icon: 'MessageCircle', // Ícone para "conversas"
+    icon: 'MessageCircle',
 
-    challenge_pt: 'Gerar buzz orgânico para plataforma de música sem mídia paga.',
-    challenge_en: 'Generate organic buzz for music platform without paid media.',
-    challenge_es: 'Generar buzz orgánico para plataforma de música sin media paga.',
+    challenge_pt: 'Gerar engajamento real e buzz orgânico para Bud Live, plataforma de música ainda pouco presente nas conversas digitais, sem apoio de mídia paga.',
+    challenge_en: 'Generate real engagement and organic buzz for Bud Live, a music platform still barely present in digital conversations, without paid media support.',
+    challenge_es: 'Generar engagement real y buzz orgánico para Bud Live, plataforma de música aún poco presente en las conversaciones digitales, sin apoyo de media paga.',
 
-    solution_pt: 'Estratégia de influência com fandoms digitais transformando experiências em narrativas.',
-    solution_en: 'Influence strategy with digital fandoms turning experiences into narratives.',
-    solution_es: 'Estrategia de influencia con fandoms digitales transformando experiencias en narrativas.',
+    solution_pt: 'Estratégia de influência focada em conversas, combinando influenciadores e fandoms digitais em clusters ao longo da jornada do projeto, transformando a experiência dos fãs em narrativa social compartilhável.',
+    solution_en: 'Conversation-focused influence strategy, combining influencers and digital fandoms in clusters throughout the project journey, transforming the fan experience into shareable social narrative.',
+    solution_es: 'Estrategia de influencia enfocada en conversaciones, combinando influencers y fandoms digitales en clusters a lo largo del recorrido del proyecto, transformando la experiencia de los fans en narrativa social compartible.',
 
     metrics: [
       {
@@ -677,7 +676,7 @@ export const caseStudies: CaseData[] = [
     ],
     key_learnings_en: [
       'Fandom activation amplifies conversations',
-      'Influence outperforms paid media in authenticity',
+      'Influence surpasses paid media in authenticity',
       'Experiences transformed into content generate engagement'
     ],
     key_learnings_es: [
@@ -686,36 +685,44 @@ export const caseStudies: CaseData[] = [
       'Experiencias transformadas en contenido generan engagement'
     ],
 
-    capabilities_pt: [
-      'Ativação de Fandoms',
-      'Estratégia de Conversas',
-      'Buzz Orgânico'
-    ],
-    capabilities_en: [
-      'Fandom Activation',
-      'Conversation Strategy',
-      'Organic Buzz'
-    ],
-    capabilities_es: [
-      'Activación de Fandoms',
-      'Estrategia de Conversaciones',
-      'Buzz Orgánico'
-    ],
-
     tags_pt: [
       'Marketing de Influência',
-      'Gestão de Comunidade',
-      'Brand Experience'
+      'Creator Management',
+      'Storytelling',
+      'Digital Culture',
+      'Branding',
+      'Brand Experience',
+      'Community Management',
+      'Digital PR',
+      'Performance & Metrics',
+      'Strategic Planning',
+      'Project Management'
     ],
     tags_en: [
       'Influencer Marketing',
+      'Creator Management',
+      'Storytelling',
+      'Digital Culture',
+      'Branding',
+      'Brand Experience',
       'Community Management',
-      'Brand Experience'
+      'Digital PR',
+      'Performance & Metrics',
+      'Strategic Planning',
+      'Project Management'
     ],
     tags_es: [
       'Marketing de Influencia',
+      'Gestión de Creadores',
+      'Storytelling',
+      'Cultura Digital',
+      'Branding',
+      'Brand Experience',
       'Gestión de Comunidad',
-      'Brand Experience'
+      'PR Digital',
+      'Performance y Métricas',
+      'Planificación Estratégica',
+      'Gestión de Proyectos'
     ],
 
     playlist_url: 'https://www.youtube.com/playlist?list=PLC85G0r1H2eGf6sSpqV6ZUttuHvswqLa6',

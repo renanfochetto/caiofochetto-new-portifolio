@@ -83,6 +83,7 @@ export function PerformanceCard({
 
   const logoFolder = theme === "dark" ? "white" : "black";
   const displayTags = (tags || []).slice(0, 3);
+  const remainingTags = (tags || []).length - 3;
   const displayMetrics = (metrics || []).slice(0, 3);
 
   return (
@@ -165,7 +166,7 @@ export function PerformanceCard({
         </div>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
           {displayTags.map((tag, index) => (
             <span
               key={index}
@@ -174,6 +175,24 @@ export function PerformanceCard({
               {tag}
             </span>
           ))}
+          {remainingTags > 0 && (
+            <span className="group/tag relative flex items-center gap-1.5 rounded-full border border-neutral-600 px-2.5 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-primary transition-all duration-300 hover:border-primary hover:bg-primary/5 hover:scale-105 active:scale-95">
+              <span className="flex items-center">
+                +
+                <AnimatedCounter
+                  value={remainingTags.toString()}
+                  duration={1.5}
+                  className="text-xs sm:text-sm font-bold"
+                />
+              </span>
+              <span className="max-w-0 overflow-hidden whitespace-nowrap transition-all duration-500 group-hover/tag:max-w-[120px] group-hover/tag:ml-1 opacity-0 group-hover/tag:opacity-100">
+                {t.work.more}
+              </span>
+              
+              {/* Efeito de brilho sutil ao redor */}
+              <span className="absolute inset-0 rounded-full bg-primary/20 opacity-0 blur-md transition-opacity duration-300 group-hover/tag:opacity-40" />
+            </span>
+          )}
         </div>
 
         {/* CTA - seta funcional SEMPRE visível */}

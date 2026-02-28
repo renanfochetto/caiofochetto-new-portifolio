@@ -49,10 +49,10 @@ export function CaseTemplate({
       : (caseData as any).role_es || (caseData as any).role_en || (caseData as any).role_pt || '';
 
   const capabilities = locale === 'pt'
-    ? (caseData as any).capabilities_pt || (caseData as any).tags_pt
+    ? (caseData as any).tags_pt
     : locale === 'en'
-      ? (caseData as any).capabilities_en || (caseData as any).tags_en
-      : (caseData as any).capabilities_es || (caseData as any).tags_es || (caseData as any).capabilities_en || (caseData as any).tags_en || [];
+      ? (caseData as any).tags_en
+      : (caseData as any).tags_es || (caseData as any).tags_en || (caseData as any).tags_pt || [];
 
   const company = (caseData as any).company;
   const brand = (caseData as any).brand;
