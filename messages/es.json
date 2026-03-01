@@ -1,36 +1,32 @@
 {
   "header": {
-    "work": "Trabajo",
-    "experience": "Experiencia",
+    "work": "Cases",
+    "experience": "Carrera",
     "about": "Sobre mí",
     "contact": "Contacto"
   },
   "hero": {
-    "badge": "Abierto a nuevas oportunidades",
-    "headingLine1": "Conectando marca, cultura",
-    "headingLine2": "y performance a través",
-    "headingLine3": "de creators y datos.",
-    "subtitle": "15 años liderando estrategias de Creator Economy para Budweiser, Betfair, Ambev, Jellysmack y A+E Networks en América Latina.",
-    "revenueGrowth": "Crecimiento de ingresos",
-    "campaignReach": "Alcance de campañas",
-    "engagementRate": "Tasa de engagement",
-    "yearsExperience": "Años de experiencia",
-    "cta": "Ver trabajos",
-    "trustedBy": "Marcas que confían"
+    "badge": "Disponible para propuestas y colaboraciones",
+    "headingLine1": "Conectando marcas a la cultura",
+    "headingLine2": "y la performance con",
+    "headingLine3": "estrategias de contenido e influencia.",
+    "subtitle": "Más de 15 años liderando estrategias para marcas globales en América Latina.",
+    "cta": "Ver algunos Cases"
   },
   "work": {
-    "sectionLabel": "Trabajos seleccionados",
-    "heading": "Cases que generan resultados",
+    "sectionLabel": "Cases Destacados",
+    "heading": "Estrategia y ejecución lado a lado",
+    "subheading": "Estrategias de comunicación y marketing que conectan marcas a conversaciones relevantes.",
+    "viewCase": "Ver case completo",
     "video": "Video",
     "more": "competencias",
-    "viewCase": "Ver case completo",
     "togglePerformance": "Performance",
     "toggleProduction": "Producción",
     "ariaPerformance": "Ver cases de performance",
     "ariaProduction": "Ver cases de producción"
   },
   "experience": {
-    "sectionLabel": "Trayectoria",
+    "sectionLabel": "Carrera",
     "heading": "Experiencia profesional",
     "present": "Actual",
     "showMore": "Ver anteriores",
@@ -48,17 +44,18 @@
   "about": {
     "sectionLabel": "Sobre mí",
     "heading": "Caio Fochetto",
-    "p1": "Líder en Creator Economy y Marketing de Performance con más de 15 años conectando marca, cultura y resultados. Especialista en traducir comportamiento de audiencia en estrategia — combinando datos, creatividad e inteligencia de plataforma.",
-    "p2": "Construí y lideré operaciones de marketing de influencia para marcas como Budweiser, Betfair y Ambev en Octagon, y escalé la operación de Jellysmack en América Latina desde cero. Antes de eso, pasé casi 8 años en A+E Networks gestionando plataformas digitales de HISTORY, A&E, Lifetime y Formula E.",
-    "p3": "Actúo en la intersección entre creatividad, datos y cultura — donde las marcas globales necesitan hablar con comunidades reales.",
-    "coreExpertise": "Especialidades",
+    "p1": "Líder en estrategia, contenido e influencia con más de 15 años conectando marca, cultura y resultado. Transformo comportamiento de audiencia en direccionamiento estratégico, uniendo datos, creatividad e inteligencia de plataformas.",
+    "p2": "Actuación enfocada en estrategia de marca, liderazgo de equipos, contenido multiplataforma, análisis de desempeño, partnerships y posicionamiento cultural.",
+    "p3": "Actúo en la intersección entre creatividad, datos y cultura, donde las marcas globales necesitan hablar con comunidades reales.",
+    "coreExpertise": "Competencias",
     "expertise": [
-      "Creator Economy",
-      "Marketing de Performance",
-      "Influencer Marketing",
-      "Estrategia Digital",
-      "Brand Building",
-      "Liderazgo de Equipos"
+      "Planificación Estratégica",
+      "Dirección Creativa",
+      "Gestión de Proyectos",
+      "Liderazgo de Equipos",
+      "Narrativas de Marcas",
+      "Posicionamiento de Marcas",
+      "Estructuración de Operaciones"
     ]
   },
   "footer": {
@@ -89,7 +86,7 @@
       "year": "2016",
       "description": "Estrategia digital y de comunidad para el campeonato global de Fórmula E en Brasil, construyendo presencia local para una marca internacional de alto impacto.",
       "challenge": "Establecer presencia digital local y construir relación con comunidades para un campeonato global que llegaba a Brasil por primera vez, sin base de fans consolidada.",
-      "solution": "Desarrollo de estrategia digital y de comunidad desde cero: posicionamiento, guías de comunidad, gestión de crisis, planificación de contenido always-on y cobertura en tiempo real a través de contenido e influencers.",
+      "solution": "Desarrollo de estrategia digital y de comunidad desde cero: posicionamiento, directrices de comunidad, gestión de crisis, planificación de contenido always-on y cobertura en tiempo real a través de contenido e influencers.",
       "insights": [
         "Comunidad construida con consistencia supera campañas puntuales en engagement de largo plazo",
         "Activación en tiempo real durante eventos exige protocolos de crisis robustos y decisión ágil",

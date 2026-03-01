@@ -1,6 +1,6 @@
 import { CaseData } from '@/types/performance-case'
 
-export const caseStudies: CaseData[] = [
+export const performanceCases: CaseData[] = [
   // CASE #1: Betfair Vasco/Cruzeiro
   {
     slug: 'betfair-vasco-cruzeiro',
@@ -77,15 +77,15 @@ export const caseStudies: CaseData[] = [
 
     tags_pt: [
       'Marketing de Influência',
-      'Creator Management',
-      'Digital Culture',
+      'Gestão de Criadores',
+      'Cultura Digital',
       'Branding',
-      'Brand Experience',
-      'Community Management',
-      'Performance & Metrics',
-      'Growth Marketing',
-      'Strategic Planning',
-      'Project Management'
+      'Experiência de Marca',
+      'Gestão de Comunidade',
+      'Performance e Métricas',
+      'Marketing de Crescimento',
+      'Planejamento Estratégico',
+      'Gestão de Projetos'
     ],
     tags_en: [
       'Influencer Marketing',
@@ -147,9 +147,9 @@ export const caseStudies: CaseData[] = [
     challenge_en: 'Activate a global sports event with massive cultural relevance, ensuring strong brand presence across digital platforms while balancing scale, authenticity, and performance through influencer-led storytelling.',
     challenge_es: 'Activar un evento deportivo global de enorme relevancia cultural, garantizando fuerte presencia de marca en plataformas digitales, equilibrando escala, autenticidad y performance mediante storytelling liderado por influencers.',
 
-    solution_pt: 'Liderança da estratégia de influencer marketing com ecossistema diversificado de criadores, combinando influenciadores macro e mid-tier com papéis distintos.',
-    solution_en: 'Leadership of the influencer marketing strategy with a diversified creator ecosystem, combining macro and mid-tier influencers with distinct roles.',
-    solution_es: 'Liderazgo de la estrategia de influencer marketing con ecosistema diversificado de creadores, combinando influencers macro y mid-tier con roles distintos.',
+    solution_pt: 'Liderança da estratégia de influencer marketing com a estruturação de um ecossistema diversificado de criadores, combinando influenciadores macro e mid-tier com papéis distintos (amplificação, storytelling e engajamento de comunidades). Gestão de seleção, briefing, cocriação e ativação de conteúdo em tempo real.',
+    solution_en: 'Led the influencer marketing strategy by structuring a diversified creator ecosystem, combining macro and mid-tier influencers with distinct roles (amplification, storytelling, and community engagement). Oversaw creator selection, briefing, co-creation, and real-time content activation.',
+    solution_es: 'Liderazgo de la estrategia de influencer marketing con la estructuración de un ecosistema diversificado de creadores, combinando influencers macro y mid-tier con roles distintos (amplificación, storytelling y engagement de comunidades). Gestión de selección, briefing, cocreación y activación de contenido en tiempo real.',
 
     metrics: [
       {
@@ -199,16 +199,16 @@ export const caseStudies: CaseData[] = [
 
     tags_pt: [
       'Marketing de Influência',
-      'Creator Management',
+      'Gestão de Criadores',
       'Storytelling',
-      'Digital Culture',
+      'Cultura Digital',
       'Branding',
-      'Brand Experience',
-      'Live Marketing',
-      'Live Content',
-      'Performance & Metrics',
-      'Strategic Planning',
-      'Project Management'
+      'Experiência de Marca',
+      'Marketing ao Vivo',
+      'Conteúdo ao Vivo',
+      'Performance e Métricas',
+      'Planejamento Estratégico',
+      'Gestão de Projetos'
     ],
     tags_en: [
       'Influencer Marketing',
@@ -323,18 +323,18 @@ export const caseStudies: CaseData[] = [
     ],
 
     tags_pt: [
-      'Content Strategy',
-      'Influencer Marketing',
-      'Creator Management',
-      'Digital Culture',
+      'Estratégia de Conteúdo',
+      'Marketing de Influência',
+      'Gestão de Criadores',
+      'Cultura Digital',
       'Branding',
-      'Brand Experience',
-      'Community Management',
-      'Crisis Management',
-      'Live Content',
-      'Performance & Metrics',
-      'Strategic Planning',
-      'Project Management'
+      'Experiência de Marca',
+      'Gestão de Comunidade',
+      'Gestão de Crise',
+      'Conteúdo ao Vivo',
+      'Performance e Métricas',
+      'Planejamento Estratégico',
+      'Gestão de Projetos'
     ],
     tags_en: [
       'Content Strategy',
@@ -383,7 +383,7 @@ export const caseStudies: CaseData[] = [
   {
     slug: 'history-ae-lifetime-streaming',
     brand: ['HISTORY', 'A&E', 'Lifetime'],
-    title_pt: 'Monetização de Plataformas Digitais de Streaming',
+    title_pt: 'Monetização e Performance de Plataformas Digitais de Streaming',
     title_en: 'Digital Streaming Platforms Monetization',
     title_es: 'Monetización de Plataformas Digitales de Streaming',
     company: 'A+E Networks',
@@ -451,13 +451,13 @@ export const caseStudies: CaseData[] = [
     ],
 
     tags_pt: [
-      'Content Strategy',
-      'Audiovisual Production',
-      'Digital Culture',
-      'Growth Marketing',
-      'Performance & Metrics',
-      'Strategic Planning',
-      'Project Management'
+      'Estratégia de Conteúdo',
+      'Produção Audiovisual',
+      'Cultura Digital',
+      'Marketing de Crescimento',
+      'Performance e Métricas',
+      'Planejamento Estratégico',
+      'Gestão de Projetos'
     ],
     tags_en: [
       'Content Strategy',
@@ -510,11 +510,11 @@ export const caseStudies: CaseData[] = [
     icon: 'Star',
 
     challenge_pt: 'A marca enfrentava um desafio de percepção e contava com embaixadores que não estavam sendo utilizados de forma adequada. O escopo contratado não estava conectado a um calendário claro nem a momentos estratégicos do ano, resultando em ativações pontuais, pouco integradas e de impacto limitado.',
-    challenge_en: 'The brand faced a perception challenge and had ambassadors who were not being properly utilized. The contracted scope was not connected to a clear calendar or strategic moments of the year, resulting in one-off activations with little integration and limited impact.',
+    challenge_en: 'The brand faced a perception challenge and had ambassadors who were not being properly leveraged. The contracted scope was not connected to a clear calendar or to strategic moments throughout the year, resulting in isolated, weakly integrated activations with limited impact.',
     challenge_es: 'La marca enfrentaba un desafío de percepción y contaba con embajadores que no estaban siendo utilizados de forma adecuada. El alcance contratado no estaba conectado a un calendario claro ni a momentos estratégicos del año, resultando en activaciones puntuales, poco integradas y de impacto limitado.',
 
     solution_pt: 'Estratégia de ativação baseada em PR stunts, com definição clara de papéis. Rivaldo foi direcionado para conteúdos ligados a lançamento e contextualização de produto, enquanto Ronaldo atuou em ativações de marca e experiências, explorando storytelling, surpresa e geração de earned media.',
-    solution_en: 'PR stunt-based activation strategy with clear role definition. Rivaldo was directed toward product launch and contextualization content, while Ronaldo worked on brand activations and experiences, exploring storytelling, surprise, and earned media generation.',
+    solution_en: 'A PR stunt–led activation strategy with clearly defined roles. Rivaldo was focused on product launch and contextualization content, while Ronaldo led brand and experiential activations, leveraging storytelling, surprise, and earned media generation.',
     solution_es: 'Estrategia de activación basada en PR stunts, con definición clara de roles. Rivaldo fue direccionado hacia contenidos ligados a lanzamiento y contextualización de producto, mientras que Ronaldo actuó en activaciones de marca y experiencias, explorando storytelling, sorpresa y generación de earned media.',
 
     metrics: [
@@ -565,15 +565,15 @@ export const caseStudies: CaseData[] = [
 
     tags_pt: [
       'Marketing de Influência',
-      'Creator Management',
+      'Gestão de Criadores',
       'Storytelling',
       'Branding',
-      'Brand Experience',
-      'Digital PR',
-      'Image Strategy',
-      'Performance & Metrics',
-      'Strategic Planning',
-      'Project Management'
+      'Experiência de Marca',
+      'PR Digital',
+      'Estratégia de Imagem',
+      'Performance e Métricas',
+      'Planejamento Estratégico',
+      'Gestão de Projetos'
     ],
     tags_en: [
       'Influencer Marketing',
@@ -632,11 +632,11 @@ export const caseStudies: CaseData[] = [
     icon: 'MessageCircle',
 
     challenge_pt: 'Gerar engajamento real e buzz orgânico para Bud Live, plataforma de música ainda pouco presente nas conversas digitais, sem apoio de mídia paga.',
-    challenge_en: 'Generate real engagement and organic buzz for Bud Live, a music platform still barely present in digital conversations, without paid media support.',
+    challenge_en: 'Generate real engagement and organic buzz for Bud Live, a music platform with limited presence in digital conversations, without paid media support.',
     challenge_es: 'Generar engagement real y buzz orgánico para Bud Live, plataforma de música aún poco presente en las conversaciones digitales, sin apoyo de media paga.',
 
     solution_pt: 'Estratégia de influência focada em conversas, combinando influenciadores e fandoms digitais em clusters ao longo da jornada do projeto, transformando a experiência dos fãs em narrativa social compartilhável.',
-    solution_en: 'Conversation-focused influence strategy, combining influencers and digital fandoms in clusters throughout the project journey, transforming the fan experience into shareable social narrative.',
+    solution_en: 'A conversation-led influencer strategy, combining influencers and digital fandoms into clusters across the project journey, turning fan experiences into shareable social narratives.',
     solution_es: 'Estrategia de influencia enfocada en conversaciones, combinando influencers y fandoms digitales en clusters a lo largo del recorrido del proyecto, transformando la experiencia de los fans en narrativa social compartible.',
 
     metrics: [
@@ -687,16 +687,16 @@ export const caseStudies: CaseData[] = [
 
     tags_pt: [
       'Marketing de Influência',
-      'Creator Management',
+      'Gestão de Criadores',
       'Storytelling',
-      'Digital Culture',
+      'Cultura Digital',
       'Branding',
-      'Brand Experience',
-      'Community Management',
-      'Digital PR',
-      'Performance & Metrics',
-      'Strategic Planning',
-      'Project Management'
+      'Experiência de Marca',
+      'Gestão de Comunidade',
+      'PR Digital',
+      'Performance e Métricas',
+      'Planejamento Estratégico',
+      'Gestão de Projetos'
     ],
     tags_en: [
       'Influencer Marketing',
@@ -739,16 +739,3 @@ export const caseStudies: CaseData[] = [
     og_image: '/images/cases/bud-live-maroon-5/og-image.jpg'
   }
 ]
-
-// Helper functions
-export function getCaseBySlug(slug: string): CaseData | undefined {
-  return caseStudies.find(c => c.slug === slug)
-}
-
-export function getAllSlugs(): string[] {
-  return caseStudies.map(c => c.slug)
-}
-
-export function getAllCases(): CaseData[] {
-  return caseStudies
-}

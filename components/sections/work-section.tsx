@@ -6,9 +6,11 @@ import { PerformanceCard } from "../cards/performance-card";
 import { ProductionCard } from "../cards/production-card";
 import { WorkToggle } from "../ui/work-toggle";
 import { AnimatedSection, AnimatedItem } from "../ui/animated-section";
-import { caseStudies } from "@/lib/data/performance-cases";
-import { getAllProductionCases } from "@/lib/data/production-cases";
-import { brandLogos } from "@/lib/helpers/case-helpers"; // ✅ Importar do helpers
+// ✅ APENAS DADOS (sem wrappers)
+import { performanceCases } from "@/lib/data/performance-cases";
+import { productionCases } from "@/lib/data/production-cases";
+// ✅ APENAS HELPERS
+import { brandLogos } from "@/lib/helpers/case-helpers";
 
 export function WorkSection() {
   const { t } = useI18n();
@@ -16,8 +18,24 @@ export function WorkSection() {
   // Estado do toggle (default: performance)
   const [view, setView] = useState<"performance" | "production">("performance");
 
-  // Production cases
-  const productionCases = getAllProductionCases();
+  // ✅ Função para reordenar itens para layout de colunas
+  // Garante ordem visual horizontal em 2 colunas (1, 2, 3, 4 -> 1, 3, 2, 4)
+  const reorderForColumns = <T,>(items: T[]) => {
+    if (items.length <= 2) return items;
+
+    const col1: T[] = [];
+    const col2: T[] = [];
+
+    items.forEach((item, idx) => {
+      if (idx % 2 === 0) col1.push(item);
+      else col2.push(item);
+    });
+
+    return [...col1, ...col2];
+  };
+
+  const displayPerformance = reorderForColumns(performanceCases);
+  const displayProduction = reorderForColumns(productionCases);
 
   return (
     <section id="work" className="px-6 py-24 lg:px-8">
@@ -30,6 +48,9 @@ export function WorkSection() {
           <h2 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">
             {t.work.heading}
           </h2>
+          <p className="mt-4 text-base text-muted-foreground md:text-lg max-w-2xl">
+            {t.work.subheading}
+          </p>
         </div>
 
         {/* Toggle - Centralizado */}
@@ -40,16 +61,21 @@ export function WorkSection() {
           {view === "performance" ? (
             // ✅ PERFORMANCE CASES
             <>
-              {caseStudies.map((study, idx) => {
+              {displayPerformance.map((study, idx) => {
                 // Extrair brand (pode ser string ou array)
-                const brandArray = Array.isArray(study.brand) ? study.brand : [study.brand];
+                const brandArray = Array.isArray(study.brand)
+                  ? study.brand
+                  : [study.brand];
                 const brandDisplay = brandArray.join(', ');
 
                 // Pegar logo do primeiro brand
                 const brandLogo = brandLogos[brandArray[0]] || undefined;
 
                 return (
-                  <div key={study.slug} className="mb-6 break-inside-avoid">
+                  <div
+                    key={study.slug}
+                    className="mb-6 break-inside-avoid md:mb-8"
+                  >
                     <AnimatedItem index={idx}>
                       <PerformanceCard
                         slug={study.slug}
@@ -71,12 +97,15 @@ export function WorkSection() {
           ) : (
             // ✅ PRODUCTION CASES
             <>
-              {productionCases.map((prodCase, idx) => {
+              {displayProduction.map((prodCase, idx) => {
                 // Pegar logo da marca
                 const brandLogo = brandLogos[prodCase.brand] || undefined;
 
                 return (
-                  <div key={prodCase.slug} className="mb-6 break-inside-avoid">
+                  <div
+                    key={prodCase.slug}
+                    className="mb-6 break-inside-avoid md:mb-8"
+                  >
                     <AnimatedItem index={idx}>
                       <ProductionCard
                         slug={prodCase.slug}

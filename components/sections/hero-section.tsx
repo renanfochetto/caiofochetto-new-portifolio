@@ -4,7 +4,7 @@ import { useI18n } from "@/context/i18n-provider";
 import { ArrowDown } from "lucide-react";
 import { AnimatedSection } from "../ui/animated-section";
 
-export function Hero() {
+export function HeroSection() {
   const { t } = useI18n();
 
   return (

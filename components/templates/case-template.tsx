@@ -10,8 +10,7 @@ import { YouTubeEmbed } from "@/components/media/youtube-embed";
 import { PerformanceSections } from "@/components/case/performance-sections";
 import { ProductionSections } from "@/components/case/production-sections";
 import { companyLogos, brandLogos } from "@/lib/helpers/case-helpers";
-import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
-import { motion } from "framer-motion";
+import { AnimatedSection } from "@/components/ui/animated-section";
 import type { CaseData } from "@/types/performance-case";
 import type { ProductionCase } from "@/types/production-case";
 
@@ -21,10 +20,27 @@ interface CaseTemplateProps {
   locale: string;
   theme: string;
   navigation: {
-    prev: { slug: string; title_pt?: string; title_en?: string; title_es?: string; title?: string; brand: string | string[] } | null;
-    next: { slug: string; title_pt?: string; title_en?: string; title_es?: string; title?: string; brand: string | string[] } | null;
+    prev: {
+      slug: string;
+      title_pt?: string;
+      title_en?: string;
+      title_es?: string;
+      brand: string | string[];
+    } | null;
+    next: {
+      slug: string;
+      title_pt?: string;
+      title_en?: string;
+      title_es?: string;
+      brand: string | string[];
+    } | null;
   };
 }
+
+// ✅ HELPER: Type guard melhorado
+type LocalizedField<T extends CaseData | ProductionCase> = T extends CaseData
+  ? CaseData
+  : ProductionCase;
 
 export function CaseTemplate({
                                variant,
@@ -35,28 +51,33 @@ export function CaseTemplate({
                              }: CaseTemplateProps) {
   const logoFolder = theme === "dark" ? "white" : "black";
 
-  // Extrair dados comuns
-  const title = locale === 'pt'
-    ? (caseData as any).title_pt
-    : locale === 'en'
-      ? (caseData as any).title_en
-      : (caseData as any).title_es || (caseData as any).title_en || (caseData as any).title_pt || '';
+  // ✅ Helper function para extrair campos localizados
+  const getLocalizedField = (
+    fieldPt?: string,
+    fieldEn?: string,
+    fieldEs?: string
+  ): string => {
+    if (locale === "pt") return fieldPt || fieldEn || fieldEs || "";
+    if (locale === "en") return fieldEn || fieldEs || fieldPt || "";
+    return fieldEs || fieldEn || fieldPt || "";
+  };
 
-  const role = locale === 'pt'
-    ? (caseData as any).role_pt
-    : locale === 'en'
-      ? (caseData as any).role_en
-      : (caseData as any).role_es || (caseData as any).role_en || (caseData as any).role_pt || '';
+  // ✅ Extrair dados comuns (mais limpo)
+  const data = caseData as any; // Single cast point
 
-  const capabilities = locale === 'pt'
-    ? (caseData as any).tags_pt
-    : locale === 'en'
-      ? (caseData as any).tags_en
-      : (caseData as any).tags_es || (caseData as any).tags_en || (caseData as any).tags_pt || [];
+  const title = getLocalizedField(data.title_pt, data.title_en, data.title_es);
+  const role = getLocalizedField(data.role_pt, data.role_en, data.role_es);
+  const tags = locale === "pt"
+    ? data.tags_pt
+    : locale === "en"
+      ? data.tags_en
+      : data.tags_es || data.tags_en || data.tags_pt || [];
 
-  const company = (caseData as any).company;
-  const brand = (caseData as any).brand;
-  const period = variant === "performance" ? (caseData as CaseData).period : (caseData as ProductionCase).year;
+  const company = data.company;
+  const brand = data.brand;
+  const period = variant === "performance"
+    ? (caseData as CaseData).period
+    : (caseData as ProductionCase).year;
 
   // Logos
   const companyLogo = companyLogos[company];
@@ -64,45 +85,46 @@ export function CaseTemplate({
   const brandLogo = brandLogos[firstBrand];
 
   // Labels traduzidos
-  const sectionLabels = locale === "pt"
-    ? {
-      capabilities: "Competências",
-      relatedContent: "EXEMPLOS DE MÍDIA DESTE PROJETO",
-      viewFullPlaylist: "Ver playlist completa no YouTube",
-      back: "Voltar",
-      previous: "Anterior",
-      next: "Próximo",
-    }
-    : locale === "es"
+  const sectionLabels =
+    locale === "pt"
       ? {
-        capabilities: "Competencias",
-        relatedContent: "CONTENIDO RELACIONADO",
-        viewFullPlaylist: "Ver playlist completa en YouTube",
-        back: "Volver",
+        capabilities: "Competências",
+        relatedContent: "EXEMPLOS DE MÍDIA DESTE PROJETO",
+        viewFullPlaylist: "Ver playlist completa no YouTube",
+        back: "Voltar",
         previous: "Anterior",
-        next: "Siguiente",
+        next: "Próximo",
       }
-      : {
-        capabilities: "Capabilities",
-        relatedContent: "RELATED CONTENT",
-        viewFullPlaylist: "View full playlist on YouTube",
-        back: "Back",
-        previous: "Previous",
-        next: "Next",
-      };
+      : locale === "es"
+        ? {
+          capabilities: "Competencias",
+          relatedContent: "CONTENIDO RELACIONADO",
+          viewFullPlaylist: "Ver playlist completa en YouTube",
+          back: "Volver",
+          previous: "Anterior",
+          next: "Siguiente",
+        }
+        : {
+          capabilities: "Capabilities",
+          relatedContent: "RELATED CONTENT",
+          viewFullPlaylist: "View full playlist on YouTube",
+          back: "Back",
+          previous: "Previous",
+          next: "Next",
+        };
 
   // URL base para links
-  const baseUrl = variant === "performance" ? "performance-case" : "production-case";
+  const baseUrl =
+    variant === "performance" ? "performance-case" : "production-case";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ✅ HERO - NOVO LAYOUT */}
+      {/* ✅ HERO */}
       <section className="px-6 pt-28 pb-16 lg:px-8">
         <AnimatedSection className="mx-auto max-w-4xl">
-
-          {/* Topo: Voltar (esquerda) + Ano (direita) */}
+          {/* Topo: Voltar + Ano */}
           <div className="flex items-center justify-between mb-8">
             <Link
               href={`/${locale}`}
@@ -114,7 +136,9 @@ export function CaseTemplate({
 
             <div className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-primary">
               <Calendar className="h-4 w-4 transition-transform duration-200 group-hover:rotate-12 group-hover:scale-110" />
-              <span className="font-medium text-foreground transition-colors duration-200 group-hover:text-primary">{period}</span>
+              <span className="font-medium text-foreground transition-colors duration-200 group-hover:text-primary">
+                {period}
+              </span>
             </div>
           </div>
 
@@ -126,7 +150,7 @@ export function CaseTemplate({
           {/* Linha divisória */}
           <div className="border-t border-neutral-600 mb-8" />
 
-          {/* Base: Logo Empresa (esquerda) + Logo Brand (direita) */}
+          {/* Base: Logo Empresa + Logo Brand */}
           <div className="flex items-center justify-between gap-4">
             {/* Esquerda: Logo Empresa + Info */}
             <div className="flex items-center gap-3">
@@ -144,8 +168,12 @@ export function CaseTemplate({
               )}
 
               <div>
-                <p className="text-sm font-semibold text-foreground">{company}</p>
-                <p className="text-xs text-muted-foreground transition-colors duration-200 hover:text-primary">{role}</p>
+                <p className="text-sm font-semibold text-foreground">
+                  {company}
+                </p>
+                <p className="text-xs text-muted-foreground transition-colors duration-200 hover:text-primary">
+                  {role}
+                </p>
               </div>
             </div>
 
@@ -167,100 +195,111 @@ export function CaseTemplate({
         </AnimatedSection>
       </section>
 
-      {/* VIDEO SECTION */}
-      {variant === "performance" && (caseData as CaseData).playlist_url && (() => {
-        const playlistId = (() => {
-          try {
-            const url = new URL((caseData as CaseData).playlist_url!);
-            return url.searchParams.get('list');
-          } catch {
-            return null;
-          }
-        })();
+      {/* ✅ VIDEO SECTION - PERFORMANCE */}
+      {variant === "performance" &&
+        (caseData as CaseData).playlist_url &&
+        (() => {
+          const playlistId = (() => {
+            try {
+              const url = new URL((caseData as CaseData).playlist_url!);
+              return url.searchParams.get("list");
+            } catch {
+              return null;
+            }
+          })();
 
-        if (!playlistId) return null;
+          if (!playlistId) return null;
 
-        const embedUrl = `https://www.youtube.com/embed/videoseries?list=${playlistId}`;
+          const embedUrl = `https://www.youtube.com/embed/videoseries?list=${playlistId}`;
 
-        return (
-          <section className="px-0 sm:px-6 py-12 sm:py-16 lg:px-8">
-            <AnimatedSection className="mx-auto w-full sm:max-w-4xl">
-              <div className="px-6 sm:px-0 mb-6 sm:mb-8">
-                <div className="flex items-center gap-2">
-                  <Play className="h-4 w-4 text-primary" />
-                  <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
-                    {sectionLabels.relatedContent}
-                  </h2>
+          return (
+            <section className="px-0 sm:px-6 py-12 sm:py-16 lg:px-8">
+              <AnimatedSection className="mx-auto w-full sm:max-w-4xl">
+                <div className="px-6 sm:px-0 mb-6 sm:mb-8">
+                  <div className="flex items-center gap-2">
+                    <Play className="h-4 w-4 text-primary" />
+                    <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
+                      {sectionLabels.relatedContent}
+                    </h2>
+                  </div>
                 </div>
-              </div>
 
-              <div className="relative aspect-video w-full overflow-hidden sm:rounded-lg border-0 sm:border sm:border-neutral-600 bg-card/50 backdrop-blur-sm">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src={embedUrl}
-                  title={`${firstBrand} - Playlist`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="h-full w-full"
-                />
-              </div>
-
-              <div className="mt-4 px-6 sm:px-0 flex justify-center">
-                <a
-                  href={(caseData as CaseData).playlist_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-                >
-                  <span>{sectionLabels.viewFullPlaylist}</span>
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </a>
-              </div>
-            </AnimatedSection>
-          </section>
-        );
-      })()}
-
-      {variant === "production" && (caseData as ProductionCase).media?.hero && (() => {
-        const { type, videoId, videoIds } = (caseData as ProductionCase).media.hero;
-
-        if (!type || (!videoId && !videoIds)) return null;
-
-        return (
-          <section className="px-0 sm:px-6 py-12 sm:py-16 lg:px-8">
-            <AnimatedSection className="mx-auto w-full sm:max-w-4xl">
-              <div className="px-6 sm:px-0 mb-6 sm:mb-8">
-                <div className="flex items-center gap-2">
-                  <Play className="h-4 w-4 text-primary" />
-                  <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
-                    {sectionLabels.relatedContent}
-                  </h2>
+                <div className="relative aspect-video w-full overflow-hidden sm:rounded-lg border-0 sm:border sm:border-neutral-600 bg-card/50 backdrop-blur-sm">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={embedUrl}
+                    title={`${firstBrand} - Playlist`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="h-full w-full"
+                  />
                 </div>
-              </div>
 
-              <div className="sm:rounded-lg overflow-hidden border-0 sm:border sm:border-neutral-600 bg-card/50 backdrop-blur-sm">
-                <YouTubeEmbed
-                  type={type}
-                  videoId={videoId}
-                  videoIds={videoIds}
-                  title={title}
-                  placeholder={(caseData as ProductionCase).media.hero.placeholder}
-                />
-              </div>
-            </AnimatedSection>
-          </section>
-        );
-      })()}
+                <div className="mt-4 px-6 sm:px-0 flex justify-center">
+                  <a
+                    href={(caseData as CaseData).playlist_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    <span>{sectionLabels.viewFullPlaylist}</span>
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </a>
+                </div>
+              </AnimatedSection>
+            </section>
+          );
+        })()}
 
-      {/* SPECIFIC SECTIONS */}
+      {/* ✅ VIDEO SECTION - PRODUCTION */}
+      {variant === "production" &&
+        (caseData as ProductionCase).media?.hero &&
+        (() => {
+          const { type, videoId, videoIds } = (caseData as ProductionCase)
+            .media.hero;
+
+          if (!type || (!videoId && !videoIds)) return null;
+
+          return (
+            <section className="px-0 sm:px-6 py-12 sm:py-16 lg:px-8">
+              <AnimatedSection className="mx-auto w-full sm:max-w-4xl">
+                <div className="px-6 sm:px-0 mb-6 sm:mb-8">
+                  <div className="flex items-center gap-2">
+                    <Play className="h-4 w-4 text-primary" />
+                    <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
+                      {sectionLabels.relatedContent}
+                    </h2>
+                  </div>
+                </div>
+
+                <div className="sm:rounded-lg overflow-hidden border-0 sm:border sm:border-neutral-600 bg-card/50 backdrop-blur-sm">
+                  <YouTubeEmbed
+                    type={type}
+                    videoId={videoId}
+                    videoIds={videoIds}
+                    title={title}
+                    placeholder={
+                      (caseData as ProductionCase).media.hero.placeholder
+                    }
+                  />
+                </div>
+              </AnimatedSection>
+            </section>
+          );
+        })()}
+
+      {/* ✅ SPECIFIC SECTIONS */}
       {variant === "performance" ? (
         <PerformanceSections caseData={caseData as CaseData} locale={locale} />
       ) : (
-        <ProductionSections caseData={caseData as ProductionCase} locale={locale} />
+        <ProductionSections
+          caseData={caseData as ProductionCase}
+          locale={locale}
+        />
       )}
 
-      {/* CAPABILITIES / TAGS */}
+      {/* ✅ TAGS / CAPABILITIES */}
       <section className="px-6 py-16 lg:px-8">
         <AnimatedSection className="mx-auto max-w-4xl">
           <div className="mb-4 flex items-center gap-2">
@@ -270,19 +309,19 @@ export function CaseTemplate({
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            {capabilities.map((capability: string, index: number) => (
+            {tags.map((tag: string, index: number) => (
               <span
                 key={index}
                 className="rounded-full border border-neutral-600 px-4 py-2 text-sm font-medium text-muted-foreground transition-all duration-200 hover:border-primary hover:text-primary hover:scale-105"
               >
-                {capability}
+                {tag}
               </span>
             ))}
           </div>
         </AnimatedSection>
       </section>
 
-      {/* NAVIGATION */}
+      {/* ✅ NAVIGATION */}
       <section className="px-6 py-16 lg:px-8">
         <AnimatedSection className="mx-auto max-w-4xl border-t border-neutral-600 pt-12">
           <div className="grid gap-6 md:grid-cols-2">
@@ -298,15 +337,15 @@ export function CaseTemplate({
                 <div>
                   <p className="text-xs text-muted-foreground">
                     {Array.isArray(navigation.prev.brand)
-                      ? navigation.prev.brand.join(', ')
+                      ? navigation.prev.brand.join(", ")
                       : navigation.prev.brand}
                   </p>
                   <h3 className="mt-1 line-clamp-2 text-base font-bold text-foreground group-hover:text-primary transition-colors">
-                    {locale === 'pt'
-                      ? navigation.prev.title_pt || navigation.prev.title
-                      : locale === 'en'
-                        ? navigation.prev.title_en || navigation.prev.title
-                        : navigation.prev.title_es || navigation.prev.title_en || navigation.prev.title}
+                    {getLocalizedField(
+                      navigation.prev.title_pt,
+                      navigation.prev.title_en,
+                      navigation.prev.title_es
+                    )}
                   </h3>
                 </div>
               </Link>
@@ -324,15 +363,15 @@ export function CaseTemplate({
                 <div className="text-right">
                   <p className="text-xs text-muted-foreground">
                     {Array.isArray(navigation.next.brand)
-                      ? navigation.next.brand.join(', ')
+                      ? navigation.next.brand.join(", ")
                       : navigation.next.brand}
                   </p>
                   <h3 className="mt-1 line-clamp-2 text-base font-bold text-foreground group-hover:text-primary transition-colors">
-                    {locale === 'pt'
-                      ? navigation.next.title_pt || navigation.next.title
-                      : locale === 'en'
-                        ? navigation.next.title_en || navigation.next.title
-                        : navigation.next.title_es || navigation.next.title_en || navigation.next.title}
+                    {getLocalizedField(
+                      navigation.next.title_pt,
+                      navigation.next.title_en,
+                      navigation.next.title_es
+                    )}
                   </h3>
                 </div>
               </Link>
@@ -341,7 +380,7 @@ export function CaseTemplate({
         </AnimatedSection>
       </section>
 
-      {/* ✅ FOOTER SIMPLES */}
+      {/* ✅ FOOTER */}
       <Footer />
     </div>
   );

@@ -39,10 +39,10 @@ export function AboutSection() {
           {t.about.heading}
         </h2>
 
-        {/* Grid: 2 colunas em todos os tamanhos (com foto) */}
-        <div className="mt-12 grid gap-6 grid-cols-[120px_1fr] sm:grid-cols-[240px_1fr] sm:gap-10 md:grid-cols-[280px_1fr] md:gap-12 lg:grid-cols-[380px_1fr] lg:gap-16">
+        {/* Grid: 1 coluna no mobile (apenas texto), 2 colunas no tablet+ (com foto) */}
+        <div className="mt-12 grid gap-10 md:grid-cols-[280px_1fr] md:gap-12 lg:grid-cols-[380px_1fr] lg:gap-16">
 
-          <AnimatedItem index={0} className="flex justify-start">
+          <AnimatedItem index={0} className="hidden md:flex justify-start">
             <div className="relative group w-full max-w-[380px]">
               {/* ✨ Shadow simétrico e equilibrado */}
               <div
@@ -52,7 +52,7 @@ export function AboutSection() {
                 onMouseLeave={() => setIsHovered(false)}
               >
                 <Image
-                  src="/images/foto_caio.jpeg"
+                  src="/images/foto_caio.avif"
                   alt="Caio Fochetto em evento de marketing"
                   width={380}
                   height={475}

@@ -22,6 +22,9 @@ export function ContactSection() {
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
                   {t.footer.cta}
                 </h2>
+                <p className="mt-4 text-base text-muted-foreground md:text-lg max-w-2xl">
+                  {t.footer.ctaDescription}
+                </p>
                 <div className="mt-4 sm:mt-6 flex flex-wrap gap-2 sm:gap-3">
                   {/* Email - Inverte tema */}
                   <a

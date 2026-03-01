@@ -1,9 +1,40 @@
-// /lib/case-helpers.ts
+// /lib/helpers/case-helpers.ts
 // Funções compartilhadas entre performance e production cases
 
+// ============================================================================
+// FUNÇÕES GENÉRICAS DE CASES
+// ============================================================================
+
 /**
- * Navegação circular genérica
- * Funciona com qualquer array de items com slug
+ * Busca case por slug (genérico)
+ * @param cases - Array de cases (performance ou production)
+ * @param slug - Slug do case a buscar
+ * @returns Case encontrado ou undefined
+ */
+export function getCaseBySlug<T extends { slug: string }>(
+  cases: T[],
+  slug: string
+): T | undefined {
+  return cases.find((c) => c.slug === slug);
+}
+
+/**
+ * Retorna todos os slugs de um array de cases
+ * @param cases - Array de cases (performance ou production)
+ * @returns Array de strings com os slugs
+ */
+export function getAllSlugs<T extends { slug: string }>(
+  cases: T[]
+): string[] {
+  return cases.map((c) => c.slug);
+}
+
+/**
+ * Navegação circular entre cases
+ * Retorna o case anterior e próximo de forma circular
+ * @param items - Array de cases
+ * @param currentSlug - Slug do case atual
+ * @returns Objeto com prev e next (null se não encontrado)
  */
 export function getCircularNavigation<T extends { slug: string }>(
   items: T[],
@@ -30,12 +61,17 @@ export function getCircularNavigation<T extends { slug: string }>(
   };
 }
 
+// ============================================================================
+// MAPEAMENTO DE ÍCONES
+// ============================================================================
+
 /**
  * Mapeia ícones baseado no label da métrica
- * Versão melhorada com mapeamento completo
+ * Suporta PT, EN e ES
+ * @param label - Label da métrica (ex: "Alcance", "Reach", "Engagement")
+ * @returns Componente de ícone do Lucide React
  */
 export function getMetricIcon(label: string) {
-  // Importações dentro da função para evitar problemas de bundling
   const {
     Users,
     Eye,
@@ -49,38 +85,63 @@ export function getMetricIcon(label: string) {
     Star,
     Target,
     Sparkles
-  } = require("lucide-react");
+  } = require("lucide-react") as typeof import("lucide-react");
 
   if (!label) return Users;
 
   const lowerLabel = label.toLowerCase();
 
   // Mapeamento direto por keywords (prioridade)
-  const keywordMap: Record<string, any> = {
+  const keywordMap: Record<string, typeof Users> = {
+    // Alcance / Reach
     'reach': Users,
     'alcance': Users,
+
+    // Receita / Revenue
     'revenue': DollarSign,
     'receita': DollarSign,
+
+    // Reservas / Booking
     'booking': TrendingUp,
     'reserva': TrendingUp,
+
+    // Engajamento / Engagement
     'engagement': Heart,
     'engajamento': Heart,
+
+    // Criadores / Creators
     'creators': Star,
     'criadores': Star,
+
+    // Visualizações / Views
     'views': Play,
     'visualizações': Play,
+
+    // Impressões / Impressions
     'impressions': Eye,
     'impressões': Eye,
+
+    // Interações / Interactions
     'interactions': MessageCircle,
     'interações': MessageCircle,
+
+    // Sentimento / Sentiment
     'sentiment': Sparkles,
     'sentimento': Sparkles,
+
+    // CTR
     'ctr': Target,
     'cliques': MousePointerClick,
+
+    // Tempo / Watch Time
     'watchtime': Play,
     'tempo': Play,
+
+    // Crescimento / Growth
     'growth': TrendingUp,
     'crescimento': TrendingUp,
+
+    // Orgânico / Organic
     'organic': TrendingUp,
     'orgânico': TrendingUp,
   };
@@ -96,8 +157,13 @@ export function getMetricIcon(label: string) {
   return BarChart3;
 }
 
+// ============================================================================
+// MAPEAMENTO DE LOGOS
+// ============================================================================
+
 /**
  * Mapeamento de logos de empresas
+ * Path: /public/companies/{logo}
  */
 export const companyLogos: Record<string, string> = {
   "Octagon": "octagon.avif",
@@ -112,6 +178,8 @@ export const companyLogos: Record<string, string> = {
 
 /**
  * Mapeamento de logos de brands
+ * Path: /public/logos/{theme}/{logo}.svg
+ * Theme: "white" ou "black"
  */
 export const brandLogos: Record<string, string> = {
   "Betfair": "betfair",

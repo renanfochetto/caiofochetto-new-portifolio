@@ -1,5 +1,5 @@
 import { Header } from "@/components/layout/header";
-import { Hero } from "@/components/sections/hero";
+import { HeroSection } from "@/components/sections/hero-section";
 import { LogoCarousel } from "@/components/ui/logo-carousel";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { WorkSection } from "@/components/sections/work-section";
@@ -13,7 +13,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <main>
-        <Hero />
+        <HeroSection />
 
         {/* Carrossel aparece APÓS o hero, só visível com scroll */}
         <AnimatedSection className="px-6 pb-16 lg:px-8">

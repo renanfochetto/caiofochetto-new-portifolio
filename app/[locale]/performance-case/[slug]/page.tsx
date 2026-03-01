@@ -5,8 +5,10 @@ import { notFound } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useTheme } from "@/components/providers/theme-provider";
 import { CaseTemplate } from "@/components/templates/case-template";
-import { getCaseBySlug, caseStudies } from "@/lib/data/performance-cases";
-import { getCircularNavigation } from "@/lib/helpers/case-helpers";
+// ✅ APENAS DADOS
+import { performanceCases } from "@/lib/data/performance-cases";
+// ✅ APENAS HELPERS GENÉRICOS
+import { getCaseBySlug, getCircularNavigation } from "@/lib/helpers/case-helpers";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -23,12 +25,14 @@ export default function PerformanceCasePage({ params }: PageProps) {
   if (!mounted || !resolvedParams) return null;
 
   const { locale, slug } = resolvedParams;
-  const caseData = getCaseBySlug(slug);
+
+  // ✅ USA HELPER GENÉRICO + DADOS
+  const caseData = getCaseBySlug(performanceCases, slug);
 
   if (!caseData) notFound();
 
-  // Navegação circular
-  const navigation = getCircularNavigation(caseStudies, slug);
+  // ✅ USA HELPER GENÉRICO + DADOS
+  const navigation = getCircularNavigation(performanceCases, slug);
 
   return (
     <CaseTemplate
