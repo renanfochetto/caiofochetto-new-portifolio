@@ -68,7 +68,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-xs text-muted-foreground transition-colors hover:text-primary"
+              className="text-xs text-muted-foreground transition-colors hover:text-primary active:scale-95"
             >
               {item.label}
             </Link>
@@ -141,7 +141,7 @@ export function Header() {
             className="fixed left-0 right-0 top-14 z-40 bg-background md:hidden"
             style={{ height: 'calc(100vh - 3.5rem)' }}
           >
-            <div className="flex h-full flex-col items-center justify-between px-6 py-8">
+            <div className="flex h-full flex-col items-center justify-between px-6 py-16">
               {/* Navigation links */}
               <div className="flex flex-col gap-6 text-center">
                 {navItems.map((item, idx) => (
@@ -154,7 +154,7 @@ export function Header() {
                     <Link
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
-                      className="text-2xl font-bold text-foreground transition-all duration-200 hover:text-primary active:text-primary/80 active:scale-95"
+                      className="text-2xl font-bold text-foreground transition-all duration-200 hover:text-primary active:text-primary/80 active:scale-90"
                     >
                       {item.label}
                     </Link>
@@ -167,7 +167,7 @@ export function Header() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
-                className="flex flex-col items-center gap-6 border-t border-neutral-600 pt-8 w-full mt-4"
+                className="flex flex-col items-center gap-8 border-t border-neutral-600 pt-16 w-full"
               >
                 {/* Language switcher */}
                 <div className="flex justify-center w-full">

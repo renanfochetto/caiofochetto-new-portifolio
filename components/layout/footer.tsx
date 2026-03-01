@@ -1,22 +1,31 @@
 "use client";
 
-import { useI18n } from "@/context/i18n-provider";
+import {useI18n} from "@/context/i18n-provider";
 
 export function Footer() {
-  const { t } = useI18n();
+  const {t} = useI18n();
 
   return (
     <footer className="border-t border-neutral-600 px-6 py-8 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-row flex-wrap items-center justify-center sm:justify-between gap-2 sm:gap-4 text-xs text-muted-foreground">
-          <p className="text-xs">&copy; {new Date().getFullYear()} Caio Fochetto.</p>
+        <div
+          className="flex flex-col min-[460px]:flex-row min-[460px]:justify-between items-center gap-3 min-[460px]:gap-2 sm:gap-4 text-xs text-muted-foreground">
+          {/* Email do Caio */}
+          <a
+            href="mailto:caiofochetto@gmail.com"
+            className="text-xs text-foreground/70 transition-colors hover:text-primary active:scale-95"
+          >
+            caiofochetto@gmail.com
+          </a>
+
+          {/* Desenvolvido por */}
           <p className="text-xs">
             {t.footer.developedBy}{" "}
             <a
               href="https://renanfochetto.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-foreground/70 transition-colors hover:text-primary"
+              className="text-xs text-foreground/70 transition-colors hover:text-primary active:scale-95"
             >
               Renan Fochetto
             </a>

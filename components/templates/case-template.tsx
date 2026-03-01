@@ -150,12 +150,13 @@ export function CaseTemplate({
           {/* Linha divisória */}
           <div className="border-t border-neutral-600 mb-8" />
 
-          {/* Base: Logo Empresa + Logo Brand */}
-          <div className="flex items-center justify-between gap-4">
-            {/* Esquerda: Logo Empresa + Info */}
-            <div className="flex items-center gap-3">
+          {/* Base: Logo Empresa + Logo Brand - LAYOUT FLUIDO */}
+          <div className="grid grid-cols-[1fr_auto] gap-4 items-center auto-rows-auto">
+
+            {/* Bloco 1: Logo Empresa + Info */}
+            <div className="flex items-center gap-3 min-w-0">
               {companyLogo && (
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-neutral-600 bg-card overflow-hidden transition-transform duration-200 hover:scale-105">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg border border-neutral-600 bg-card overflow-hidden transition-transform duration-200 hover:scale-105">
                   <Image
                     src={`/companies/${companyLogo}`}
                     alt={`${company} logo`}
@@ -167,19 +168,19 @@ export function CaseTemplate({
                 </div>
               )}
 
-              <div>
+              <div className="min-w-0 flex-1">
                 <p className="text-sm font-semibold text-foreground">
                   {company}
                 </p>
-                <p className="text-xs text-muted-foreground transition-colors duration-200 hover:text-primary">
+                <p className="text-xs text-muted-foreground transition-colors duration-200 hover:text-primary leading-tight line-clamp-4">
                   {role}
                 </p>
               </div>
             </div>
 
-            {/* Direita: Logo Brand */}
+            {/* Bloco 2: Logo Brand */}
             {brandLogo && (
-              <div className="flex h-16 w-32 items-center justify-end transition-transform duration-200 hover:scale-105">
+              <div className="flex h-16 w-24 sm:w-28 md:w-32 items-center justify-end transition-transform duration-200 hover:scale-105">
                 <Image
                   src={`/logos/${logoFolder}/${brandLogo}.svg`}
                   alt={`${firstBrand} logo`}

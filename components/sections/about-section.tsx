@@ -39,11 +39,16 @@ export function AboutSection() {
           {t.about.heading}
         </h2>
 
-        {/* Grid: 1 coluna no mobile (apenas texto), 2 colunas no tablet+ (com foto) */}
-        <div className="mt-12 grid gap-10 md:grid-cols-[280px_1fr] md:gap-12 lg:grid-cols-[380px_1fr] lg:gap-16">
+        {/*
+          ✅ LAYOUT RESPONSIVO:
+          - Mobile: Texto contorna foto (float-left)
+          - Tablet/Desktop: Grid 2 colunas (foto | texto)
+        */}
+        <div className="mt-12 md:grid md:gap-12 md:grid-cols-[280px_1fr] lg:grid-cols-[380px_1fr] lg:gap-16">
 
-          <AnimatedItem index={0} className="hidden md:flex justify-start">
-            <div className="relative group w-full max-w-[380px]">
+          {/* COLUNA 1: Foto */}
+          <AnimatedItem index={0} className="float-left mr-4 mb-2 w-[140px] sm:w-[180px] md:float-none md:mr-0 md:mb-0 md:w-full">
+            <div className="relative group w-full">
               {/* ✨ Shadow simétrico e equilibrado */}
               <div
                 className="relative transition-all duration-700"
@@ -57,7 +62,7 @@ export function AboutSection() {
                   width={380}
                   height={475}
                   className="w-full h-auto object-cover transition-all duration-700
-                    rounded-[2rem]
+                    rounded-2xl md:rounded-[2rem]
                     group-hover:scale-105
                   "
                   unoptimized={true}
@@ -67,18 +72,20 @@ export function AboutSection() {
             </div>
           </AnimatedItem>
 
-          {/* Texto */}
-          <div className="space-y-3 sm:space-y-4">
+          {/* COLUNA 2: Texto e Tags */}
+          <div className="space-y-3 sm:space-y-4 md:flex md:flex-col md:justify-between md:h-full">
             <AnimatedItem index={1}>
               <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
                 {t.about.p1}
               </p>
             </AnimatedItem>
+
             <AnimatedItem index={2}>
               <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
                 {t.about.p2}
               </p>
             </AnimatedItem>
+
             <AnimatedItem index={3}>
               <p className="flex items-start gap-2 text-sm sm:text-base leading-relaxed text-muted-foreground">
                 <Globe className="mt-1 h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0 text-primary/60" />
@@ -86,7 +93,7 @@ export function AboutSection() {
               </p>
             </AnimatedItem>
 
-            <AnimatedItem index={4} className="pt-3 sm:pt-4">
+            <AnimatedItem index={4} className="pt-3 sm:pt-4 clear-both md:clear-none">
               <p className="mb-2 sm:mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
                 <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-primary" />
                 {t.about.coreExpertise}

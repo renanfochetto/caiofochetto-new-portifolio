@@ -60,66 +60,8 @@
   },
   "footer": {
     "cta": "Let's talk?",
-    "ctaDescription": "Open to opportunities in Creator Economy, Performance Marketing and marketing leadership.",
+    "ctaDescription": "15+ years leading projects that connect brand, \nculture, and performance for global companies.",
     "ctaButton": "Send email",
     "developedBy": "Developed by"
-  },
-  "cases": {
-    "history-ae-digital-transformation": {
-      "title": "Digital Platform Monetization: +634% Growth",
-      "client": "HISTORY, A&E, Lifetime",
-      "company": "A+E Networks",
-      "year": "2015",
-      "description": "Content distribution and monetization strategy across the three brands' digital platforms, using social channels as revenue and audience growth drivers.",
-      "challenge": "Expand digital audiences and create new catalog monetization opportunities in an increasingly fragmented consumption landscape, where traditional platforms were losing ground to social.",
-      "solution": "Strategic use of social channels as distribution platforms — publishing selected episodes and editorial cuts from series within specific time windows to attract new audiences and convert into platform revenue.",
-      "insights": [
-        "Social platforms can be monetization channels as efficient as traditional broadcast",
-        "Strategic distribution windows generate organic discovery and revenue simultaneously",
-        "Multi-brand management requires distinct editorial identity per channel to avoid cannibalizing audience"
-      ]
-    },
-    "formula-e-community": {
-      "title": "Community Building for Formula E: 7% Engagement",
-      "client": "Formula E",
-      "company": "A+E Networks",
-      "year": "2016",
-      "description": "Digital and community strategy for the global Formula E championship in Brazil, building local presence for a high-impact international brand.",
-      "challenge": "Establish local digital presence and build community relationships for a global championship arriving in Brazil for the first time, without a consolidated fan base.",
-      "solution": "Development of digital and community strategy from scratch: positioning, community guidelines, crisis management, always-on content planning and real-time coverage through content and influencers.",
-      "insights": [
-        "Community built with consistency outperforms one-off campaigns in long-term engagement",
-        "Real-time activation during events requires robust crisis protocols and agile decision-making",
-        "Well-utilized native platform tools can drive significant sales conversion"
-      ]
-    },
-    "budweiser-fifa-influencer": {
-      "title": "Influencer Marketing at Scale: 75M Reach at FIFA",
-      "client": "Budweiser",
-      "company": "Octagon",
-      "year": "2023",
-      "description": "Influencer marketing strategy for Budweiser's FIFA Club World Cup activation, combining scale, authenticity and performance through a diversified creator ecosystem.",
-      "challenge": "Activate a global sports event with massive cultural relevance, ensuring strong brand presence on digital platforms while balancing scale, authenticity and results — without appearing forced or generic.",
-      "solution": "Leadership of influencer marketing strategy with a diversified creator ecosystem: macro influencers for amplification, mid-tier for authentic storytelling and community creators for engagement. Oversight of selection, briefing, co-creation and real-time activation.",
-      "insights": [
-        "Diversified creator ecosystems — macro + mid-tier — deliver scale without sacrificing authenticity",
-        "Differentiated roles per creator (amplification, storytelling, engagement) optimize each profile's results",
-        "Real-time activation during event peaks is where brand visibility consolidates"
-      ]
-    },
-    "betfair-always-on": {
-      "title": "Always-On Strategy for Betfair: 7.5% Engagement",
-      "client": "Betfair",
-      "company": "Octagon",
-      "year": "2024",
-      "description": "Always-on influencer marketing strategy for Betfair, master sponsor of Vasco da Gama and Cruzeiro, transforming sponsorship into continuous cultural presence within fan communities.",
-      "challenge": "In a highly competitive sports betting market, Betfair needed to go beyond logo exposure and transform sponsorship into genuine cultural presence — speaking the fans' language, not corporate marketing.",
-      "solution": "Development of always-on strategy with niche creator squads, deeply embedded in each fanbase's culture. The approach combined platform-native content, editorial alignment with the football calendar and real-time performance monitoring via Power BI dashboard.",
-      "insights": [
-        "Niche communities deliver more authenticity and real engagement than mass reach",
-        "Culturally embedded creators generate content that doesn't feel like advertising",
-        "Data-driven optimization (Power BI) ensures sustained performance instead of isolated spikes"
-      ]
-    }
   }
 }

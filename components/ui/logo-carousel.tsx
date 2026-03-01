@@ -6,35 +6,41 @@ import { useEffect, useState } from "react";
 import { useTheme } from "../providers/theme-provider";
 
 const logos = [
-  { name: "ae", alt: "A+E Networks" },
-  { name: "ambev", alt: "Ambev" },
-  { name: "betfair", alt: "Betfair" },
-  { name: "budweiser", alt: "Budweiser" },
-  { name: "formulae", alt: "Formula E" },
-  { name: "history", alt: "History Channel" },
-  { name: "jellysmack", alt: "Jellysmack" },
-  { name: "lifetime", alt: "Lifetime" },
-  { name: "octagon", alt: "Octagon" },
-  { name: "netflix", alt: "Netflix" },
-  { name: "natura", alt: "Natura" },
+  { name: "playstation", alt: "PlayStation" },
+  { name: "coca-cola", alt: "Coca-Cola" },
   { name: "havaianas", alt: "Havaianas" },
-  { name: "playground", alt: "Playground" },
-  { name: "bohemia", alt: "Bohemia" },
+  { name: "netflix", alt: "Netflix" },
+  { name: "epic-games", alt: "Epic Games" },
+  { name: "fortnite", alt: "Fortnite" },
+  { name: "natura", alt: "Natura" },
   { name: "nestle", alt: "Nestlé" },
+  { name: "powerade", alt: "Powerade", scale: 1.2 },
+  { name: "bohemia", alt: "Bohemia" },
+  { name: "budweiser", alt: "Budweiser" },
+  { name: "michelob", alt: "Michelob", scale: 1.5 },
+  { name: "ambev", alt: "Ambev" },
+  { name: "gatorade", alt: "Gatorade", scale: 1.3 },
+  { name: "betfair", alt: "Betfair" },
+  { name: "ufc", alt: "UFC" },
+  { name: "puma", alt: "Puma" },
+  { name: "fia", alt: "FIA" },
+  { name: "formulae", alt: "Formula E" },
+  { name: "neve", alt: "Neve" },
+  { name: "intimus", alt: "Íntimus" },
+  { name: "kimberly-clark", alt: "Kimberly Clark", scale: 1.5 },
+  { name: "sony", alt: "Sony" },
+  { name: "cultura", alt: "TV Cultura", scale: 1.2 },
+  { name: "record", alt: "Rede Record", scale: 1.2 },
+  { name: "history", alt: "History Channel" },
+  { name: "ae", alt: "A&E" },
+  { name: "lifetime", alt: "Lifetime" },
+  { name: "facebook", alt: "Facebook" },
+  { name: "globo", alt: "Rede Globo" },
 ];
 
 export function LogoCarousel() {
   const { theme } = useTheme();
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener("change", handler);
-    return () => mediaQuery.removeEventListener("change", handler);
-  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -56,25 +62,22 @@ export function LogoCarousel() {
       <div className="relative overflow-hidden">
         <motion.div
           className="flex w-max items-center"
-          animate={prefersReducedMotion ? {} : { x: ["0%", "-50%"] }}
-          transition={
-            prefersReducedMotion
-              ? {}
-              : {
-                duration: 40,
-                repeat: Infinity,
-                ease: "linear",
-              }
-          }
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            duration: 150,
+            repeat: Infinity,
+            ease: "linear",
+          }}
         >
           {duplicatedLogos.map((logo, idx) => (
             <div
               key={`${logo.name}-${idx}`}
-              className="relative flex-shrink-0 transition-opacity duration-300 mx-6 md:mx-10"
+              className="relative flex-shrink-0 transition-opacity duration-300 mx-8 md:mx-12"
               style={{
                 opacity: 0.65,
                 width: "120px",
                 height: "64px",
+                transform: logo.scale ? `scale(${logo.scale})` : "none",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.65")}

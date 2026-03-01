@@ -60,66 +60,8 @@
   },
   "footer": {
     "cta": "¿Conversamos?",
-    "ctaDescription": "Abierto a oportunidades en Creator Economy, Performance Marketing y liderazgo de marketing.",
+    "ctaDescription": "Más de 15 años liderando proyectos que conectan marca, \ncultura y performance para empresas globales.",
     "ctaButton": "Enviar correo",
     "developedBy": "Desarrollado por"
-  },
-  "cases": {
-    "history-ae-digital-transformation": {
-      "title": "Monetización de Plataformas Digitales: +634% de Crecimiento",
-      "client": "HISTORY, A&E, Lifetime",
-      "company": "A+E Networks",
-      "year": "2015",
-      "description": "Estrategia de distribución y monetización de contenido en las plataformas digitales de las tres marcas, usando canales sociales como vectores de ingresos y crecimiento de audiencia.",
-      "challenge": "Expandir audiencias digitales y crear nuevas oportunidades de monetización de catálogo en un escenario de consumo cada vez más fragmentado, donde las plataformas tradicionales perdían espacio frente a lo social.",
-      "solution": "Uso estratégico de los canales sociales como plataformas de distribución — publicando episodios seleccionados y cortes editoriales de las series en ventanas de tiempo específicas para atraer nuevas audiencias y convertir en ingresos de plataforma.",
-      "insights": [
-        "Las plataformas sociales pueden ser canales de monetización tan eficientes como el broadcast tradicional",
-        "La ventana de distribución estratégica genera descubrimiento orgánico e ingresos simultáneos",
-        "La gestión multi-marca exige identidad editorial distinta por canal para no canibalizar audiencia"
-      ]
-    },
-    "formula-e-community": {
-      "title": "Construcción de Comunidad para Formula E: 7% de Engagement",
-      "client": "Formula E",
-      "company": "A+E Networks",
-      "year": "2016",
-      "description": "Estrategia digital y de comunidad para el campeonato global de Fórmula E en Brasil, construyendo presencia local para una marca internacional de alto impacto.",
-      "challenge": "Establecer presencia digital local y construir relación con comunidades para un campeonato global que llegaba a Brasil por primera vez, sin base de fans consolidada.",
-      "solution": "Desarrollo de estrategia digital y de comunidad desde cero: posicionamiento, directrices de comunidad, gestión de crisis, planificación de contenido always-on y cobertura en tiempo real a través de contenido e influencers.",
-      "insights": [
-        "Comunidad construida con consistencia supera campañas puntuales en engagement de largo plazo",
-        "Activación en tiempo real durante eventos exige protocolos de crisis robustos y decisión ágil",
-        "Herramientas nativas de plataforma bien utilizadas pueden impulsar conversión significativa en ventas"
-      ]
-    },
-    "budweiser-fifa-influencer": {
-      "title": "Influencer Marketing a Escala: 75M de Alcance en FIFA",
-      "client": "Budweiser",
-      "company": "Octagon",
-      "year": "2023",
-      "description": "Estrategia de influencer marketing para activación de Budweiser en la FIFA Club World Cup, combinando escala, autenticidad y performance a través de un ecosistema diversificado de creators.",
-      "challenge": "Activar un evento deportivo global con relevancia cultural masiva, garantizando presencia de marca fuerte en plataformas digitales mientras se equilibra escala, autenticidad y resultado — sin parecer forzado o genérico.",
-      "solution": "Liderazgo de la estrategia de influencer marketing con un ecosistema diversificado de creators: macro influencers para amplificación, mid-tier para storytelling auténtico y creadores de comunidad para engagement. Supervisión de selección, briefing, co-creación y activación en tiempo real.",
-      "insights": [
-        "Ecosistemas diversificados de creators — macro + mid-tier — entregan escala sin sacrificar autenticidad",
-        "Roles diferenciados por creador (amplificación, storytelling, engagement) optimizan resultado de cada perfil",
-        "Activación en tiempo real en los picos del evento es donde la visibilidad de marca se consolida"
-      ]
-    },
-    "betfair-always-on": {
-      "title": "Estrategia Always-On para Betfair: 7.5% de Engagement",
-      "client": "Betfair",
-      "company": "Octagon",
-      "year": "2024",
-      "description": "Estrategia de influencer marketing always-on para Betfair, patrocinadora master de Vasco da Gama y Cruzeiro, transformando patrocinio en presencia cultural continua dentro de las comunidades de hinchas.",
-      "challenge": "En un mercado de apuestas deportivas altamente competitivo, Betfair necesitaba ir más allá de la exposición de logo y transformar el patrocinio en presencia cultural genuina — hablando el idioma de los hinchas, no del marketing corporativo.",
-      "solution": "Desarrollo de estrategia always-on con squads de creators especializados, profundamente insertados en la cultura de cada hinchada. El enfoque combinó contenido nativo de plataforma, alineamiento editorial con el calendario del fútbol y monitoreo de performance en tiempo real vía dashboard Power BI.",
-      "insights": [
-        "Comunidades especializadas entregan más autenticidad y engagement real que alcance masivo",
-        "Creators culturalmente insertados en la hinchada generan contenido que no parece publicidad",
-        "Optimización basada en datos (Power BI) garantiza performance sostenido en vez de picos aislados"
-      ]
-    }
   }
 }
