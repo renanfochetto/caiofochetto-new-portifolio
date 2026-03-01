@@ -199,18 +199,16 @@ export function CaseTemplate({
       {variant === "performance" &&
         (caseData as CaseData).playlist_url &&
         (() => {
-          const playlistId = (() => {
-            try {
-              const url = new URL((caseData as CaseData).playlist_url!);
-              return url.searchParams.get("list");
-            } catch {
-              return null;
-            }
-          })();
+          const url = new URL((caseData as CaseData).playlist_url!);
 
-          if (!playlistId) return null;
+          const playlistId = url.searchParams.get("list");
+          const videoId = url.searchParams.get("v");
 
-          const embedUrl = `https://www.youtube.com/embed/videoseries?list=${playlistId}`;
+          if (!playlistId && !videoId) return null;
+
+          const embedUrl = playlistId
+            ? `https://www.youtube.com/embed/videoseries?list=${playlistId}`
+            : `https://www.youtube.com/embed/${videoId}`;
 
           return (
             <section className="px-0 sm:px-6 py-12 sm:py-16 lg:px-8">

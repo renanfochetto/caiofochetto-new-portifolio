@@ -478,7 +478,7 @@ export const performanceCases: CaseData[] = [
       'Gestión de Proyectos'
     ],
 
-    playlist_url: 'https://www.youtube.com/playlist?list=PLC85G0r1H2eGx1IHCjyD3YL8DyQYvsl_1',
+    playlist_url: 'https://www.youtube.com/watch?v=7-KpbD_RnPs',
     thumbnail: '/images/cases/history-ae-lifetime/thumbnail.jpg',
     hero_type: 'video',
     hero_placeholder: '/images/cases/history-ae-lifetime/hero.jpg',
