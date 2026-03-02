@@ -108,7 +108,7 @@ export function AboutSection() {
                   <AnimatedItem
                     key={skill}
                     index={idx}
-                    className="rounded-full border border-primary/35 bg-primary/10 px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs font-medium text-primary hover:bg-primary/15"
+                    className="rounded-full border border-primary/35 bg-secondary px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs font-medium text-primary hover:bg-primary/15"
                   >
                     {skill}
                   </AnimatedItem>
