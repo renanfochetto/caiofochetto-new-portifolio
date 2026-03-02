@@ -20,32 +20,6 @@ const languages: LanguageOption[] = [
   { code: 'es', name: 'Español', label: 'ES' }
 ]
 
-// Ícones de bandeira simples em SVG
-const Flags = {
-  pt: () => (
-    <svg viewBox="0 0 24 24" className="w-4 h-4 rounded-sm" xmlns="http://www.w3.org/2000/svg">
-      <rect width="24" height="24" fill="#006600"/>
-      <rect width="10" height="24" fill="#FF0000" x="14"/>
-      <circle cx="14" cy="12" r="4" fill="#FFD700"/>
-    </svg>
-  ),
-  en: () => (
-    <svg viewBox="0 0 24 24" className="w-4 h-4 rounded-sm" xmlns="http://www.w3.org/2000/svg">
-      <rect width="24" height="24" fill="#00247D"/>
-      <path d="M0 0 L24 24 M24 0 L0 24" stroke="#fff" strokeWidth="3"/>
-      <path d="M0 0 L24 24 M24 0 L0 24" stroke="#CF142B" strokeWidth="2"/>
-      <path d="M12 0 V24 M0 12 H24" stroke="#fff" strokeWidth="4"/>
-      <path d="M12 0 V24 M0 12 H24" stroke="#CF142B" strokeWidth="3"/>
-    </svg>
-  ),
-  es: () => (
-    <svg viewBox="0 0 24 24" className="w-4 h-4 rounded-sm" xmlns="http://www.w3.org/2000/svg">
-      <rect width="24" height="24" fill="#AA151B"/>
-      <rect width="24" height="12" fill="#F1BF00" y="6"/>
-    </svg>
-  )
-}
-
 interface LanguageSwitcherProps {
   variant?: 'desktop' | 'mobile'
 }
@@ -68,7 +42,7 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
     const segments = pathname.split('/')
     segments[1] = code
     const newPathname = segments.join('/')
-    
+
     router.push(newPathname)
     setIsOpen(false)
   }
@@ -80,11 +54,11 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
         setIsOpen(false)
       }
     }
-    
+
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside)
     }
-    
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
@@ -92,7 +66,7 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
 
   if (variant === 'mobile') {
     return (
-      <div className="flex items-center gap-1.5 p-1 rounded-full border border-neutral-600 bg-background transition-colors duration-300">
+      <div className="flex items-center gap-1.5 p-1 rounded-full border border-neutral-600 bg-card transition-colors duration-300">
         {languages.map((lang) => {
           const isSelected = locale === lang.code
           return (
@@ -108,7 +82,7 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
                   transition={springTransitions.smooth}
                 />
               )}
-              <span className={`relative z-10 ${isSelected ? 'text-primary-foreground' : 'text-muted-foreground hover:text-foreground'}`}>
+              <span className={`relative z-10 ${isSelected ? 'text-primary-foreground' : 'text-muted-foreground hover:text-primary'}`}>
                 {lang.label}
               </span>
             </button>
@@ -123,8 +97,8 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="
-          flex items-center justify-center gap-2 
-          rounded-full 
+          flex items-center justify-center gap-2
+          rounded-full
           border border-neutral-600
           hover:border-primary
           active:scale-95
@@ -134,12 +108,12 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
           text-muted-foreground
           hover:text-primary
           transition-all duration-200
-          bg-background/80 backdrop-blur-sm
+          bg-card
         "
       >
         <span className="hidden lg:inline">{currentLang.name}</span>
         <span className="lg:hidden uppercase">{currentLang.code}</span>
-        <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-3 h-3 transition-transform duration-200 hover:text-primary ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -151,7 +125,7 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
             transition={{ duration: 0.2, ease: "easeOut" }}
             className="
               absolute right-0 mt-2 w-40
-              bg-background/95 backdrop-blur-md
+              bg-card
               border border-neutral-600
               rounded-2xl shadow-xl
               z-[60] overflow-hidden
@@ -167,9 +141,9 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
                     rounded-xl
                     transition-colors duration-150
                     text-left
-                    ${locale === lang.code 
-                      ? 'text-primary bg-primary/10' 
-                      : 'text-muted-foreground hover:text-primary hover:bg-primary/5'}
+                    ${locale === lang.code
+                    ? 'text-primary bg-primary/10'
+                    : 'text-muted-foreground hover:text-primary'}
                   `}
                 >
                   <span className="text-xs font-medium flex-1">{lang.name}</span>

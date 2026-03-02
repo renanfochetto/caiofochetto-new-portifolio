@@ -26,8 +26,9 @@
     "ariaProduction": "Ver cases de producción"
   },
   "experience": {
-    "sectionLabel": "Carrera",
+    "sectionLabel": "Mi Carrera",
     "heading": "Experiencia profesional",
+    "subheading": "De productor digital a líder estratégico, conectando creatividad, datos y performance a lo largo de 15+ años.",
     "present": "Actual",
     "showMore": "Ver anteriores",
     "showLess": "Ver menos"
@@ -42,7 +43,7 @@
     "tvProducerCoordinator": "Coordinador de Producción TV"
   },
   "about": {
-    "sectionLabel": "Sobre mí",
+    "sectionLabel": "Sobre Mí",
     "heading": "Caio Fochetto",
     "p1": "Líder en estrategia, contenido e influencia con más de 15 años conectando marca, cultura y resultado. Transformo comportamiento de audiencia en direccionamiento estratégico, uniendo datos, creatividad e inteligencia de plataformas.",
     "p2": "Actuación enfocada en estrategia de marca, liderazgo de equipos, contenido multiplataforma, análisis de desempeño, partnerships y posicionamiento cultural.",
@@ -58,10 +59,14 @@
       "Estructuración de Operaciones"
     ]
   },
+  "contact": {
+    "sectionLabel": "Contáctame",
+    "heading": "¿Conversamos?",
+    "description": "Más de 15 años liderando proyectos que conectan marca, cultura y performance para empresas globales.",
+    "emailButton": "E-Mail",
+    "linkedinButton": "LinkedIn"
+  },
   "footer": {
-    "cta": "¿Conversamos?",
-    "ctaDescription": "Más de 15 años liderando proyectos que conectan marca, \ncultura y performance para empresas globales.",
-    "ctaButton": "Enviar correo",
     "developedBy": "Desarrollado por"
   }
 }

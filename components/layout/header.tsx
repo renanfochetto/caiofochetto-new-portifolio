@@ -89,6 +89,7 @@ export function Header() {
               text-muted-foreground
               hover:text-primary
               transition-all duration-200
+              bg-card
             "
             aria-label="Toggle theme"
           >
@@ -188,6 +189,7 @@ export function Header() {
                     text-muted-foreground
                     hover:text-primary
                     transition-all duration-200
+                    bg-card
                   "
                   aria-label="Toggle theme"
                 >

@@ -1,30 +1,30 @@
 "use client";
 
 import Image from "next/image";
-import { useI18n } from "@/context/i18n-provider";
-import { Sparkles, Globe } from "lucide-react";
-import { AnimatedSection, AnimatedItem } from "../ui/animated-section";
-import { useTheme } from "@/components/providers/theme-provider";
-import { useState } from "react";
+import {useI18n} from "@/context/i18n-provider";
+import {Sparkles, Globe, Fingerprint} from "lucide-react";
+import {AnimatedSection, AnimatedItem} from "../ui/animated-section";
+import {useTheme} from "@/components/providers/theme-provider";
+import {useState} from "react";
 
 export function AboutSection() {
-  const { t } = useI18n();
-  const { theme } = useTheme();
+  const {t} = useI18n();
+  const {theme} = useTheme();
   const [isHovered, setIsHovered] = useState(false);
 
-  // ✅ Profundidade equilibrada nos dois modos
+  // ✅ Glow sutil e elegante
   const getShadowStyle = () => {
     if (theme === 'dark') {
       return {
         filter: isHovered
-          ? 'drop-shadow(0px 0px 20px rgba(202, 255, 0, 0.4))'   // Hover
-          : 'drop-shadow(0px 0px 12px rgba(202, 255, 0, 0.3))'   // Normal
+          ? 'drop-shadow(0px 2px 12px rgba(202, 255, 0, 0.25))'   // Hover
+          : 'drop-shadow(0px 2px 8px rgba(202, 255, 0, 0.2))'     // Normal
       };
     } else {
       return {
         filter: isHovered
-          ? 'drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.4))'       // Hover
-          : 'drop-shadow(0px 0px 12px rgba(0, 0, 0, 0.3))'       // Normal
+          ? 'drop-shadow(0px 2px 12px rgba(0, 0, 0, 0.45))'       // Hover
+          : 'drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.4))'         // Normal
       };
     }
   };
@@ -32,9 +32,12 @@ export function AboutSection() {
   return (
     <section id="about" className="px-6 py-24 lg:px-8">
       <AnimatedSection className="mx-auto max-w-6xl">
-        <p className="text-xs font-medium uppercase tracking-widest text-primary">
-          {t.about.sectionLabel}
-        </p>
+        <div className="flex items-center gap-2 mb-2">
+          <Fingerprint className="h-4 w-4 text-primary"/>
+          <p className="text-xs font-medium uppercase tracking-widest text-primary">
+            {t.about.sectionLabel}
+          </p>
+        </div>
         <h2 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">
           {t.about.heading}
         </h2>
@@ -47,9 +50,10 @@ export function AboutSection() {
         <div className="mt-12 md:grid md:gap-12 md:grid-cols-[280px_1fr] lg:grid-cols-[380px_1fr] lg:gap-16">
 
           {/* COLUNA 1: Foto */}
-          <AnimatedItem index={0} className="float-left mr-4 mb-2 w-[140px] sm:w-[180px] md:float-none md:mr-0 md:mb-0 md:w-full">
+          <AnimatedItem index={0}
+                        className="float-left mr-4 mb-2 w-[140px] sm:w-[180px] md:float-none md:mr-0 md:mb-0 md:w-full">
             <div className="relative group w-full">
-              {/* ✨ Shadow simétrico e equilibrado */}
+              {/* ✨ Shadow sutil e elegante */}
               <div
                 className="relative transition-all duration-700"
                 style={getShadowStyle()}
@@ -88,14 +92,15 @@ export function AboutSection() {
 
             <AnimatedItem index={3}>
               <p className="flex items-start gap-2 text-sm sm:text-base leading-relaxed text-muted-foreground">
-                <Globe className="mt-1 h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0 text-primary/60" />
+                <Globe className="mt-1 h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0 text-primary/60"/>
                 {t.about.p3}
               </p>
             </AnimatedItem>
 
             <AnimatedItem index={4} className="pt-3 sm:pt-4 clear-both md:clear-none">
-              <p className="mb-2 sm:mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-primary" />
+              <p
+                className="mb-2 sm:mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-primary"/>
                 {t.about.coreExpertise}
               </p>
               <div className="flex flex-wrap gap-1.5 sm:gap-2">

@@ -123,13 +123,13 @@ export function ProductionCard({
           {displayTags.map((tag, index) => (
             <span
               key={index}
-              className="rounded-full border border-neutral-600 px-2.5 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-muted-foreground transition-colors duration-200 hover:border-primary hover:text-primary"
+              className="rounded-full border border-neutral-600 px-2.5 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-muted-foreground transition-colors duration-200 bg-secondary hover:border-primary hover:text-primary"
             >
               {tag}
             </span>
           ))}
           {remainingTags > 0 && (
-            <span className="group/tag relative flex items-center gap-1.5 rounded-full border border-neutral-600 px-2.5 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-primary transition-all duration-300 hover:border-primary hover:bg-primary/5 hover:scale-105 active:scale-95">
+            <span className="group/tag relative flex items-center gap-1.5 rounded-full border border-neutral-600 px-2.5 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-primary transition-all duration-300 bg-secondary hover:border-primary hover:scale-105 active:scale-95">
               <span className="flex items-center">
                 +
                 <AnimatedCounter

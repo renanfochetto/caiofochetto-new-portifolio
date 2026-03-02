@@ -17,7 +17,7 @@ export function WorkToggle({ value, onChange }: WorkToggleProps) {
 
   return (
     <div className="flex justify-center mb-12">
-      <div className="relative inline-flex items-center gap-1 rounded-full border border-neutral-600 bg-background p-1">
+      <div className="relative inline-flex items-center gap-1 rounded-full border border-neutral-600 bg-card p-1">
         {/* Botão Performance */}
         <button
           onClick={() => onChange("performance")}
@@ -32,7 +32,7 @@ export function WorkToggle({ value, onChange }: WorkToggleProps) {
             ${
             value === "performance"
               ? "text-primary-foreground"
-              : "text-muted-foreground hover:text-foreground"
+              : "text-muted-foreground hover:text-primary"
           }
           `}
           aria-pressed={value === "performance"}
@@ -63,7 +63,7 @@ export function WorkToggle({ value, onChange }: WorkToggleProps) {
             ${
             value === "production"
               ? "text-primary-foreground"
-              : "text-muted-foreground hover:text-foreground"
+              : "text-muted-foreground hover:text-primary"
           }
           `}
           aria-pressed={value === "production"}

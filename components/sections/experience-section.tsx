@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
+import {useState} from "react";
 import Image from "next/image";
-import { useI18n } from "@/context/i18n-provider";
-import { Briefcase, ChevronDown, ChevronUp } from "lucide-react";
-import { AnimatedSection, AnimatedItem } from "../ui/animated-section";
+import {useI18n} from "@/context/i18n-provider";
+import {Briefcase, ChevronDown, ChevronUp, Footprints} from "lucide-react";
+import {AnimatedSection, AnimatedItem} from "../ui/animated-section";
 
 const experiences = [
   {
@@ -60,18 +60,25 @@ const experiencesOlder = [
 ];
 
 export function ExperienceSection() {
-  const { t } = useI18n(); // ← remover locale
+  const {t} = useI18n(); // ← remover locale
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <section id="experience" className="px-6 py-24 lg:px-8">
       <AnimatedSection className="mx-auto max-w-6xl">
-        <p className="text-xs font-medium uppercase tracking-widest text-primary">
-          {t.experience.sectionLabel}
-        </p>
+        <div className="flex items-center gap-2 mb-2">
+          <Footprints className="h-4 w-4 text-primary"/>
+          <p className="text-xs font-medium uppercase tracking-widest text-primary">
+            {t.experience.sectionLabel}
+          </p>
+        </div>
         <h2 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">
           {t.experience.heading}
         </h2>
+        {/* ✅ DESCRIPTION - mt-4 */}
+        <p className="mt-4 text-base text-muted-foreground md:text-lg max-w-2xl">
+          {t.experience.subheading}
+        </p>
 
         <div className="mt-12 space-y-0">
           {/* Experiências principais */}
@@ -98,8 +105,9 @@ export function ExperienceSection() {
                     ? `${exp.period}${t.experience.present}`
                     : exp.period}
                 </p>
-                <h3 className="mt-1.5 sm:mt-2 flex items-center gap-2 text-base sm:text-lg font-semibold text-foreground">
-                  <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                <h3
+                  className="mt-1.5 sm:mt-2 flex items-center gap-2 text-base sm:text-lg font-semibold text-foreground">
+                  <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0"/>
                   <span className="line-clamp-2">
                     {t.experienceRoles[exp.roleKey as keyof typeof t.experienceRoles]}
                   </span>
@@ -134,8 +142,9 @@ export function ExperienceSection() {
                         ? `${exp.period}${t.experience.present}`
                         : exp.period}
                     </p>
-                    <h3 className="mt-1.5 sm:mt-2 flex items-center gap-2 text-base sm:text-lg font-semibold text-foreground">
-                      <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                    <h3
+                      className="mt-1.5 sm:mt-2 flex items-center gap-2 text-base sm:text-lg font-semibold text-foreground">
+                      <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0"/>
                       <span className="line-clamp-2">
                         {t.experienceRoles[exp.roleKey as keyof typeof t.experienceRoles]}
                       </span>
@@ -155,6 +164,7 @@ export function ExperienceSection() {
                 group
                 flex items-center gap-2
                 rounded-full
+                bg-card
                 border border-neutral-600
                 hover:border-primary
                 active:scale-95
@@ -166,9 +176,11 @@ export function ExperienceSection() {
                 {isExpanded ? t.experience.showLess : t.experience.showMore} {/* ✅ USAR t */}
               </span>
               {isExpanded ? (
-                <ChevronUp className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground transition-all group-hover:text-primary group-hover:-translate-y-0.5" />
+                <ChevronUp
+                  className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground transition-all group-hover:text-primary group-hover:-translate-y-0.5"/>
               ) : (
-                <ChevronDown className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground transition-all group-hover:text-primary group-hover:translate-y-0.5" />
+                <ChevronDown
+                  className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground transition-all group-hover:text-primary group-hover:translate-y-0.5"/>
               )}
             </button>
           </div>

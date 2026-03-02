@@ -311,7 +311,7 @@ export function CaseTemplate({
             {tags.map((tag: string, index: number) => (
               <span
                 key={index}
-                className="rounded-full border border-neutral-600 px-4 py-2 text-sm font-medium text-muted-foreground transition-all duration-200 hover:border-primary hover:text-primary hover:scale-105"
+                className="rounded-full border border-neutral-600 px-4 py-2 text-sm font-medium text-muted-foreground transition-all duration-200 bg-card hover:border-primary hover:text-primary hover:scale-105"
               >
                 {tag}
               </span>

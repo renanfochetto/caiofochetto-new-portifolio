@@ -1,26 +1,25 @@
 "use client";
 
-import { useState } from "react";
-import { useI18n } from "@/context/i18n-provider";
-import { PerformanceCard } from "../cards/performance-card";
-import { ProductionCard } from "../cards/production-card";
-import { WorkToggle } from "../ui/work-toggle";
-import { AnimatedSection, AnimatedItem } from "../ui/animated-section";
-// ✅ APENAS DADOS (sem wrappers)
-import { performanceCases } from "@/lib/data/performance-cases";
-import { productionCases } from "@/lib/data/production-cases";
-// ✅ APENAS HELPERS
-import { brandLogos } from "@/lib/helpers/case-helpers";
+import {useState} from "react";
+import {useI18n} from "@/context/i18n-provider";
+import {PerformanceCard} from "../cards/performance-card";
+import {ProductionCard} from "../cards/production-card";
+import {WorkToggle} from "../ui/work-toggle";
+import {AnimatedSection, AnimatedItem} from "../ui/animated-section";
+import {Award} from "lucide-react";
+import {performanceCases} from "@/lib/data/performance-cases";
+import {productionCases} from "@/lib/data/production-cases";
+import {brandLogos} from "@/lib/helpers/case-helpers";
 
 export function WorkSection() {
-  const { t } = useI18n();
+  const {t} = useI18n();
 
   // Estado do toggle (default: performance)
   const [view, setView] = useState<"performance" | "production">("performance");
 
   // ✅ Função para reordenar itens para layout de colunas
   // Garante ordem visual horizontal em 2 colunas (1, 2, 3, 4 -> 1, 3, 2, 4)
-  const reorderForColumns = <T,>(items: T[]) => {
+  const reorderForColumns = <T, >(items: T[]) => {
     if (items.length <= 2) return items;
 
     const col1: T[] = [];
@@ -42,9 +41,12 @@ export function WorkSection() {
       <AnimatedSection className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-8">
-          <p className="text-xs font-medium uppercase tracking-widest text-primary">
-            {t.work.sectionLabel}
-          </p>
+          <div className="flex items-center gap-2">
+            <Award className="h-4 w-4 text-primary"/>
+            <p className="text-xs font-medium uppercase tracking-widest text-primary">
+              {t.work.sectionLabel}
+            </p>
+          </div>
           <h2 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">
             {t.work.heading}
           </h2>
@@ -54,7 +56,7 @@ export function WorkSection() {
         </div>
 
         {/* Toggle - Centralizado */}
-        <WorkToggle value={view} onChange={setView} />
+        <WorkToggle value={view} onChange={setView}/>
 
         {/* Cases Grid - Muda baseado no view */}
         <div className="mt-12 columns-1 gap-6 md:columns-2 md:gap-8">
