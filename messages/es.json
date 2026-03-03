@@ -31,16 +31,11 @@
     "subheading": "De productor digital a líder estratégico, conectando creatividad, datos y performance a lo largo de 15+ años.",
     "present": "Actual",
     "showMore": "Ver anteriores",
-    "showLess": "Ver menos"
-  },
-  "experienceRoles": {
-    "directorDigitalContent": "Director de Contenido Digital, Marketing de Influencia y Talento",
-    "latamOperationsLead": "Líder de Operaciones LATAM",
-    "contentProductManager": "Content and Product Manager",
-    "digitalPlatformsManager": "Digital Platforms Manager",
-    "digitalContentProducer": "Productor de Contenido Digital",
-    "webContentProducer": "Productor de Contenido Web",
-    "tvProducerCoordinator": "Coordinador de Producción TV"
+    "showLess": "Ver menos",
+    "viewDetails": "Ver detalles",
+    "hideDetails": "Ocultar detalles",
+    "responsibilities": "Principales responsabilidades",
+    "achievements": "Resultados alcanzados"
   },
   "about": {
     "sectionLabel": "Sobre Mí",

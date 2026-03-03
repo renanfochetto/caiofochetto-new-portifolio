@@ -29,18 +29,13 @@
     "sectionLabel": "My Career",
     "heading": "Professional experience",
     "subheading": "From digital producer to strategic leader, connecting creativity, data, and performance over 15+ years.",
-    "present": "Current",
-    "showMore": "Show previous",
-    "showLess": "Show less"
-  },
-  "experienceRoles": {
-    "directorDigitalContent": "Director of Digital Content, Influencer Marketing & Talent",
-    "latamOperationsLead": "LATAM Operations Lead",
-    "contentProductManager": "Content and Product Manager",
-    "digitalPlatformsManager": "Digital Platforms Manager",
-    "digitalContentProducer": "Digital Content Producer",
-    "webContentProducer": "Web Content Producer",
-    "tvProducerCoordinator": "TV Producer Coordinator"
+    "present": "Present",
+    "showMore": "View previous",
+    "showLess": "Show less",
+    "viewDetails": "View details",
+    "hideDetails": "Hide details",
+    "responsibilities": "Key responsibilities",
+    "achievements": "Results achieved"
   },
   "about": {
     "sectionLabel": "About Me",
