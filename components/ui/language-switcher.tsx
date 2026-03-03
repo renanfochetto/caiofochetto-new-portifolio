@@ -1,6 +1,6 @@
 'use client'
 
-import { useI18n } from '@/context/i18n-provider'
+import { useI18n } from '@/components/providers/i18n-provider'
 import { useRouter, usePathname } from 'next/navigation'
 import type { Locale } from '@/lib/i18n/dictionaries'
 import { useState, useRef, useEffect } from 'react'

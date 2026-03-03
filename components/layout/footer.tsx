@@ -1,6 +1,6 @@
 "use client";
 
-import {useI18n} from "@/context/i18n-provider";
+import {useI18n} from "@/components/providers/i18n-provider";
 
 export function Footer() {
   const {t} = useI18n();

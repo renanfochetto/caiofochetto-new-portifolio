@@ -1,7 +1,7 @@
 "use client";
 
 import {useState} from "react";
-import {useI18n} from "@/context/i18n-provider";
+import {useI18n} from "@/components/providers/i18n-provider";
 import {PerformanceCard} from "../cards/performance-card";
 import {ProductionCard} from "../cards/production-card";
 import {WorkToggle} from "../ui/work-toggle";
@@ -50,7 +50,7 @@ export function WorkSection() {
           <h2 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">
             {t.work.heading}
           </h2>
-          <p className="mt-4 text-base text-muted-foreground md:text-lg max-w-2xl">
+          <p className="mt-4 text-base text-muted-foreground md:text-lg max-w-xl md:max-w-2xl">
             {t.work.subheading}
           </p>
         </div>

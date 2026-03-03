@@ -1,4 +1,9 @@
 {
+  "metadata": {
+    "title": "Caio Fochetto | Líder en Marketing de Influencers & Performance Digital",
+    "description": "15+ años conectando marca, cultura y performance a través de estrategias de contenido e influencia.",
+    "siteName": "Caio Fochetto"
+  },
   "header": {
     "work": "Cases",
     "experience": "Carrera",
@@ -8,15 +13,15 @@
   "hero": {
     "badge": "Disponible para propuestas y colaboraciones",
     "headingLine1": "Conectando marcas a la cultura",
-    "headingLine2": "y la performance con",
+    "headingLine2": "y performance con",
     "headingLine3": "estrategias de contenido e influencia.",
-    "subtitle": "Más de 15 años liderando estrategias para marcas globales en América Latina.",
+    "subtitle": "Más de 15 años liderando estrategias para marcas globales en América\u00A0Latina.",
     "cta": "Ver algunos Cases"
   },
   "work": {
     "sectionLabel": "Cases Destacados",
     "heading": "Estrategia y ejecución lado a lado",
-    "subheading": "Estrategias de comunicación y marketing que conectan marcas a conversaciones relevantes.",
+    "subheading": "Estrategias de comunicación y marketing que conectan marcas a conversaciones\u00A0relevantes.",
     "viewCase": "Ver case completo",
     "video": "Video",
     "more": "competencias",

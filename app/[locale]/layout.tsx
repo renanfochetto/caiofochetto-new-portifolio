@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Space_Grotesk, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { notFound } from "next/navigation";
-import { I18nProvider } from "@/context/i18n-provider";
+import { I18nProvider } from "@/components/providers/i18n-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { PageTransition } from "@/components/layout/page-transition";
 import { getDictionary } from "@/lib/i18n/dictionaries";
@@ -41,21 +41,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  getDictionary(locale as Locale);
+  const dictionary = await getDictionary(locale as Locale);
 
-  const title =
-    locale === "pt"
-      ? "Caio Fochetto | Líder em Marketing de Influência & Performance Digital"
-      : locale === "es"
-        ? "Caio Fochetto | Líder en Marketing de Influencers & Performance Digital"
-        : "Caio Fochetto | Influencer Marketing & Digital Performance Leader";
-
-  const description =
-    locale === "pt"
-      ? "15+ anos conectando marca, cultura e performance através de creators e dados."
-      : locale === "es"
-        ? "15+ años conectando marca, cultura y performance a través de creators y datos."
-        : "15+ years connecting brand, culture, and performance through creators and data.";
+  // ✅ USAR DADOS DO JSON
+  const { title, description, siteName } = dictionary.metadata;
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -73,21 +62,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: `/${locale}`,
       languages: { "pt-BR": "/pt", "en-US": "/en", "es-ES": "/es" },
     },
-    title: { default: title, template: `%s | Caio Fochetto` },
+
+    title: {
+      default: title,
+      template: `%s | ${siteName}`
+    },
+
     description,
+
     openGraph: {
       title,
       description,
       url: `${SITE_URL}/${locale}`,
-      siteName: "Caio Fochetto",
+      siteName,
       type: "website",
       locale: locale === "pt" ? "pt_BR" : locale === "es" ? "es_ES" : "en_US",
     },
+
     twitter: {
       card: "summary_large_image",
       title,
       description,
     },
+
     robots: { index: true, follow: true },
   };
 }

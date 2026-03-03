@@ -1,6 +1,6 @@
 "use client";
 
-import {useI18n} from "@/context/i18n-provider";
+import {useI18n} from "@/components/providers/i18n-provider";
 import {useTheme} from "../providers/theme-provider";
 import {Linkedin, Mail, MessageCircle} from "lucide-react";
 import {AnimatedSection} from "../ui/animated-section";

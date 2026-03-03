@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useTheme } from "../providers/theme-provider";
-import { useI18n } from "@/context/i18n-provider";
+import { useI18n } from "@/components/providers/i18n-provider";
 import { ArrowUpRight, Play } from "lucide-react";
 import { AnimatedCounter } from "../ui/animated-counter";
 

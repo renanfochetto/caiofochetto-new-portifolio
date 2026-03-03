@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useI18n } from "@/context/i18n-provider";
+import { useI18n } from "@/components/providers/i18n-provider";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useTheme } from "../providers/theme-provider";

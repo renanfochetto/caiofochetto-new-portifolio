@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { useI18n } from "@/context/i18n-provider";
+import { useI18n } from "@/components/providers/i18n-provider";
 import { Briefcase, ChevronDown, ChevronUp, Plus, Minus, TrendingUp, Footprints, Clipboard } from "lucide-react";
 import { AnimatedSection, AnimatedItem } from "../ui/animated-section";
 import { getFeaturedExperiences, getOlderExperiences } from "@/lib/data/experiences";

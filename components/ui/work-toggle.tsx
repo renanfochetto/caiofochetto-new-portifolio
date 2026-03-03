@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useI18n } from "@/context/i18n-provider";
+import { useI18n } from "@/components/providers/i18n-provider";
 import { TrendingUp, Film } from "lucide-react";
 import { springTransitions } from "@/hooks/use-animation";
 
