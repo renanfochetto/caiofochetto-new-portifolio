@@ -12,21 +12,21 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  // ✅ DEFAULT: SEMPRE DARK (não importa preferência do sistema)
   const [theme, setTheme] = useState<Theme>("dark");
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Verificar preferência salva ou usar preferência do sistema
+    // ✅ Verificar APENAS localStorage (ignora prefers-color-scheme)
     const savedTheme = localStorage.getItem("theme") as Theme | null;
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+    // Se tem preferência salva, usa ela. Senão, mantém dark.
+    const initialTheme = savedTheme || "dark";
     setTheme(initialTheme);
     applyTheme(initialTheme);
     setIsMounted(true);
   }, []);
 
-  // ✅ ADICIONAR: Aplicar tema toda vez que mudar
   useEffect(() => {
     if (isMounted) {
       applyTheme(theme);

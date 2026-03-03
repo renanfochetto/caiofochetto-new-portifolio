@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { notFound } from "next/navigation";
 import { I18nProvider } from "@/components/providers/i18n-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { DynamicFavicon } from "@/components/layout/dynamic-favicon"; // ← ADICIONAR
 import { PageTransition } from "@/components/layout/page-transition";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { locales } from "@/lib/i18n/dictionaries";
@@ -43,16 +44,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const dictionary = await getDictionary(locale as Locale);
 
-  // ✅ USAR DADOS DO JSON
   const { title, description, siteName } = dictionary.metadata;
 
   return {
     metadataBase: new URL(SITE_URL),
 
-    // ✅ FAVICONS
     icons: {
       icon: [
-        { url: '/favicon.svg', type: 'image/svg+xml' },
         { url: '/favicon.ico', sizes: '32x32' },
       ],
       apple: '/apple-touch-icon.png',
@@ -98,10 +96,12 @@ export const viewport: Viewport = {
 const themeScript = `(function() {
   try {
     const saved = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = saved || (prefersDark ? 'dark' : 'light');
+    const theme = saved || 'dark';
+    
     if (theme === 'light') {
       document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
     }
   } catch (e) {}
 })()`;
@@ -148,6 +148,7 @@ export default async function LocaleLayout({
     />
     <I18nProvider locale={locale as Locale}>
       <ThemeProvider>
+        <DynamicFavicon /> {/* ← ADICIONAR AQUI */}
         <PageTransition>{children}</PageTransition>
       </ThemeProvider>
     </I18nProvider>
