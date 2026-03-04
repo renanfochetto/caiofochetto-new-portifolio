@@ -4,42 +4,44 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTheme } from "../providers/theme-provider";
+import {  useI18n } from "@/components/providers/i18n-provider";
 
 const logos = [
-  { name: "playstation", alt: "PlayStation" },
-  { name: "coca-cola", alt: "Coca-Cola" },
-  { name: "havaianas", alt: "Havaianas" },
-  { name: "netflix", alt: "Netflix" },
-  { name: "epic-games", alt: "Epic Games" },
-  { name: "fortnite", alt: "Fortnite" },
-  { name: "natura", alt: "Natura" },
-  { name: "nestle", alt: "Nestlé" },
-  { name: "powerade", alt: "Powerade", scale: 1.2 },
-  { name: "bohemia", alt: "Bohemia" },
-  { name: "budweiser", alt: "Budweiser" },
-  { name: "michelob", alt: "Michelob", scale: 1.5 },
-  { name: "ambev", alt: "Ambev" },
-  { name: "gatorade", alt: "Gatorade", scale: 1.3 },
-  { name: "betfair", alt: "Betfair" },
-  { name: "ufc", alt: "UFC" },
-  { name: "puma", alt: "Puma" },
-  { name: "fia", alt: "FIA" },
-  { name: "formulae", alt: "Formula E" },
-  { name: "neve", alt: "Neve" },
-  { name: "intimus", alt: "Íntimus" },
-  { name: "kimberly-clark", alt: "Kimberly Clark", scale: 1.5 },
-  { name: "sony", alt: "Sony" },
-  { name: "cultura", alt: "TV Cultura", scale: 1.2 },
-  { name: "record", alt: "Rede Record", scale: 1.2 },
-  { name: "history", alt: "History Channel" },
-  { name: "ae", alt: "A&E" },
-  { name: "lifetime", alt: "Lifetime" },
-  { name: "facebook", alt: "Facebook" },
-  { name: "globo", alt: "Rede Globo" },
+  { name: "playstation", alt: "Logo PlayStation" },
+  { name: "coca-cola", alt: "Logo Coca-Cola" },
+  { name: "havaianas", alt: "Logo Havaianas" },
+  { name: "netflix", alt: "Logo Netflix" },
+  { name: "epic-games", alt: "Logo Epic Games" },
+  { name: "fortnite", alt: "Logo Fortnite" },
+  { name: "natura", alt: "Logo Natura" },
+  { name: "nestle", alt: "Logo Nestlé" },
+  { name: "powerade", alt: "Logo Powerade", scale: 1.2 },
+  { name: "bohemia", alt: "Logo Bohemia" },
+  { name: "budweiser", alt: "Logo Budweiser" },
+  { name: "michelob", alt: "Logo Michelob", scale: 1.5 },
+  { name: "ambev", alt: "Logo Ambev" },
+  { name: "gatorade", alt: "Logo Gatorade", scale: 1.3 },
+  { name: "betfair", alt: "Logo Betfair" },
+  { name: "ufc", alt: "Logo UFC" },
+  { name: "puma", alt: "Logo Puma" },
+  { name: "fia", alt: "Logo FIA" },
+  { name: "formulae", alt: "Logo Formula E" },
+  { name: "neve", alt: "Logo Neve" },
+  { name: "intimus", alt: "Logo Íntimus" },
+  { name: "kimberly-clark", alt: "Logo Kimberly Clark", scale: 1.5 },
+  { name: "sony", alt: "Logo Sony" },
+  { name: "cultura", alt: "Logo TV Cultura", scale: 1.2 },
+  { name: "record", alt: "Logo Rede Record", scale: 1.2 },
+  { name: "history", alt: "Logo History Channel" },
+  { name: "ae", alt: "Logo A&E" },
+  { name: "lifetime", alt: "Logo Lifetime" },
+  { name: "facebook", alt: "Logo Facebook" },
+  { name: "globo", alt: "Logo Rede Globo" },
 ];
 
 export function LogoCarousel() {
   const { theme } = useTheme();
+  const { t } = useI18n();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -59,7 +61,11 @@ export function LogoCarousel() {
 
   return (
     <div className="border-t border-neutral-600 pt-6">
-      <div className="relative overflow-hidden">
+      <div
+        className="relative overflow-hidden"
+        role="region"
+        aria-label={t.footer.carouselLabel}
+      >
         <motion.div
           className="flex w-max items-center"
           animate={{ x: ["0%", "-50%"] }}

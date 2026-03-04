@@ -122,13 +122,13 @@ export function PerformanceCard({
           {/* Badge + Arrow (arrow oculta em mobile) */}
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-1 sm:px-3 sm:py-1.5">
-              <Play className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-primary" />
+              <Play className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-primary" aria-hidden="true" />
               <span className="text-xs font-medium text-primary">
                 {t.work.video}
               </span>
             </div>
             {/* Seta decorativa - APENAS em tablet+ */}
-            <ArrowUpRight className="hidden sm:block h-5 w-5 text-muted-foreground transition-all duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary" />
+            <ArrowUpRight className="hidden sm:block h-5 w-5 text-muted-foreground transition-all duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary" aria-hidden="true" />
           </div>
         </div>
 
@@ -150,7 +150,7 @@ export function PerformanceCard({
             return (
               <div key={index} className="flex flex-col gap-1">
                 <div className="flex items-center gap-1.5">
-                  <IconComponent className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                  <IconComponent className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" aria-hidden="true" />
                   <AnimatedCounter
                     value={metric.value}
                     duration={2}
@@ -198,7 +198,7 @@ export function PerformanceCard({
         {/* CTA - seta funcional SEMPRE visível */}
         <div className="mt-4 sm:mt-6 flex items-center gap-2 text-xs sm:text-sm font-medium text-primary">
           <span>{t.work.viewCase}</span>
-          <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+          <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
         </div>
 
       </div>

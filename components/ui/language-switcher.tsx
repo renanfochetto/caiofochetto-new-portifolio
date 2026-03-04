@@ -1,12 +1,12 @@
 'use client'
 
-import { useI18n } from '@/components/providers/i18n-provider'
-import { useRouter, usePathname } from 'next/navigation'
-import type { Locale } from '@/lib/i18n/dictionaries'
-import { useState, useRef, useEffect } from 'react'
-import { Check, ChevronDown } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { springTransitions } from '@/hooks/use-animation'
+import {useI18n} from '@/components/providers/i18n-provider'
+import {useRouter, usePathname} from 'next/navigation'
+import type {Locale} from '@/lib/i18n/dictionaries'
+import {useState, useRef, useEffect} from 'react'
+import {Check, ChevronDown, Globe} from 'lucide-react'
+import {motion, AnimatePresence} from 'framer-motion'
+import {springTransitions} from '@/hooks/use-animation'
 
 interface LanguageOption {
   code: Locale
@@ -15,21 +15,23 @@ interface LanguageOption {
 }
 
 const languages: LanguageOption[] = [
-  { code: 'pt', name: 'Português', label: 'PT' },
-  { code: 'en', name: 'English', label: 'EN' },
-  { code: 'es', name: 'Español', label: 'ES' }
+  {code: 'pt', name: 'Português', label: 'PT'},
+  {code: 'en', name: 'English', label: 'EN'},
+  {code: 'es', name: 'Español', label: 'ES'}
 ]
 
 interface LanguageSwitcherProps {
   variant?: 'desktop' | 'mobile'
 }
 
-export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps) {
-  const { locale } = useI18n()
+export function LanguageSwitcher({variant = 'desktop'}: LanguageSwitcherProps) {
+  const {locale} = useI18n()
   const router = useRouter()
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+  const [focusedIndex, setFocusedIndex] = useState(0) // ✅ NOVO: índice do item focado
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   const currentLang = languages.find(l => l.code === locale) || languages[0]
 
@@ -45,9 +47,12 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
 
     router.push(newPathname)
     setIsOpen(false)
+
+    // ✅ RETORNAR FOCO PARA O BOTÃO
+    buttonRef.current?.focus()
   }
 
-  // Click outside handler for desktop dropdown
+  // Click outside handler
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -64,9 +69,71 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
     }
   }, [isOpen])
 
+  // ✅ KEYBOARD HANDLER COMPLETO
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (!isOpen) return
+
+      switch (event.key) {
+        case 'Escape':
+          event.preventDefault()
+          setIsOpen(false)
+          buttonRef.current?.focus()
+          break
+
+        case 'ArrowDown':
+          event.preventDefault()
+          setFocusedIndex(prev => (prev + 1) % languages.length)
+          break
+
+        case 'ArrowUp':
+          event.preventDefault()
+          setFocusedIndex(prev => (prev - 1 + languages.length) % languages.length)
+          break
+
+        case 'Home':
+          event.preventDefault()
+          setFocusedIndex(0)
+          break
+
+        case 'End':
+          event.preventDefault()
+          setFocusedIndex(languages.length - 1)
+          break
+
+        case 'Enter':
+        case ' ':
+          event.preventDefault()
+          handleSelectLanguage(languages[focusedIndex].code)
+          break
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown)
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen, focusedIndex])
+
+  // ✅ RESETAR FOCO AO ABRIR
+  useEffect(() => {
+    if (isOpen) {
+      // Encontrar índice do idioma atual
+      const currentIndex = languages.findIndex(l => l.code === locale)
+      setFocusedIndex(currentIndex >= 0 ? currentIndex : 0)
+    }
+  }, [isOpen, locale])
+
   if (variant === 'mobile') {
     return (
-      <div className="flex items-center gap-1.5 p-1 rounded-full border border-neutral-600 bg-card transition-colors duration-300">
+      <div
+        className="flex items-center gap-1.5 p-1 rounded-full border border-neutral-600 bg-card transition-colors duration-300"
+        role="group"
+        aria-label="Seletor de idioma"
+      >
         {languages.map((lang) => {
           const isSelected = locale === lang.code
           return (
@@ -74,15 +141,19 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
               key={lang.code}
               onClick={() => handleSelectLanguage(lang.code)}
               className="relative px-4 py-1.5 rounded-full text-xs font-bold transition-colors duration-300"
+              aria-label={`Mudar idioma para ${lang.name}`}
+              aria-pressed={isSelected}
             >
               {isSelected && (
                 <motion.div
                   layoutId="active-language"
                   className="absolute inset-0 bg-primary rounded-full"
                   transition={springTransitions.smooth}
+                  aria-hidden="true"
                 />
               )}
-              <span className={`relative z-10 ${isSelected ? 'text-primary-foreground' : 'text-muted-foreground hover:text-primary'}`}>
+              <span
+                className={`relative z-10 ${isSelected ? 'text-primary-foreground' : 'text-muted-foreground hover:text-primary'}`}>
                 {lang.label}
               </span>
             </button>
@@ -95,6 +166,7 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
   return (
     <div ref={dropdownRef} className="relative">
       <button
+        ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
         className="
           flex items-center justify-center gap-2
@@ -110,19 +182,26 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
           transition-all duration-200
           bg-card
         "
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
+        aria-label={`Idioma atual: ${currentLang.name}. Clique para selecionar outro idioma`}
       >
+        <Globe className="w-3.5 h-3.5" aria-hidden="true"/>
         <span className="hidden lg:inline">{currentLang.name}</span>
         <span className="lg:hidden uppercase">{currentLang.code}</span>
-        <ChevronDown className={`w-3 h-3 transition-transform duration-200 hover:text-primary ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown
+          className={`w-3 h-3 transition-transform duration-200 hover:text-primary ${isOpen ? 'rotate-180' : ''}`}
+          aria-hidden="true"
+        />
       </button>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 8, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            initial={{opacity: 0, y: 8, scale: 0.95}}
+            animate={{opacity: 1, y: 0, scale: 1}}
+            exit={{opacity: 0, y: 8, scale: 0.95}}
+            transition={{duration: 0.2, ease: "easeOut"}}
             className="
               absolute right-0 mt-2 w-40
               bg-card
@@ -130,25 +209,36 @@ export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps)
               rounded-2xl shadow-xl
               z-[60] overflow-hidden
             "
+            role="listbox"
+            aria-label="Selecionar idioma"
+            aria-activedescendant={`lang-option-${languages[focusedIndex].code}`} // ✅ NOVO: indicar item focado
           >
             <div className="p-1.5">
-              {languages.map(lang => (
+              {languages.map((lang, index) => (
                 <button
                   key={lang.code}
+                  id={`lang-option-${lang.code}`}
                   onClick={() => handleSelectLanguage(lang.code)}
+                  onMouseEnter={() => setFocusedIndex(index)}
                   className={`
-                    w-full flex items-center gap-3 px-3 py-2
-                    rounded-xl
-                    transition-colors duration-150
-                    text-left
-                    ${locale === lang.code
-                    ? 'text-primary bg-primary/10'
-                    : 'text-muted-foreground hover:text-primary'}
-                  `}
+      w-full flex items-center gap-3 px-3 py-2
+      rounded-xl
+      transition-colors duration-150
+      text-left
+      ${index === focusedIndex
+                    ? 'bg-primary/20 text-primary'
+                    : locale === lang.code
+                      ? 'text-primary bg-primary/10'
+                      : 'text-muted-foreground hover:text-primary'
+                  }
+    `}
+                  role="option"
+                  aria-selected={locale === lang.code}
+                  aria-label={lang.name}
                 >
                   <span className="text-xs font-medium flex-1">{lang.name}</span>
                   {locale === lang.code && (
-                    <Check className="w-3.5 h-3.5 text-primary" />
+                    <Check className="w-3.5 h-3.5 text-primary" aria-hidden="true"/>
                   )}
                 </button>
               ))}

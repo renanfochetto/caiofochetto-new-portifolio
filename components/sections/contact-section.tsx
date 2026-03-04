@@ -18,7 +18,7 @@ export function ContactSection() {
         <div className="border-t border-neutral-600 pt-16 md:pt-20 lg:pt-24">
           <AnimatedSection>
             <div className="flex items-center gap-2 mb-2">
-              <MessageCircle className="h-4 w-4 text-primary"/>
+              <MessageCircle className="h-4 w-4 text-primary" aria-hidden="true" />
               {/* ✅ LABEL - Espaçamento padronizado (sem mb-6) */}
               <p className="text-xs font-medium uppercase tracking-widest text-primary">
                 {t.contact.sectionLabel}
@@ -57,7 +57,7 @@ export function ContactSection() {
                 }
                 `}
               >
-                <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4"/>
+                <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                 {t.contact.emailButton}
               </a>
 
@@ -81,7 +81,7 @@ export function ContactSection() {
                   transition-all duration-200
                 "
               >
-                <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4"/>
+                <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                 {t.contact.linkedinButton}
               </a>
             </div>

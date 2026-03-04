@@ -130,12 +130,12 @@ export function CaseTemplate({
               href={`/${locale}`}
               className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-all hover:text-primary active:scale-95"
             >
-              <ArrowLeft className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" />
+              <ArrowLeft className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" aria-hidden="true" />
               {sectionLabels.back}
             </Link>
 
             <div className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-primary">
-              <Calendar className="h-4 w-4 transition-transform duration-200 group-hover:rotate-12 group-hover:scale-110" />
+              <Calendar className="h-4 w-4 transition-transform duration-200 group-hover:rotate-12 group-hover:scale-110" aria-hidden="true" />
               <span className="font-medium text-foreground transition-colors duration-200 group-hover:text-primary">
                 {period}
               </span>
@@ -216,7 +216,7 @@ export function CaseTemplate({
               <AnimatedSection className="mx-auto w-full sm:max-w-4xl">
                 <div className="px-6 sm:px-0 mb-6 sm:mb-8">
                   <div className="flex items-center gap-2">
-                    <Play className="h-4 w-4 text-primary" />
+                    <Play className="h-4 w-4 text-primary" aria-hidden="true" />
                     <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
                       {sectionLabels.relatedContent}
                     </h2>
@@ -243,7 +243,7 @@ export function CaseTemplate({
                     className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     <span>{sectionLabels.viewFullPlaylist}</span>
-                    <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
                   </a>
                 </div>
               </AnimatedSection>
@@ -265,7 +265,7 @@ export function CaseTemplate({
               <AnimatedSection className="mx-auto w-full sm:max-w-4xl">
                 <div className="px-6 sm:px-0 mb-6 sm:mb-8">
                   <div className="flex items-center gap-2">
-                    <Play className="h-4 w-4 text-primary" />
+                    <Play className="h-4 w-4 text-primary" aria-hidden="true" />
                     <h2 className="text-xs font-medium uppercase tracking-widest text-primary">
                       {sectionLabels.relatedContent}
                     </h2>
@@ -302,7 +302,7 @@ export function CaseTemplate({
       <section className="px-6 py-16 lg:px-8">
         <AnimatedSection className="mx-auto max-w-4xl">
           <div className="mb-4 flex items-center gap-2">
-            <Tag className="h-4 w-4 text-primary" />
+            <Tag className="h-4 w-4 text-primary" aria-hidden="true" />
             <p className="text-xs font-medium uppercase tracking-widest text-primary">
               {sectionLabels.capabilities}
             </p>
@@ -330,7 +330,7 @@ export function CaseTemplate({
                 className="group flex flex-col gap-3 rounded-lg border border-neutral-600 bg-card p-6 transition-all duration-200 hover:border-primary active:scale-[0.98]"
               >
                 <div className="flex items-center gap-2 text-xs font-semibold text-primary">
-                  <ArrowLeft className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" />
+                  <ArrowLeft className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" aria-hidden="true" />
                   {sectionLabels.previous}
                 </div>
                 <div>
@@ -357,7 +357,7 @@ export function CaseTemplate({
               >
                 <div className="flex items-center justify-end gap-2 text-xs font-semibold text-primary">
                   {sectionLabels.next}
-                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
                 </div>
                 <div className="text-right">
                   <p className="text-xs text-muted-foreground">

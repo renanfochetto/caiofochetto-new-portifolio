@@ -45,7 +45,7 @@ export function WorkToggle({ value, onChange }: WorkToggleProps) {
               transition={springTransitions.smooth}
             />
           )}
-          <TrendingUp className="relative z-10 h-4 w-4 flex-shrink-0" />
+          <TrendingUp className="relative z-10 h-4 w-4 flex-shrink-0" aria-hidden="true" />
           <span className="relative z-10 whitespace-nowrap">{t.work.togglePerformance}</span>
         </button>
 
@@ -77,7 +77,7 @@ export function WorkToggle({ value, onChange }: WorkToggleProps) {
             />
           )}
           <span className="relative z-10 whitespace-nowrap">{t.work.toggleProduction}</span>
-          <Film className="relative z-10 h-4 w-4 flex-shrink-0" />
+          <Film className="relative z-10 h-4 w-4 flex-shrink-0" aria-hidden="true" />
         </button>
       </div>
     </div>

@@ -59,7 +59,7 @@ export function HeroSection() {
           "
             >
               {t.hero.cta}
-              <ArrowDown className="h-3.5 w-3.5 sm:h-4 sm:w-4"/>
+              <ArrowDown className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
             </a>
           </div>
         </div>

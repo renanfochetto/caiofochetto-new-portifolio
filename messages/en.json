@@ -4,6 +4,9 @@
     "description": "15+ years connecting brand, culture, and performance through content and influence strategies.",
     "siteName": "Caio Fochetto"
   },
+  "a11y": {
+    "skipToContent": "Skip to content"
+  },
   "header": {
     "work": "Cases",
     "experience": "Career",
@@ -45,6 +48,7 @@
   "about": {
     "sectionLabel": "About Me",
     "heading": "Caio Fochetto",
+    "imageAlt": "Caio Fochetto, leader in influencer marketing and digital performance",
     "p1": "Leader in strategy, content and influence with over 15 years connecting brand, culture and results. I transform audience behavior into strategic direction, combining data, creativity and platform intelligence.",
     "p2": "Focus on brand strategy, team leadership, multi-platform content, performance analysis, partnerships and cultural positioning.",
     "p3": "I work at the intersection of creativity, data and culture, where global brands need to speak to real communities.",
@@ -67,6 +71,7 @@
     "linkedinButton": "LinkedIn"
   },
   "footer": {
+    "carouselLabel": "Brands that were part of my journey",
     "developedBy": "Developed by"
   }
 }

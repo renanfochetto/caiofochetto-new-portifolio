@@ -110,3 +110,80 @@
 ::selection {
   @apply bg-primary text-primary-foreground;
 }
+
+/* ========================================
+   SCREEN READER ONLY
+   ======================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: fixed;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* ========================================
+   FOCUS INDICATORS (Acessibilidade WCAG 2.1 AA)
+   ======================================== */
+
+/* ✅ Remove outline padrão do navegador */
+*:focus {
+  outline: none;
+}
+
+/* ✅ Indicador de foco global - BOX-SHADOW (respeita border-radius) */
+*:focus-visible {
+  box-shadow:
+          0 0 0 2px rgb(var(--background)),  /* Espaço interno branco/preto */
+          0 0 0 4px rgb(var(--primary));      /* Borda externa lime/fúcsia */
+}
+
+/* ✅ Links - Shadow mais afastado */
+a:focus-visible {
+  box-shadow:
+          0 0 0 2px rgb(var(--background)),
+          0 0 0 5px rgb(var(--primary));
+}
+
+/* ✅ Botões - Shadow + glow sutil */
+button:focus-visible {
+  box-shadow:
+          0 0 0 2px rgb(var(--background)),
+          0 0 0 4px rgb(var(--primary)),
+          0 0 12px rgb(var(--primary) / 0.3);  /* Glow suave */
+}
+
+/* ✅ Inputs, Textareas e Selects */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  border-color: rgb(var(--primary));
+  box-shadow:
+          0 0 0 1px rgb(var(--primary)),
+          0 0 8px rgb(var(--primary) / 0.2);
+}
+
+/* ✅ Elementos com role de botão ou link */
+[role="button"]:focus-visible,
+[role="link"]:focus-visible {
+  box-shadow:
+          0 0 0 2px rgb(var(--background)),
+          0 0 0 4px rgb(var(--primary)),
+          0 0 12px rgb(var(--primary) / 0.3);
+}

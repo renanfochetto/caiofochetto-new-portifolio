@@ -58,7 +58,7 @@ export function ExperienceSection() {
       <AnimatedSection className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="flex items-center gap-2 mb-2">
-          <Footprints className="h-4 w-4 text-primary" />
+          <Footprints className="h-4 w-4 text-primary" aria-hidden="true" />
           <p className="text-xs font-medium uppercase tracking-widest text-primary">
             {t.experience.sectionLabel}
           </p>
@@ -98,7 +98,7 @@ export function ExperienceSection() {
                       {exp.company}
                     </h3>
                     <div className="flex items-center gap-2 mt-1 group/role cursor-default">
-                      <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                      <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" aria-hidden="true" />
                       <p className="text-sm sm:text-base font-bold text-foreground leading-tight transition-colors group-hover/role:text-primary">
                         {exp.role[locale as Locale]}
                       </p>
@@ -133,9 +133,10 @@ export function ExperienceSection() {
                   <button
                     onClick={() => toggleDetails(exp.id)}
                     className="group/btn text-primary transition-all duration-200 hover:scale-110 active:scale-95"
-                    aria-label={`Ver detalhes de ${exp.company}`}
+                    aria-label={`${t.experience.showMore} - ${exp.company}`}
+                    aria-expanded={false}
                   >
-                    <Plus className="h-5 w-5" />
+                    <Plus className="h-5 w-5" aria-hidden="true" />
                   </button>
                 </div>
               )}
@@ -160,7 +161,7 @@ export function ExperienceSection() {
                       {exp.details[locale as Locale].responsibilities && (
                         <div>
                           <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3 flex items-center gap-2">
-                            <Clipboard className="h-4 w-4 text-primary" />
+                            <Clipboard className="h-4 w-4 text-primary" aria-hidden="true" />
                             {t.experience.responsibilities}
                           </p>
                           <ul className="space-y-2">
@@ -179,7 +180,7 @@ export function ExperienceSection() {
                         exp.details[locale as Locale].achievements!.length > 0 && (
                           <div>
                             <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3 flex items-center gap-2">
-                              <TrendingUp className="h-4 w-4 text-primary" />
+                              <TrendingUp className="h-4 w-4 text-primary" aria-hidden="true" />
                               {t.experience.achievements}
                             </p>
                             <ul className="space-y-2">
@@ -199,9 +200,10 @@ export function ExperienceSection() {
                       <button
                         onClick={() => toggleDetails(exp.id)}
                         className="group/btn text-primary transition-all duration-200 hover:scale-110 active:scale-95"
-                        aria-label={`Ocultar detalhes de ${exp.company}`}
+                        aria-label={`${t.experience.showLess} - ${exp.company}`}
+                        aria-expanded={true}
                       >
-                        <Minus className="h-5 w-5" />
+                        <Plus className="h-5 w-5 rotate-45" aria-hidden="true" />
                       </button>
                     </div>
                   </motion.div>
@@ -236,7 +238,7 @@ export function ExperienceSection() {
                         <div className="flex items-center justify-center flex-shrink-0">
                           <Image
                             src={exp.logo}
-                            alt={`${exp.company} logo`}
+                            alt={`Logo ${exp.company}`}
                             width={64}
                             height={64}
                             className="w-12 h-12 sm:w-16 sm:h-16 rounded object-contain"
@@ -249,7 +251,7 @@ export function ExperienceSection() {
                             {exp.company}
                           </h3>
                           <div className="flex items-center gap-2 mt-1 group/role cursor-default">
-                            <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                            <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" aria-hidden="true" />
                             <p className="text-sm sm:text-base font-bold text-foreground leading-tight transition-colors group-hover/role:text-primary">
                               {exp.role[locale as Locale]}
                             </p>
@@ -284,9 +286,10 @@ export function ExperienceSection() {
                         <button
                           onClick={() => toggleDetails(exp.id)}
                           className="group/btn text-primary transition-all duration-200 hover:scale-110 active:scale-95"
-                          aria-label={`Ver detalhes de ${exp.company}`}
+                          aria-label={`${t.experience.showMore} - ${exp.company}`}
+                          aria-expanded={false}
                         >
-                          <Plus className="h-5 w-5" />
+                          <Plus className="h-5 w-5" aria-hidden="true" />
                         </button>
                       </div>
                     )}
@@ -311,7 +314,7 @@ export function ExperienceSection() {
                             {exp.details[locale as Locale].responsibilities && (
                               <div>
                                 <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3 flex items-center gap-2">
-                                  <Clipboard className="h-4 w-4 text-primary" />
+                                  <Clipboard className="h-4 w-4 text-primary" aria-hidden="true" />
                                   {t.experience.responsibilities}
                                 </p>
                                 <ul className="space-y-2">
@@ -330,7 +333,7 @@ export function ExperienceSection() {
                               exp.details[locale as Locale].achievements!.length > 0 && (
                                 <div>
                                   <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3 flex items-center gap-2">
-                                    <TrendingUp className="h-4 w-4 text-primary" />
+                                    <TrendingUp className="h-4 w-4 text-primary" aria-hidden="true" />
                                     {t.experience.achievements}
                                   </p>
                                   <ul className="space-y-2">
@@ -350,9 +353,10 @@ export function ExperienceSection() {
                             <button
                               onClick={() => toggleDetails(exp.id)}
                               className="group/btn text-primary transition-all duration-200 hover:scale-110 active:scale-95"
-                              aria-label={`Ocultar detalhes de ${exp.company}`}
+                              aria-label={`${t.experience.showLess} - ${exp.company}`}
+                              aria-expanded={true}
                             >
-                              <Minus className="h-5 w-5" />
+                              <Plus className="h-5 w-5 rotate-45" aria-hidden="true" />
                             </button>
                           </div>
                         </motion.div>
@@ -368,6 +372,7 @@ export function ExperienceSection() {
           <div ref={buttonRef} className="flex justify-center pt-6 sm:pt-8">
             <button
               onClick={toggleOlder}
+              aria-expanded={expandedOlder}
               className="
                 group
                 flex items-center gap-2
@@ -384,9 +389,9 @@ export function ExperienceSection() {
                 {expandedOlder ? t.experience.showLess : t.experience.showMore}
               </span>
               {expandedOlder ? (
-                <ChevronUp className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground transition-all group-hover:text-primary group-hover:-translate-y-0.5" />
+                <ChevronUp className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground transition-all group-hover:text-primary group-hover:-translate-y-0.5" aria-hidden="true" />
               ) : (
-                <ChevronDown className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground transition-all group-hover:text-primary group-hover:translate-y-0.5" />
+                <ChevronDown className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground transition-all group-hover:text-primary group-hover:translate-y-0.5" aria-hidden="true" />
               )}
             </button>
           </div>

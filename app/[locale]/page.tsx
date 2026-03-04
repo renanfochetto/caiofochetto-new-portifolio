@@ -12,16 +12,13 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
-      <main>
+      <main id="main-content">
         <HeroSection />
-
-        {/* Carrossel aparece APÓS o hero, só visível com scroll */}
         <AnimatedSection className="px-6 pb-16 lg:px-8">
           <div className="mx-auto w-full max-w-6xl">
             <LogoCarousel />
           </div>
         </AnimatedSection>
-
         <WorkSection />
         <ExperienceSection />
         <AboutSection />

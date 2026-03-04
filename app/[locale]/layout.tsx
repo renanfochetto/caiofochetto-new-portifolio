@@ -10,6 +10,7 @@ import { getDictionary } from "@/lib/i18n/dictionaries";
 import { locales } from "@/lib/i18n/dictionaries";
 import type { Locale } from "@/lib/i18n/dictionaries";
 import "../globals.css";
+import {SkipLink} from "@/components/layout/skip-link";
 
 const fraunces = Fraunces({
   variable: "--font-display",
@@ -168,6 +169,7 @@ export default async function LocaleLayout({
     />
     <I18nProvider locale={locale as Locale}>
       <ThemeProvider>
+        <SkipLink />
         <DynamicFavicon /> {/* ← ADICIONAR AQUI */}
         <PageTransition>{children}</PageTransition>
       </ThemeProvider>

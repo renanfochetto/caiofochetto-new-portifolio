@@ -7,17 +7,18 @@ export function DynamicFavicon() {
   const { theme } = useTheme();
 
   useEffect(() => {
-    // ✅ REMOVER link antigo e criar novo (evita cache)
-    const oldFavicon = document.querySelector("link[rel='icon']");
-    if (oldFavicon) {
-      document.head.removeChild(oldFavicon);
+    // ✅ BUSCAR favicon existente
+    let favicon = document.querySelector("link[rel='icon']") as HTMLLinkElement;
+
+    // ✅ Se não existe, criar um novo
+    if (!favicon) {
+      favicon = document.createElement('link');
+      favicon.rel = 'icon';
+      favicon.type = 'image/svg+xml';
+      document.head.appendChild(favicon);
     }
 
-    // ✅ CRIAR novo link
-    const newFavicon = document.createElement('link');
-    newFavicon.rel = 'icon';
-    newFavicon.type = 'image/svg+xml';
-
+    // ✅ ATUALIZAR href (não remover e criar novo)
     const svg = theme === 'dark'
       ? `<svg width="32" height="32" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
           <rect fill="black" width="480" height="480" rx="100"/>
@@ -31,12 +32,20 @@ export function DynamicFavicon() {
     const blob = new Blob([svg], { type: 'image/svg+xml' });
     const url = URL.createObjectURL(blob);
 
-    newFavicon.href = url;
+    // ✅ REVOGAR URL antigo antes de criar novo
+    if (favicon.href && favicon.href.startsWith('blob:')) {
+      URL.revokeObjectURL(favicon.href);
+    }
 
-    // ✅ ADICIONAR novo link ao head
-    document.head.appendChild(newFavicon);
+    // ✅ ATUALIZAR href
+    favicon.href = url;
 
-    return () => URL.revokeObjectURL(url);
+    // ✅ Cleanup: revogar quando componente desmontar
+    return () => {
+      if (url.startsWith('blob:')) {
+        URL.revokeObjectURL(url);
+      }
+    };
   }, [theme]);
 
   return null;

@@ -4,6 +4,9 @@
     "description": "15+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência.",
     "siteName": "Caio Fochetto"
   },
+  "a11y": {
+    "skipToContent": "Pular para o conteúdo"
+  },
   "header": {
     "work": "Cases",
     "experience": "Carreira",
@@ -45,6 +48,7 @@
   "about": {
     "sectionLabel": "Sobre Mim",
     "heading": "Caio Fochetto",
+    "imageAlt": "Caio Fochetto, líder em marketing de influência e performance digital",
     "p1": "Líder em estratégia, conteúdo e influência com mais de 15 anos conectando marca, cultura e resultado. Transformo comportamento de audiência em direcionamento estratégico, unindo dados, criatividade e inteligência de plataformas.",
     "p2": "Atuação focada em estratégia de marca, liderança de equipes, conteúdo multiplataforma, análise de desempenho, parcerias e posicionamento cultural.",
     "p3": "Atuo na interseção entre criatividade, dados e cultura, onde marcas globais precisam falar com comunidades reais.",
@@ -67,6 +71,7 @@
     "linkedinButton": "LinkedIn"
   },
   "footer": {
+    "carouselLabel": "Marcas que fizeram parte da minha trajetória",
     "developedBy": "Desenvolvido por"
   }
 }

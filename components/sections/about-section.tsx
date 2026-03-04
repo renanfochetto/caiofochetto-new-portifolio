@@ -33,7 +33,7 @@ export function AboutSection() {
     <section id="about" className="px-6 py-24 lg:px-8">
       <AnimatedSection className="mx-auto max-w-6xl">
         <div className="flex items-center gap-2 mb-2">
-          <Fingerprint className="h-4 w-4 text-primary"/>
+          <Fingerprint className="h-4 w-4 text-primary" aria-hidden="true" />
           <p className="text-xs font-medium uppercase tracking-widest text-primary">
             {t.about.sectionLabel}
           </p>
@@ -62,7 +62,7 @@ export function AboutSection() {
               >
                 <Image
                   src="/images/foto_caio.avif"
-                  alt="Caio Fochetto em evento de marketing"
+                  alt={t.about.imageAlt}
                   width={380}
                   height={475}
                   className="w-full h-auto object-cover transition-all duration-700
@@ -92,7 +92,7 @@ export function AboutSection() {
 
             <AnimatedItem index={3}>
               <p className="flex items-start gap-2 text-sm sm:text-base leading-relaxed text-muted-foreground">
-                <Globe className="mt-1 h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0 text-primary/60"/>
+                <Globe className="mt-1 h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0 text-primary/60" aria-hidden="true" />
                 {t.about.p3}
               </p>
             </AnimatedItem>
@@ -100,7 +100,7 @@ export function AboutSection() {
             <AnimatedItem index={4} className="pt-3 sm:pt-4 clear-both md:clear-none">
               <p
                 className="mb-2 sm:mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-primary"/>
+                <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-primary" aria-hidden="true" />
                 {t.about.coreExpertise}
               </p>
               <div className="flex flex-wrap gap-1.5 sm:gap-2">

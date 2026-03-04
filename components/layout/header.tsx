@@ -7,12 +7,32 @@ import { useState, useEffect } from "react";
 import { useTheme } from "../providers/theme-provider";
 import { motion, AnimatePresence } from "framer-motion";
 import { LanguageSwitcher } from "../ui/language-switcher";
+import FocusTrap from 'focus-trap-react';
 
 export function Header() {
   const { locale, t } = useI18n();
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // ✅ HANDLER ESC DEDICADO
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && menuOpen) {
+        e.preventDefault();
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener('keydown', handleEscape, { capture: true });
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape, { capture: true });
+    };
+  }, [menuOpen]);
+
+  // Scroll lock
   useEffect(() => {
     if (menuOpen) {
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -74,12 +94,11 @@ export function Header() {
             </Link>
           ))}
 
-          {/* Theme toggle */}
           <button
             onClick={toggleTheme}
             className="
-              flex items-center justify-center gap-1.5 
-              rounded-full 
+              flex items-center justify-center gap-1.5
+              rounded-full
               border border-neutral-600
               hover:border-primary
               active:scale-95
@@ -94,17 +113,16 @@ export function Header() {
             aria-label="Toggle theme"
           >
             {theme === "dark" ? (
-              <Sun className="h-3.5 w-3.5" />
+              <Sun className="h-3.5 w-3.5" aria-hidden="true" />
             ) : (
-              <Moon className="h-3.5 w-3.5" />
+              <Moon className="h-3.5 w-3.5" aria-hidden="true" />
             )}
           </button>
 
-          {/* Language switcher */}
           <LanguageSwitcher variant="desktop" />
         </div>
 
-        {/* Mobile - apenas hamburguer */}
+        {/* Mobile hamburguer */}
         <div className="flex items-center md:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -121,9 +139,9 @@ export function Header() {
                 className="absolute inset-0 flex items-center justify-center"
               >
                 {menuOpen ? (
-                  <X className="h-5 w-5" />
+                  <X className="h-5 w-5" aria-hidden="true" />
                 ) : (
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-5 w-5" aria-hidden="true" />
                 )}
               </motion.div>
             </AnimatePresence>
@@ -131,83 +149,88 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile fullscreen menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed left-0 right-0 top-14 z-40 bg-background md:hidden"
-            style={{ height: 'calc(100vh - 3.5rem)' }}
+          <FocusTrap
+            focusTrapOptions={{
+              allowOutsideClick: true,
+              escapeDeactivates: false, // ✅ ESC gerenciado manualmente
+              initialFocus: false,
+              returnFocusOnDeactivate: true,
+            }}
           >
-            <div className="flex h-full flex-col items-center justify-between px-6 py-16">
-              {/* Navigation links */}
-              <div className="flex flex-col gap-6 text-center">
-                {navItems.map((item, idx) => (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: idx * 0.05 }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={() => setMenuOpen(false)}
-                      className="text-2xl font-bold text-foreground transition-all duration-200 hover:text-primary active:text-primary/80 active:scale-90"
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="fixed left-0 right-0 top-14 z-40 bg-background md:hidden"
+              style={{ height: 'calc(100vh - 3.5rem)' }}
+            >
+              <div className="flex h-full flex-col items-center justify-between px-6 py-16">
+                <div className="flex flex-col gap-6 text-center">
+                  {navItems.map((item, idx) => (
+                    <motion.div
+                      key={item.href}
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: idx * 0.05 }}
                     >
-                      {item.label}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Theme and language toggles */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
-                className="flex flex-col items-center gap-8 border-t border-neutral-600 pt-16 w-full"
-              >
-                {/* Language switcher */}
-                <div className="flex justify-center w-full">
-                  <LanguageSwitcher variant="mobile" />
+                      <Link
+                        href={item.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="text-2xl font-bold text-foreground transition-all duration-200 hover:text-primary active:text-primary/80 active:scale-90"
+                      >
+                        {item.label}
+                      </Link>
+                    </motion.div>
+                  ))}
                 </div>
 
-                {/* Theme toggle */}
-                <button
-                  onClick={toggleTheme}
-                  className="
-                    flex items-center justify-center gap-2
-                    rounded-full 
-                    border border-neutral-600
-                    hover:border-primary
-                    active:scale-95
-                    px-6 py-2.5
-                    text-sm font-medium 
-                    text-muted-foreground
-                    hover:text-primary
-                    transition-all duration-200
-                    bg-card
-                  "
-                  aria-label="Toggle theme"
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
+                  className="flex flex-col items-center gap-8 border-t border-neutral-600 pt-16 w-full"
                 >
-                  {theme === "dark" ? (
-                    <>
-                      <Sun className="h-4 w-4" />
-                      <span>Light Mode</span>
-                    </>
-                  ) : (
-                    <>
-                      <Moon className="h-4 w-4" />
-                      <span>Dark Mode</span>
-                    </>
-                  )}
-                </button>
-              </motion.div>
-            </div>
-          </motion.div>
+                  <div className="flex justify-center w-full">
+                    <LanguageSwitcher variant="mobile" />
+                  </div>
+
+                  <button
+                    onClick={toggleTheme}
+                    className="
+                      flex items-center justify-center gap-2
+                      rounded-full
+                      border border-neutral-600
+                      hover:border-primary
+                      active:scale-95
+                      px-6 py-2.5
+                      text-sm font-medium
+                      text-muted-foreground
+                      hover:text-primary
+                      transition-all duration-200
+                      bg-card
+                    "
+                    aria-label="Toggle theme"
+                  >
+                    {theme === "dark" ? (
+                      <>
+                        <Sun className="h-4 w-4" aria-hidden="true" />
+                        <span>Light Mode</span>
+                      </>
+                    ) : (
+                      <>
+                        <Moon className="h-4 w-4" aria-hidden="true" />
+                        <span>Dark Mode</span>
+                      </>
+                    )}
+                  </button>
+                </motion.div>
+              </div>
+            </motion.div>
+          </FocusTrap>
         )}
       </AnimatePresence>
     </motion.header>
