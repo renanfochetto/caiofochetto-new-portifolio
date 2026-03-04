@@ -43,7 +43,7 @@ export default async function Image() {
             fontSize: '36px',
             fontWeight: 700,
             color: '#fafafa',
-            textAlign: 'center',
+            textAlign: 'left',
             marginBottom: '24px',
             lineHeight: 1.3,
           }}
@@ -56,7 +56,7 @@ export default async function Image() {
           style={{
             fontSize: '24px',
             color: '#a3a3a3',
-            textAlign: 'center',
+            textAlign: 'left',
             maxWidth: '900px',
             lineHeight: 1.5,
           }}
