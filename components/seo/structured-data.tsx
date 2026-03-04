@@ -5,8 +5,8 @@ export function PersonSchema() {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Caio Fochetto",
-    "jobTitle": "Digital Content Director, Influencer Marketing & Talent",
-    "description": "Líder em Creator Economy & Performance Marketing. 15+ anos de experiência em marketing de influência, estratégia de marca e performance digital.",
+    "jobTitle": "Líder em Marketing de Influência e Performance Digital",
+    "description": "15+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência.",
     "url": "https://caiofochetto.com",
     "image": "https://caiofochetto.com/images/foto_caio.avif",
     "sameAs": [
@@ -19,18 +19,18 @@ export function PersonSchema() {
     },
     "hasOccupation": {
       "@type": "Occupation",
-      "name": "Digital Marketing Director",
+      "name": "Marketing de Influência e Performance Digital",
       "occupationLocation": {
         "@type": "City",
         "name": "São Paulo"
       },
       "skills": [
-        "Influencer Marketing",
+        "Marketing de Influência",
         "Creator Economy",
         "Performance Marketing",
-        "Brand Strategy",
-        "Digital Content",
-        "Community Management",
+        "Estratégia de Marca",
+        "Conteúdo Digital",
+        "Gestão de Comunidade",
         "Social Media Marketing"
       ]
     },
@@ -55,15 +55,15 @@ export function PersonSchema() {
       }
     ],
     "knowsAbout": [
-      "Influencer Marketing",
+      "Marketing de Influência",
       "Creator Economy",
       "Performance Marketing",
-      "Brand Strategy",
-      "Digital Platforms",
+      "Estratégia de Marca",
+      "Plataformas Digitais",
       "Social Media",
-      "Community Management",
-      "Content Strategy",
-      "Marketing de Influência",
+      "Gestão de Comunidade",
+      "Estratégia de Conteúdo",
+      "Influencer Marketing",
       "Economia Criadora"
     ]
   };
