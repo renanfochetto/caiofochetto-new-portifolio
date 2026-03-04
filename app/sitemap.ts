@@ -1,11 +1,12 @@
 import { MetadataRoute } from 'next'
 import { locales } from '@/lib/i18n/dictionaries'
-import { performanceCases } from '@/lib/data/performance-cases' // ✅ Importar o que existe
-import { productionCases } from '@/lib/data/production-cases'   // ✅ Importar o que existe
+import { performanceCases } from '@/lib/data/performance-cases'
+import { productionCases } from '@/lib/data/production-cases'
 
 const SITE_URL = 'https://caiofochetto.com'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+// ✅ ADICIONAR async
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const currentDate = new Date()
 
   // ========================================
@@ -15,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${SITE_URL}/${locale}`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
+      changeFrequency: 'weekly' as const,
       priority: 1.0,
       alternates: {
         languages: Object.fromEntries(
