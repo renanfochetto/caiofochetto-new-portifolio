@@ -13,6 +13,7 @@ import { companyLogos, brandLogos } from "@/lib/helpers/case-helpers";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import type { CaseData } from "@/types/performance-case";
 import type { ProductionCase } from "@/types/production-case";
+import { CaseStudySchema, BreadcrumbSchema } from "@/components/seo/structured-data";
 
 interface CaseTemplateProps {
   variant: "performance" | "production";
@@ -79,10 +80,15 @@ export function CaseTemplate({
     ? (caseData as CaseData).period
     : (caseData as ProductionCase).year;
 
+  const baseUrl =
+    variant === "performance" ? "performance-case" : "production-case";
+
   // Logos
   const companyLogo = companyLogos[company];
   const firstBrand = Array.isArray(brand) ? brand[0] : brand;
   const brandLogo = brandLogos[firstBrand];
+
+  const caseUrl = `https://caiofochetto.com/${locale}/${baseUrl}/${caseData.slug}`;
 
   // Labels traduzidos
   const sectionLabels =
@@ -113,12 +119,24 @@ export function CaseTemplate({
           next: "Next",
         };
 
-  // URL base para links
-  const baseUrl =
-    variant === "performance" ? "performance-case" : "production-case";
-
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <CaseStudySchema
+        title={title}
+        description={data.challenge_pt || data.challenge_en || ""} // Usar challenge como description
+        brand={brand}
+        company={company}
+        year={period}
+        url={caseUrl}
+        image={`https://caiofochetto.com/logos/${logoFolder}/${brandLogo}.svg`}
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: `https://caiofochetto.com/${locale}` },
+          { name: title, url: caseUrl }
+        ]}
+      />
       <Header />
 
       {/* ✅ HERO */}

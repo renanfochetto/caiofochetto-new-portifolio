@@ -11,6 +11,7 @@ import { locales } from "@/lib/i18n/dictionaries";
 import type { Locale } from "@/lib/i18n/dictionaries";
 import "../globals.css";
 import {SkipLink} from "@/components/layout/skip-link";
+import { PersonSchema, PortfolioWebsiteSchema } from "@/components/seo/structured-data";
 
 const fraunces = Fraunces({
   variable: "--font-display",
@@ -146,27 +147,12 @@ export default async function LocaleLayout({
       className={`${fraunces.variable} ${spaceGrotesk.variable} ${manrope.variable}`}
       suppressHydrationWarning
     >
+    <head>
+      <PersonSchema />
+      <PortfolioWebsiteSchema />
+    </head>
     <body className="font-sans antialiased">
     <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          name: "Caio Fochetto",
-          url: SITE_URL,
-          jobTitle: "Influencer Marketing & Digital Performance Leader",
-          knowsAbout: [
-            "Creator Economy",
-            "Influencer Marketing",
-            "Performance Marketing",
-            "Digital Strategy",
-          ],
-          sameAs: ["https://www.linkedin.com/in/caiofochetto/"],
-        }),
-      }}
-    />
     <I18nProvider locale={locale as Locale}>
       <ThemeProvider>
         <SkipLink />
