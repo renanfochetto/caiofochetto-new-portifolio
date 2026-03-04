@@ -15,16 +15,16 @@ export default async function Image({ params }: Props) {
 
   const translations = {
     pt: {
-      tagline: 'Líder em Marketing de Influência & Performance Digital',
-      metrics: ['Crescimento', 'Alcance', 'Engajamento'],
+      title: 'Líder em Marketing de Influência & Performance Digital',
+      tagline: '15+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência',
     },
     en: {
-      tagline: 'Influencer Marketing & Digital Performance Leader',
-      metrics: ['Growth', 'Reach', 'Engagement'],
+      title: 'Influencer Marketing & Digital Performance Leader',
+      tagline: '15+ years connecting brand, culture, and performance through content and influence strategies',
     },
     es: {
-      tagline: 'Líder en Marketing de Influencers & Performance Digital',
-      metrics: ['Crecimiento', 'Alcance', 'Engagement'],
+      title: 'Líder en Marketing de Influencers & Performance Digital',
+      tagline: '15+ años conectando marca, cultura y performance a través de estrategias de contenido e influencia',
     },
   }
 
@@ -42,64 +42,53 @@ export default async function Image({ params }: Props) {
           justifyContent: 'center',
           backgroundColor: '#0a0a0a',
           padding: '80px',
+          fontFamily: 'sans-serif',
         }}
       >
+        {/* Nome */}
         <div
           style={{
-            fontSize: 80,
+            fontSize: '80px',
             fontWeight: 900,
             color: '#CAFF00',
-            marginBottom: 20,
+            marginBottom: '40px',
             letterSpacing: '-0.02em',
           }}
         >
           CAIO FOCHETTO
         </div>
 
+        {/* Título Principal */}
         <div
           style={{
-            fontSize: 32,
+            fontSize: '36px',
+            fontWeight: 700,
             color: '#fafafa',
             textAlign: 'center',
-            maxWidth: 900,
-            lineHeight: 1.4,
+            marginBottom: '24px',
+            lineHeight: 1.3,
+          }}
+        >
+          {t.title}
+        </div>
+
+        {/* Tagline */}
+        <div
+          style={{
+            fontSize: '24px',
+            color: '#a3a3a3',
+            textAlign: 'center',
+            maxWidth: '900px',
+            lineHeight: 1.5,
           }}
         >
           {t.tagline}
         </div>
-
-        <div
-          style={{
-            display: 'flex',
-            gap: 60,
-            marginTop: 60,
-            fontSize: 24,
-            color: '#a3a3a3',
-          }}
-        >
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 48, fontWeight: 'bold', color: '#CAFF00' }}>
-              +634%
-            </div>
-            <div>{t.metrics[0]}</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 48, fontWeight: 'bold', color: '#CAFF00' }}>
-              75M+
-            </div>
-            <div>{t.metrics[1]}</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 48, fontWeight: 'bold', color: '#CAFF00' }}>
-              7.5%
-            </div>
-            <div>{t.metrics[2]}</div>
-          </div>
-        </div>
       </div>
     ),
     {
-      ...size,
+      width: 1200,
+      height: 630,
     }
   )
 }

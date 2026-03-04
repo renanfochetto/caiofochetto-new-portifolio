@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Caio Fochetto - Creator Economy & Performance Marketing'
+export const alt = 'Caio Fochetto - Líder em Marketing de Influência & Performance Digital'
 export const size = {
   width: 1200,
   height: 630,
@@ -21,67 +21,53 @@ export default async function Image() {
           justifyContent: 'center',
           backgroundColor: '#0a0a0a',
           padding: '80px',
+          fontFamily: 'sans-serif',
         }}
       >
         {/* Nome */}
         <div
           style={{
-            fontSize: 80,
+            fontSize: '80px',
             fontWeight: 900,
             color: '#CAFF00',
-            marginBottom: 20,
+            marginBottom: '40px',
             letterSpacing: '-0.02em',
           }}
         >
           CAIO FOCHETTO
         </div>
 
-        {/* Tagline */}
+        {/* Título Principal */}
         <div
           style={{
-            fontSize: 32,
+            fontSize: '36px',
+            fontWeight: 700,
             color: '#fafafa',
             textAlign: 'center',
-            maxWidth: 900,
-            lineHeight: 1.4,
+            marginBottom: '24px',
+            lineHeight: 1.3,
           }}
         >
           Líder em Marketing de Influência & Performance Digital
         </div>
 
-        {/* Métricas */}
+        {/* Tagline */}
         <div
           style={{
-            display: 'flex',
-            gap: 60,
-            marginTop: 60,
-            fontSize: 24,
+            fontSize: '24px',
             color: '#a3a3a3',
+            textAlign: 'center',
+            maxWidth: '900px',
+            lineHeight: 1.5,
           }}
         >
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 48, fontWeight: 'bold', color: '#CAFF00' }}>
-              +634%
-            </div>
-            <div>Revenue Growth</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 48, fontWeight: 'bold', color: '#CAFF00' }}>
-              75M+
-            </div>
-            <div>Reach</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 48, fontWeight: 'bold', color: '#CAFF00' }}>
-              7.5%
-            </div>
-            <div>Engagement</div>
-          </div>
+          15+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência
         </div>
       </div>
     ),
     {
-      ...size,
+      width: 1200,
+      height: 630,
     }
   )
 }

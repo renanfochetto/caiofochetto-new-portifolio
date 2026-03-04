@@ -28,7 +28,7 @@ export default async function Image({ params }: Props) {
         : caseData.title_es
 
   const brand = Array.isArray(caseData.brand)
-    ? caseData.brand.join(', ')
+    ? caseData.brand.join(' • ')
     : caseData.brand
 
   return new ImageResponse(
@@ -43,33 +43,39 @@ export default async function Image({ params }: Props) {
           justifyContent: 'space-between',
           backgroundColor: '#0a0a0a',
           padding: '80px',
+          fontFamily: 'sans-serif',
         }}
       >
-        <div>
+        {/* Content */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {/* Brand */}
           <div
             style={{
-              fontSize: 24,
+              fontSize: '28px',
               color: '#CAFF00',
-              marginBottom: 20,
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
+              fontWeight: 700,
             }}
           >
             {brand}
           </div>
+
+          {/* Title */}
           <div
             style={{
-              fontSize: 52,
+              fontSize: '52px',
               fontWeight: 900,
               color: '#fafafa',
               lineHeight: 1.2,
-              maxWidth: 900,
+              maxWidth: '900px',
             }}
           >
             {title}
           </div>
         </div>
 
+        {/* Footer */}
         <div
           style={{
             display: 'flex',
@@ -80,7 +86,7 @@ export default async function Image({ params }: Props) {
         >
           <div
             style={{
-              fontSize: 32,
+              fontSize: '32px',
               fontWeight: 900,
               color: '#CAFF00',
             }}
@@ -89,7 +95,7 @@ export default async function Image({ params }: Props) {
           </div>
           <div
             style={{
-              fontSize: 20,
+              fontSize: '20px',
               color: '#a3a3a3',
             }}
           >
@@ -99,7 +105,8 @@ export default async function Image({ params }: Props) {
       </div>
     ),
     {
-      ...size,
+      width: 1200,
+      height: 630,
     }
   )
 }
