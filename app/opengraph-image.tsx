@@ -17,7 +17,7 @@ export default async function Image() {
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           justifyContent: 'center',
           backgroundColor: '#0a0a0a',
           padding: '80px',
