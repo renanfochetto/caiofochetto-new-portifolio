@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Space_Grotesk, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { notFound } from "next/navigation";
 import { I18nProvider } from "@/components/providers/i18n-provider";
@@ -9,34 +8,13 @@ import { PageTransition } from "@/components/layout/page-transition";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { locales } from "@/lib/i18n/dictionaries";
 import type { Locale } from "@/lib/i18n/dictionaries";
-import "../globals.css";
 import { SkipLink } from "@/components/layout/skip-link";
 import { PersonSchema, PortfolioWebsiteSchema } from "@/components/seo/structured-data";
 import Script from "next/script";
 import { UMAMI_CONFIG } from "@/lib/analytics/umami-config";
 import { ScrollDepthTracker } from "@/components/analytics/scroll-depth-tracker";
-
-
-const fraunces = Fraunces({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
+import "../globals.css";
+import "../fonts.css"
 
 const SITE_URL = "https://www.caiofochetto.com";
 
@@ -148,12 +126,32 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${fraunces.variable} ${spaceGrotesk.variable} ${manrope.variable}`}
       suppressHydrationWarning
     >
     <head>
       <PersonSchema />
       <PortfolioWebsiteSchema />
+      <link
+        rel="preload"
+        href="/fonts/fraunces/fraunces-700.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href="/fonts/space-grotesk/space-grotesk-700.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href="/fonts/manrope/manrope-regular.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
     </head>
     <body className="font-sans antialiased">
     <script dangerouslySetInnerHTML={{ __html: themeScript }} />
