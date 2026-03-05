@@ -22,19 +22,19 @@ export function HeroSection() {
 
           {/* Heading PRINCIPAL - todas as linhas com MESMO tamanho */}
           <h1
-            className="font-display text-3xl font-bold leading-tight tracking-tight text-foreground text-balance sm:text-4xl md:text-5xl lg:text-7xl">
+            className="font-display text-4xl font-bold leading-tight tracking-tight text-foreground text-balance sm:text-5xl md:text-6xl lg:text-7xl">
             {t.hero.headingLine1}
             <br/>
             {t.hero.headingLine2}
             <br/>
             {/* Forçar mesmo tamanho que as linhas acima */}
-            <span className="font-heading text-primary text-3xl sm:text-4xl md:text-5xl lg:text-7xl">
+            <span className="font-heading text-primary text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
               {t.hero.headingLine3}
             </span>
           </h1>
 
           {/* Subtitle/Descrição */}
-          <p className="max-w-xl md:max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg lg:text-xl">
+          <p className="max-w-xl md:max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl lg:text-xl">
             {t.hero.subtitle}
           </p>
 
