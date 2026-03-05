@@ -61,7 +61,7 @@ export default async function Image() {
             lineHeight: 1.5,
           }}
         >
-          15+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência
+          15+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência.
         </div>
       </div>
     ),

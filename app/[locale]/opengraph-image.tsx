@@ -16,15 +16,15 @@ export default async function Image({ params }: Props) {
   const translations = {
     pt: {
       title: 'Líder em Marketing de Influência & Performance Digital',
-      tagline: '15+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência',
+      tagline: '15+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência.',
     },
     en: {
       title: 'Influencer Marketing & Digital Performance Leader',
-      tagline: '15+ years connecting brand, culture, and performance through content and influence strategies',
+      tagline: '15+ years connecting brand, culture, and performance through content and influence strategies.',
     },
     es: {
       title: 'Líder en Marketing de Influencers & Performance Digital',
-      tagline: '15+ años conectando marca, cultura y performance a través de estrategias de contenido e influencia',
+      tagline: '15+ años conectando marca, cultura y performance a través de estrategias de contenido e influencia.',
     },
   }
 
