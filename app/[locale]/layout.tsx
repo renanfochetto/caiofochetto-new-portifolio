@@ -4,14 +4,18 @@ import { Analytics } from "@vercel/analytics/next";
 import { notFound } from "next/navigation";
 import { I18nProvider } from "@/components/providers/i18n-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { DynamicFavicon } from "@/components/layout/dynamic-favicon"; // ← ADICIONAR
+import { DynamicFavicon } from "@/components/layout/dynamic-favicon";
 import { PageTransition } from "@/components/layout/page-transition";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { locales } from "@/lib/i18n/dictionaries";
 import type { Locale } from "@/lib/i18n/dictionaries";
 import "../globals.css";
-import {SkipLink} from "@/components/layout/skip-link";
+import { SkipLink } from "@/components/layout/skip-link";
 import { PersonSchema, PortfolioWebsiteSchema } from "@/components/seo/structured-data";
+import Script from "next/script";
+import { UMAMI_CONFIG } from "@/lib/analytics/umami-config";
+import { ScrollDepthTracker } from "@/components/analytics/scroll-depth-tracker";
+
 
 const fraunces = Fraunces({
   variable: "--font-display",
@@ -153,14 +157,26 @@ export default async function LocaleLayout({
     </head>
     <body className="font-sans antialiased">
     <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+
     <I18nProvider locale={locale as Locale}>
       <ThemeProvider>
         <SkipLink />
-        <DynamicFavicon /> {/* ← ADICIONAR AQUI */}
+        <DynamicFavicon />
+        <ScrollDepthTracker/>
         <PageTransition>{children}</PageTransition>
       </ThemeProvider>
     </I18nProvider>
+
+    {/* ✅ VERCEL ANALYTICS */}
     <Analytics />
+
+    {/* ✅ UMAMI ANALYTICS */}
+    <Script
+      defer
+      src={UMAMI_CONFIG.src}
+      data-website-id={UMAMI_CONFIG.websiteId}
+      strategy="afterInteractive"
+    />
     </body>
     </html>
   );

@@ -8,11 +8,18 @@ import { useTheme } from "../providers/theme-provider";
 import { motion, AnimatePresence } from "framer-motion";
 import { LanguageSwitcher } from "../ui/language-switcher";
 import FocusTrap from 'focus-trap-react';
+import { trackThemeToggle } from "@/lib/analytics/track";
 
 export function Header() {
   const { locale, t } = useI18n();
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleThemeToggle = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    trackThemeToggle(newTheme); // ✅ TRACK
+    toggleTheme();
+  };
 
   // ✅ HANDLER ESC DEDICADO
   useEffect(() => {
@@ -95,7 +102,7 @@ export function Header() {
           ))}
 
           <button
-            onClick={toggleTheme}
+            onClick={handleThemeToggle}
             className="
               flex items-center justify-center gap-1.5
               rounded-full
@@ -199,7 +206,7 @@ export function Header() {
                   </div>
 
                   <button
-                    onClick={toggleTheme}
+                    onClick={handleThemeToggle}
                     className="
                       flex items-center justify-center gap-2
                       rounded-full

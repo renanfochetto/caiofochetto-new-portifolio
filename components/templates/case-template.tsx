@@ -1,7 +1,6 @@
 // /components/case-template.tsx
 "use client";
 
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import {ArrowLeft, ArrowRight, Tag, Play, Calendar, ArrowUpRight} from "lucide-react";
@@ -15,6 +14,8 @@ import {AnimatedSection} from "@/components/ui/animated-section";
 import type {CaseData} from "@/types/performance-case";
 import type {ProductionCase} from "@/types/production-case";
 import {CaseStudySchema, BreadcrumbSchema} from "@/components/seo/structured-data";
+import { trackCaseView, trackCaseVideoPlay } from "@/lib/analytics/track";
+import {useEffect} from "react";
 
 interface CaseTemplateProps {
   variant: "performance" | "production";
@@ -68,6 +69,22 @@ export function CaseTemplate({
   const data = caseData as any; // Single cast point
 
   const title = getLocalizedField(data.title_pt, data.title_en, data.title_es);
+
+  // ✅ TRACK PAGE VIEW
+  useEffect(() => {
+    trackCaseView(caseData.slug, title, variant);
+  }, [caseData.slug, title, variant]);
+
+  // ✅ HANDLER PARA VIDEO PLAY (CORRIGIDO)
+  const handleVideoPlay = () => {
+    if (variant === 'performance') {
+      trackCaseVideoPlay(caseData.slug, 'playlist'); // ✅ USAR videoType
+    } else {
+      const production = caseData as ProductionCase;
+      const videoType = production.media?.hero?.videoIds ? 'carousel' : 'single';
+      trackCaseVideoPlay(caseData.slug, videoType); // ✅ USAR videoType
+    }
+  };
 
   const brand = data.brand;
 
@@ -253,15 +270,12 @@ export function CaseTemplate({
                   </div>
 
                   <div
+                    onClick={handleVideoPlay}
                     className="relative aspect-video w-full overflow-hidden sm:rounded-lg border-0 sm:border sm:border-neutral-600 bg-card/50 backdrop-blur-sm">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={embedUrl}
+                    <YouTubeEmbed
+                      type={playlistId ? "playlist" : "video"} // ✅ DETECTAR TIPO
+                      videoId={playlistId || videoId || ""} // ✅ PLAYLIST ID OU VIDEO ID
                       title={`${firstBrand} - Playlist`}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="h-full w-full"
                     />
                   </div>
 
@@ -305,6 +319,7 @@ export function CaseTemplate({
                   </div>
 
                   <div
+                    onClick={handleVideoPlay}
                     className="sm:rounded-lg overflow-hidden border-0 sm:border sm:border-neutral-600 bg-card/50 backdrop-blur-sm">
                     <YouTubeEmbed
                       type={type}

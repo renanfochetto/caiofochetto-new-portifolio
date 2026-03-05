@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "../providers/theme-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { AnimatedCounter } from "../ui/animated-counter";
+import { trackCaseCardClick } from "@/lib/analytics/track";
 import {
   ArrowUpRight,
   Users,
@@ -81,6 +82,11 @@ export function PerformanceCard({
     locale === 'en' ? tags_en :
       tags_es || tags_en || tags_pt; // Fallback chain
 
+  // ✅ HANDLER DE CLIQUE
+  const handleClick = () => {
+    trackCaseCardClick(slug, title, 'performance');
+  };
+
   const logoFolder = theme === "dark" ? "white" : "black";
   const displayTags = (tags || []).slice(0, 3);
   const remainingTags = (tags || []).length - 3;
@@ -89,6 +95,7 @@ export function PerformanceCard({
   return (
     <Link
       href={`/${locale}/performance-case/${slug}`}
+      onClick={handleClick}
       className="group relative block"
     >
       <div className="

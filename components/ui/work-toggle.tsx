@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { TrendingUp, Film } from "lucide-react";
 import { springTransitions } from "@/hooks/use-animation";
+import { trackWorkToggle } from "@/lib/analytics/track";
 
 type WorkView = "performance" | "production";
 
@@ -15,12 +16,19 @@ interface WorkToggleProps {
 export function WorkToggle({ value, onChange }: WorkToggleProps) {
   const { t } = useI18n();
 
+  const handleChange = (newView: WorkView) => {
+    if (newView !== value) {
+      trackWorkToggle(newView);
+    }
+    onChange(newView);
+  };
+
   return (
     <div className="flex justify-center mb-12">
       <div className="relative inline-flex items-center gap-1 rounded-full border border-neutral-600 bg-card p-1">
         {/* Botão Performance */}
         <button
-          onClick={() => onChange("performance")}
+          onClick={() => handleChange("performance")}
           className={`
             relative
             inline-flex items-center justify-center gap-2
@@ -51,7 +59,7 @@ export function WorkToggle({ value, onChange }: WorkToggleProps) {
 
         {/* Botão Production */}
         <button
-          onClick={() => onChange("production")}
+          onClick={() => handleChange("production")}
           className={`
             relative
             inline-flex items-center justify-center gap-2

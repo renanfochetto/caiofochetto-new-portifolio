@@ -8,6 +8,7 @@ import { useTheme } from "../providers/theme-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { ArrowUpRight, Play } from "lucide-react";
 import { AnimatedCounter } from "../ui/animated-counter";
+import { trackCaseCardClick } from "@/lib/analytics/track";
 
 interface ProductionCardProps {
   slug: string;
@@ -59,6 +60,11 @@ export function ProductionCard({
     locale === 'en' ? tags_en :
       tags_es || tags_en || tags_pt; // Fallback chain
 
+  // ✅ HANDLER DE CLIQUE
+  const handleClick = () => {
+    trackCaseCardClick(slug, title, 'production');
+  };
+
   const logoFolder = theme === "dark" ? "white" : "black";
   const displayTags = (tags || []).slice(0, 3);
   const remainingTags = (tags || []).length - 3;
@@ -66,6 +72,7 @@ export function ProductionCard({
   return (
     <Link
       href={`/${locale}/production-case/${slug}`}
+      onClick={handleClick}
       className="group relative block"
     >
       <div className="

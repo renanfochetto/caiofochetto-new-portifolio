@@ -7,6 +7,7 @@ import {useState, useRef, useEffect} from 'react'
 import {Check, ChevronDown, Globe} from 'lucide-react'
 import {motion, AnimatePresence} from 'framer-motion'
 import {springTransitions} from '@/hooks/use-animation'
+import { trackLanguageSwitch } from "@/lib/analytics/track";
 
 interface LanguageOption {
   code: Locale
@@ -40,6 +41,8 @@ export function LanguageSwitcher({variant = 'desktop'}: LanguageSwitcherProps) {
       setIsOpen(false)
       return
     }
+
+    trackLanguageSwitch(locale, code)
 
     const segments = pathname.split('/')
     segments[1] = code
