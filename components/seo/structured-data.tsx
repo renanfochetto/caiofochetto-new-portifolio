@@ -85,8 +85,8 @@ export function PortfolioWebsiteSchema() {
       "name": "Caio Fochetto",
       "url": "https://caiofochetto.com"
     },
-    "name": "Caio Fochetto - Portfolio",
-    "description": "Portfolio profissional de Caio Fochetto - Especialista em Creator Economy e Performance Marketing",
+    "name": "Caio Fochetto | Líder em Marketing de Influência e Performance Digital",
+    "description": "15+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência.",
     "url": "https://caiofochetto.com",
     "inLanguage": ["pt-BR", "en-US", "es-ES"]
   };
