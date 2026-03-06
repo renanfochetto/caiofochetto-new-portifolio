@@ -6,7 +6,7 @@ import {PerformanceCard} from "../cards/performance-card";
 import {ProductionCard} from "../cards/production-card";
 import {WorkToggle} from "../ui/work-toggle";
 import {AnimatedSection, AnimatedItem} from "../ui/animated-section";
-import {Award} from "lucide-react";
+import {Award} from "@/lib/icons";
 import {performanceCases} from "@/lib/data/performance-cases";
 import {productionCases} from "@/lib/data/production-cases";
 import {brandLogos} from "@/lib/helpers/case-helpers";

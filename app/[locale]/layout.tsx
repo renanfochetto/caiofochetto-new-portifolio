@@ -1,18 +1,19 @@
-import type { Metadata, Viewport } from "next";
-import { Analytics } from "@vercel/analytics/next";
-import { notFound } from "next/navigation";
-import { I18nProvider } from "@/components/providers/i18n-provider";
-import { ThemeProvider } from "@/components/providers/theme-provider";
-import { DynamicFavicon } from "@/components/layout/dynamic-favicon";
-import { PageTransition } from "@/components/layout/page-transition";
-import { getDictionary } from "@/lib/i18n/dictionaries";
-import { locales } from "@/lib/i18n/dictionaries";
-import type { Locale } from "@/lib/i18n/dictionaries";
-import { SkipLink } from "@/components/layout/skip-link";
-import { PersonSchema, PortfolioWebsiteSchema } from "@/components/seo/structured-data";
+import type {Metadata, Viewport} from "next";
+import {Analytics} from "@vercel/analytics/next";
+import {notFound} from "next/navigation";
+import {I18nProvider} from "@/components/providers/i18n-provider";
+import {ThemeProvider} from "@/components/providers/theme-provider";
+import {DynamicFavicon} from "@/components/layout/dynamic-favicon";
+import {PageTransition} from "@/components/layout/page-transition";
+import {getDictionary} from "@/lib/i18n/dictionaries";
+import {locales} from "@/lib/i18n/dictionaries";
+import type {Locale} from "@/lib/i18n/dictionaries";
+import {SkipLink} from "@/components/layout/skip-link";
+import {PersonSchema, PortfolioWebsiteSchema} from "@/components/seo/structured-data";
 import Script from "next/script";
-import { UMAMI_CONFIG } from "@/lib/analytics/umami-config";
-import { ScrollDepthTracker } from "@/components/analytics/scroll-depth-tracker";
+import {UMAMI_CONFIG} from "@/lib/analytics/umami-config";
+import {ScrollDepthTracker} from "@/components/analytics/scroll-depth-tracker";
+import {LazyMotion, domAnimation} from "framer-motion";
 import "../globals.css";
 import "../fonts.css"
 
@@ -21,28 +22,28 @@ const SITE_URL = "https://www.caiofochetto.com";
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return locales.map((locale) => ({locale}));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const {locale} = await params;
   const dictionary = await getDictionary(locale as Locale);
 
-  const { title, description, siteName } = dictionary.metadata;
+  const {title, description, siteName} = dictionary.metadata;
 
   return {
     metadataBase: new URL(SITE_URL),
 
     icons: {
       icon: [
-        { url: '/favicon.ico', sizes: '32x32' },
+        {url: '/favicon.ico', sizes: '32x32'},
       ],
       apple: '/apple-touch-icon.png',
     },
 
     alternates: {
       canonical: `/${locale}`,
-      languages: { "pt-BR": "/pt", "en-US": "/en", "es-ES": "/es" },
+      languages: {"pt-BR": "/pt", "en-US": "/en", "es-ES": "/es"},
     },
 
     title: {
@@ -67,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
     },
 
-    robots: { index: true, follow: true },
+    robots: {index: true, follow: true},
   };
 }
 
@@ -117,7 +118,7 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const {locale} = await params;
 
   if (!locales.includes(locale as Locale)) {
     notFound();
@@ -129,8 +130,8 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
     <head>
-      <PersonSchema />
-      <PortfolioWebsiteSchema />
+      <PersonSchema/>
+      <PortfolioWebsiteSchema/>
       <link
         rel="preload"
         href="/fonts/fraunces/fraunces-700.woff2"
@@ -154,21 +155,18 @@ export default async function LocaleLayout({
       />
     </head>
     <body className="font-sans antialiased">
-    <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-
-    <I18nProvider locale={locale as Locale}>
-      <ThemeProvider>
-        <SkipLink />
-        <DynamicFavicon />
-        <ScrollDepthTracker/>
-        <PageTransition>{children}</PageTransition>
-      </ThemeProvider>
-    </I18nProvider>
-
-    {/* ✅ VERCEL ANALYTICS */}
-    <Analytics />
-
-    {/* ✅ UMAMI ANALYTICS */}
+    <script dangerouslySetInnerHTML={{__html: themeScript}}/>
+    <LazyMotion features={domAnimation} strict>
+      <I18nProvider locale={locale as Locale}>
+        <ThemeProvider>
+          <SkipLink/>
+          <DynamicFavicon/>
+          <ScrollDepthTracker/>
+          <PageTransition>{children}</PageTransition>
+        </ThemeProvider>
+      </I18nProvider>
+    </LazyMotion>
+    <Analytics/>
     <Script
       defer
       src={UMAMI_CONFIG.src}

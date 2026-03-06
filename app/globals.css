@@ -187,3 +187,33 @@ select:focus-visible {
           0 0 0 4px rgb(var(--primary)),
           0 0 12px rgb(var(--primary) / 0.3);
 }
+
+
+/* ============================================
+   SVG LOGO COLOR FILTERS
+   ============================================ */
+
+/**
+ * Inverte cor do SVG para branco (dark mode)
+ * brightness(0) = preto total
+ * invert(1) = inverte para branco
+ */
+.logo-white {
+  filter: brightness(0) invert(1);
+}
+
+/**
+ * Força SVG para preto (light mode)
+ * brightness(0) = preto total
+ */
+.logo-black {
+  filter: brightness(0);
+}
+
+/**
+ * Transição suave ao trocar tema
+ */
+.logo-white,
+.logo-black {
+  transition: filter 0.3s ease;
+}

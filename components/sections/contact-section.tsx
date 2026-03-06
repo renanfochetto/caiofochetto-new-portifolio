@@ -2,7 +2,7 @@
 
 import {useI18n} from "@/components/providers/i18n-provider";
 import {useTheme} from "../providers/theme-provider";
-import {Linkedin, Mail, MessageCircle} from "lucide-react";
+import {Linkedin, Mail, MessageCircle} from "@/lib/icons";
 import {AnimatedSection} from "../ui/animated-section";
 import {trackEmailClick, trackLinkedInClick} from '@/lib/analytics/track'; // ✅ IMPORTAR
 

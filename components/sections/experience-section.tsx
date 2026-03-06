@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, } from "react";
 import Image from "next/image";
 import { useI18n } from "@/components/providers/i18n-provider";
-import { Briefcase, ChevronDown, ChevronUp, Plus, Minus, TrendingUp, Footprints, Clipboard } from "lucide-react";
+import { Briefcase, ChevronDown, ChevronUp, Plus, TrendingUp, Footprints, Clipboard } from "@/lib/icons";
 import { AnimatedSection, AnimatedItem } from "../ui/animated-section";
 import { getFeaturedExperiences, getOlderExperiences } from "@/lib/data/experiences";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import type { Locale } from "@/lib/i18n/dictionaries";
 
 export function ExperienceSection() {
@@ -144,7 +144,7 @@ export function ExperienceSection() {
               {/* ACCORDION EXPANDIDO */}
               <AnimatePresence>
                 {expandedDetails.has(exp.id) && (
-                  <motion.div
+                  <m.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -206,7 +206,7 @@ export function ExperienceSection() {
                         <Plus className="h-5 w-5 rotate-45" aria-hidden="true" />
                       </button>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
             </AnimatedItem>
@@ -215,7 +215,7 @@ export function ExperienceSection() {
           {/* EXPERIÊNCIAS ANTIGAS */}
           <AnimatePresence>
             {expandedOlder && (
-              <motion.div
+              <m.div
                 key="older-experiences-container"
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
@@ -297,7 +297,7 @@ export function ExperienceSection() {
                     {/* ACCORDION EXPANDIDO */}
                     <AnimatePresence>
                       {expandedDetails.has(exp.id) && (
-                        <motion.div
+                        <m.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -359,12 +359,12 @@ export function ExperienceSection() {
                               <Plus className="h-5 w-5 rotate-45" aria-hidden="true" />
                             </button>
                           </div>
-                        </motion.div>
+                        </m.div>
                       )}
                     </AnimatePresence>
                   </div>
                 ))}
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
 

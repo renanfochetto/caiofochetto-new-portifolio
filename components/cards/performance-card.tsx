@@ -8,6 +8,8 @@ import { useTheme } from "../providers/theme-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { AnimatedCounter } from "../ui/animated-counter";
 import { trackCaseCardClick } from "@/lib/analytics/track";
+import { Logo } from "@/components/ui/logo"
+
 import {
   ArrowUpRight,
   Users,
@@ -19,7 +21,7 @@ import {
   MousePointerClick,
   Play,
   BarChart3
-} from "lucide-react";
+} from "@/lib/icons";
 
 const getMetricIcon = (label: string) => {
   if (!label) return BarChart3; // ✅ Safe check
@@ -87,7 +89,6 @@ export function PerformanceCard({
     trackCaseCardClick(slug, title, 'performance');
   };
 
-  const logoFolder = theme === "dark" ? "white" : "black";
   const displayTags = (tags || []).slice(0, 3);
   const remainingTags = (tags || []).length - 3;
   const displayMetrics = (metrics || []).slice(0, 3);
@@ -114,14 +115,13 @@ export function PerformanceCard({
           {/* Logo */}
           {mounted && brandLogo && (
             <div className="flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-start">
-              <Image
-                src={`/logos/${logoFolder}/${brandLogo}.svg`}
+              <Logo
+                name={brandLogo}
                 alt={`${brand} logo`}
                 width={64}
                 height={64}
-                style={{ width: "auto", height: "100%", maxWidth: "100px" }}
                 className="object-contain object-left"
-                unoptimized
+                style={{ width: "auto", height: "100%", maxWidth: "100px" }}
               />
             </div>
           )}

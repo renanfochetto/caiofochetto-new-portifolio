@@ -1,5 +1,19 @@
 // /lib/helpers/case-helpers.ts
 // Funções compartilhadas entre performance e production cases
+import {
+  Users,
+  Eye,
+  Heart,
+  MessageCircle,
+  TrendingUp,
+  DollarSign,
+  MousePointerClick,
+  Play,
+  BarChart3,
+  Star,
+  Target,
+  Sparkles
+} from "@/lib/icons";
 
 // ============================================================================
 // FUNÇÕES GENÉRICAS DE CASES
@@ -72,21 +86,6 @@ export function getCircularNavigation<T extends { slug: string }>(
  * @returns Componente de ícone do Lucide React
  */
 export function getMetricIcon(label: string) {
-  const {
-    Users,
-    Eye,
-    Heart,
-    MessageCircle,
-    TrendingUp,
-    DollarSign,
-    MousePointerClick,
-    Play,
-    BarChart3,
-    Star,
-    Target,
-    Sparkles
-  } = require("lucide-react") as typeof import("lucide-react");
-
   if (!label) return Users;
 
   const lowerLabel = label.toLowerCase();

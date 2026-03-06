@@ -1,7 +1,7 @@
 // /components/case/production-sections.tsx
 "use client";
 
-import { BookOpen, User } from "lucide-react";
+import { BookOpen, User } from "@/lib/icons";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import type { ProductionCase } from "@/types/production-case";
 

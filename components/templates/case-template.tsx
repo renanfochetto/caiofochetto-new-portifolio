@@ -3,12 +3,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {ArrowLeft, ArrowRight, Tag, Play, Calendar, ArrowUpRight} from "lucide-react";
+import {ArrowLeft, ArrowRight, Tag, Play, Calendar, ArrowUpRight} from "@/lib/icons";
 import {Header} from "@/components/layout/header";
 import {Footer} from "@/components/layout/footer";
 import {YouTubeEmbed} from "@/components/media/youtube-embed";
-import {PerformanceSections} from "@/components/case/performance-sections";
-import {ProductionSections} from "@/components/case/production-sections";
+import dynamic from "next/dynamic";
 import {companyLogos, brandLogos} from "@/lib/helpers/case-helpers";
 import {AnimatedSection} from "@/components/ui/animated-section";
 import type {CaseData} from "@/types/performance-case";
@@ -16,6 +15,17 @@ import type {ProductionCase} from "@/types/production-case";
 import {CaseStudySchema, BreadcrumbSchema} from "@/components/seo/structured-data";
 import { trackCaseView, trackCaseVideoPlay } from "@/lib/analytics/track";
 import {useEffect} from "react";
+import { Logo } from "@/components/ui/logo";
+
+const PerformanceSections = dynamic(
+  () => import("@/components/case/performance-sections").then(mod => ({ default: mod.PerformanceSections })),
+  { ssr: true }
+);
+
+const ProductionSections = dynamic(
+  () => import("@/components/case/production-sections").then(mod => ({ default: mod.ProductionSections })),
+  { ssr: true }
+);
 
 interface CaseTemplateProps {
   variant: "performance" | "production";
@@ -52,7 +62,6 @@ export function CaseTemplate({
                                theme,
                                navigation,
                              }: CaseTemplateProps) {
-  const logoFolder = theme === "dark" ? "white" : "black";
 
   // ✅ Helper function para extrair campos localizados
   const getLocalizedField = (
@@ -148,7 +157,7 @@ export function CaseTemplate({
           company={company}
           year={period}
           url={caseUrl}
-          image={`https://caiofochetto.com/logos/${logoFolder}/${brandLogo}.svg`}
+          image={`https://caiofochetto.com/logos/${brandLogo}.svg`}
         />
 
         <BreadcrumbSchema
@@ -227,14 +236,13 @@ export function CaseTemplate({
               {brandLogo && (
                 <div
                   className="flex h-16 w-24 sm:w-28 md:w-32 items-center justify-end transition-transform duration-200 hover:scale-105">
-                  <Image
-                    src={`/logos/${logoFolder}/${brandLogo}.svg`}
+                  <Logo
+                    name={brandLogo}
                     alt={`${firstBrand} logo`}
                     width={128}
                     height={64}
                     className="h-full w-auto object-contain object-right"
                     style={{maxWidth: "100%"}}
-                    unoptimized
                   />
                 </div>
               )}

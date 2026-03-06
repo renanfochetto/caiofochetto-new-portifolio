@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 import { fadeInUpVariants, containerVariants, prefersReducedMotion } from "@/hooks/use-animation";
 
@@ -27,7 +27,7 @@ export function AnimatedSection({
   }
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -35,7 +35,7 @@ export function AnimatedSection({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -57,12 +57,12 @@ export function AnimatedItem({
   }
 
   return (
-    <motion.div
+    <m.div
       custom={index}
       variants={fadeInUpVariants}
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

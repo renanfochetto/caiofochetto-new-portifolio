@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useI18n } from "@/components/providers/i18n-provider";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun } from "@/lib/icons";
 import { useState, useEffect } from "react";
 import { useTheme } from "../providers/theme-provider";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { LanguageSwitcher } from "../ui/language-switcher";
 import FocusTrap from 'focus-trap-react';
 import { trackThemeToggle } from "@/lib/analytics/track";
@@ -75,7 +75,7 @@ export function Header() {
   ];
 
   return (
-    <motion.header
+    <m.header
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -137,7 +137,7 @@ export function Header() {
             aria-label="Toggle menu"
           >
             <AnimatePresence mode="wait" initial={false}>
-              <motion.div
+              <m.div
                 key={menuOpen ? "close" : "open"}
                 initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
                 animate={{ opacity: 1, rotate: 0, scale: 1 }}
@@ -150,7 +150,7 @@ export function Header() {
                 ) : (
                   <Menu className="h-5 w-5" aria-hidden="true" />
                 )}
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </button>
         </div>
@@ -167,7 +167,7 @@ export function Header() {
               returnFocusOnDeactivate: true,
             }}
           >
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -178,7 +178,7 @@ export function Header() {
               <div className="flex h-full flex-col items-center justify-between px-6 py-16">
                 <div className="flex flex-col gap-6 text-center">
                   {navItems.map((item, idx) => (
-                    <motion.div
+                    <m.div
                       key={item.href}
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -191,11 +191,11 @@ export function Header() {
                       >
                         {item.label}
                       </Link>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
 
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
@@ -234,12 +234,12 @@ export function Header() {
                       </>
                     )}
                   </button>
-                </motion.div>
+                </m.div>
               </div>
-            </motion.div>
+            </m.div>
           </FocusTrap>
         )}
       </AnimatePresence>
-    </motion.header>
+    </m.header>
   );
 }

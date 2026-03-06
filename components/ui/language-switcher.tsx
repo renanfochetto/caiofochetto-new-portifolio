@@ -4,8 +4,8 @@ import {useI18n} from '@/components/providers/i18n-provider'
 import {useRouter, usePathname} from 'next/navigation'
 import type {Locale} from '@/lib/i18n/dictionaries'
 import {useState, useRef, useEffect} from 'react'
-import {Check, ChevronDown, Globe} from 'lucide-react'
-import {motion, AnimatePresence} from 'framer-motion'
+import {Check, ChevronDown, Globe} from '@/lib/icons'
+import {m, AnimatePresence} from 'framer-motion'
 import {springTransitions} from '@/hooks/use-animation'
 import { trackLanguageSwitch } from "@/lib/analytics/track";
 
@@ -148,7 +148,7 @@ export function LanguageSwitcher({variant = 'desktop'}: LanguageSwitcherProps) {
               aria-pressed={isSelected}
             >
               {isSelected && (
-                <motion.div
+                <m.div
                   layoutId="active-language"
                   className="absolute inset-0 bg-primary rounded-full"
                   transition={springTransitions.smooth}
@@ -200,7 +200,7 @@ export function LanguageSwitcher({variant = 'desktop'}: LanguageSwitcherProps) {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{opacity: 0, y: 8, scale: 0.95}}
             animate={{opacity: 1, y: 0, scale: 1}}
             exit={{opacity: 0, y: 8, scale: 0.95}}
@@ -246,7 +246,7 @@ export function LanguageSwitcher({variant = 'desktop'}: LanguageSwitcherProps) {
                 </button>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

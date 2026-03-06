@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import {useI18n} from "@/components/providers/i18n-provider";
-import {Sparkles, Globe, Fingerprint} from "lucide-react";
+import {Sparkles, Globe, Fingerprint} from "@/lib/icons";
 import {AnimatedSection, AnimatedItem} from "../ui/animated-section";
 import {useTheme} from "@/components/providers/theme-provider";
 import {useState} from "react";

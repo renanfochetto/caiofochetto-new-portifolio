@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTheme } from "../providers/theme-provider";
 import {  useI18n } from "@/components/providers/i18n-provider";
+import { Logo } from "@/components/ui/logo";
 
 const logos = [
   { name: "playstation", alt: "Logo PlayStation" },
@@ -49,7 +50,6 @@ export function LogoCarousel() {
   }, []);
 
   const duplicatedLogos = [...logos, ...logos];
-  const logoFolder = theme === "dark" ? "white" : "black";
 
   if (!mounted) {
     return (
@@ -66,7 +66,7 @@ export function LogoCarousel() {
         role="region"
         aria-label={t.footer.carouselLabel}
       >
-        <motion.div
+        <m.div
           className="flex w-max items-center"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
@@ -88,17 +88,17 @@ export function LogoCarousel() {
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.65")}
             >
-              <Image
-                src={`/logos/${logoFolder}/${logo.name}.svg`}
+              <Logo
+                name={logo.name}
                 alt={logo.alt}
-                fill
+                width={120}
+                height={64}
                 className="object-contain object-center"
-                unoptimized
-                priority={idx < 15}
+                style={{ width: "100%", height: "100%" }}
               />
             </div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Gradient fade nas extremidades */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent" />

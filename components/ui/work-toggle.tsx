@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useI18n } from "@/components/providers/i18n-provider";
-import { TrendingUp, Film } from "lucide-react";
+import { TrendingUp, Film } from "@/lib/icons";
 import { springTransitions } from "@/hooks/use-animation";
 import { trackWorkToggle } from "@/lib/analytics/track";
 
@@ -47,7 +47,7 @@ export function WorkToggle({ value, onChange }: WorkToggleProps) {
           aria-label={t.work.ariaPerformance}
         >
           {value === "performance" && (
-            <motion.div
+            <m.div
               layoutId="active-pill"
               className="absolute inset-0 rounded-full bg-primary/90"
               transition={springTransitions.smooth}
@@ -78,7 +78,7 @@ export function WorkToggle({ value, onChange }: WorkToggleProps) {
           aria-label={t.work.ariaProduction}
         >
           {value === "production" && (
-            <motion.div
+            <m.div
               layoutId="active-pill"
               className="absolute inset-0 rounded-full bg-primary/90"
               transition={springTransitions.smooth}

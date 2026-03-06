@@ -1,7 +1,7 @@
 "use client";
 
 import {useI18n} from "@/components/providers/i18n-provider";
-import {ArrowDown} from "lucide-react";
+import {ArrowDown} from "@/lib/icons";
 import {AnimatedSection} from "../ui/animated-section";
 
 export function HeroSection() {

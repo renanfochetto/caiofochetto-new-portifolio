@@ -6,9 +6,10 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useTheme } from "../providers/theme-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
-import { ArrowUpRight, Play } from "lucide-react";
+import { ArrowUpRight, Play } from "@/lib/icons";
 import { AnimatedCounter } from "../ui/animated-counter";
 import { trackCaseCardClick } from "@/lib/analytics/track";
+import { Logo } from "@/components/ui/logo"
 
 interface ProductionCardProps {
   slug: string;
@@ -65,7 +66,6 @@ export function ProductionCard({
     trackCaseCardClick(slug, title, 'production');
   };
 
-  const logoFolder = theme === "dark" ? "white" : "black";
   const displayTags = (tags || []).slice(0, 3);
   const remainingTags = (tags || []).length - 3;
 
@@ -91,14 +91,13 @@ export function ProductionCard({
           {/* Logo */}
           {mounted && brandLogo && (
             <div className="flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-start">
-              <Image
-                src={`/logos/${logoFolder}/${brandLogo}.svg`}
+              <Logo
+                name={brandLogo}
                 alt={`${brand} logo`}
                 width={64}
                 height={64}
-                style={{ width: "auto", height: "100%", maxWidth: "100px" }}
                 className="object-contain object-left"
-                unoptimized
+                style={{ width: "auto", height: "100%", maxWidth: "100px" }}
               />
             </div>
           )}

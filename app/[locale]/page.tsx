@@ -1,12 +1,49 @@
+import dynamic from "next/dynamic";
 import { Header } from "@/components/layout/header";
 import { HeroSection } from "@/components/sections/hero-section";
-import { LogoCarousel } from "@/components/ui/logo-carousel";
-import { AnimatedSection } from "@/components/ui/animated-section";
-import { WorkSection } from "@/components/sections/work-section";
-import { ExperienceSection } from "@/components/sections/experience-section";
-import { AboutSection } from "@/components/sections/about-section";
-import { ContactSection } from "@/components/sections/contact-section";
-import { Footer } from "@/components/layout/footer";
+
+// ============================================================================
+// LAZY LOADED COMPONENTS (Below-the-fold)
+// ============================================================================
+
+const LogoCarousel = dynamic(
+  () => import("@/components/ui/logo-carousel").then(mod => ({ default: mod.LogoCarousel })),
+  { ssr: true }
+);
+
+const AnimatedSection = dynamic(
+  () => import("@/components/ui/animated-section").then(mod => ({ default: mod.AnimatedSection })),
+  { ssr: true }
+);
+
+const WorkSection = dynamic(
+  () => import("@/components/sections/work-section").then(mod => ({ default: mod.WorkSection })),
+  { ssr: true }
+);
+
+const ExperienceSection = dynamic(
+  () => import("@/components/sections/experience-section").then(mod => ({ default: mod.ExperienceSection })),
+  { ssr: true }
+);
+
+const AboutSection = dynamic(
+  () => import("@/components/sections/about-section").then(mod => ({ default: mod.AboutSection })),
+  { ssr: true }
+);
+
+const ContactSection = dynamic(
+  () => import("@/components/sections/contact-section").then(mod => ({ default: mod.ContactSection })),
+  { ssr: true }
+);
+
+const Footer = dynamic(
+  () => import("@/components/layout/footer").then(mod => ({ default: mod.Footer })),
+  { ssr: true }
+);
+
+// ============================================================================
+// PAGE COMPONENT
+// ============================================================================
 
 export default function HomePage() {
   return (

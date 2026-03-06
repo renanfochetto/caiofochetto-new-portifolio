@@ -10,7 +10,7 @@ import {
   TrendingUp,
   BookOpen,
   CheckCircle,
-} from "lucide-react";
+} from "@/lib/icons";
 import type { CaseData } from "@/types/performance-case";
 
 interface PerformanceSectionsProps {
