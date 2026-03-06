@@ -216,6 +216,7 @@ export function CaseTemplate({
                       width={48}
                       height={48}
                       className="h-full w-auto object-cover"
+                      loading="lazy"
                       unoptimized
                     />
                   </div>

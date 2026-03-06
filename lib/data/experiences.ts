@@ -8,7 +8,7 @@ export const experiences: Experience[] = [
   {
     id: "octagon",
     company: "Octagon",
-    logo: "/companies/octagon.avif",
+    logo: "/companies/octagon.webp",
     role: {
       pt: "Diretor de Conteúdo Digital, Marketing de Influência e Talentos",
       en: "Director of Digital Content, Influencer Marketing & Talent",
@@ -78,7 +78,7 @@ export const experiences: Experience[] = [
   {
     id: "jellysmack",
     company: "Jellysmack",
-    logo: "/companies/jellysmack.avif",
+    logo: "/companies/jellysmack.webp",
     role: {
       pt: "Líder de Operações LATAM",
       en: "LATAM Operations Lead",
@@ -154,7 +154,7 @@ export const experiences: Experience[] = [
   {
     id: "playground",
     company: "Playground",
-    logo: "/companies/playground.avif",
+    logo: "/companies/playground.webp",
     role: {
       pt: "Gerente de Conteúdo e Produção",
       en: "Content and Product Manager",
@@ -212,7 +212,7 @@ export const experiences: Experience[] = [
   {
     id: "aenetworks",
     company: "A+E Networks",
-    logo: "/companies/aenetworks.avif",
+    logo: "/companies/aenetworks.webp",
     role: {
       pt: "Gerente de Plataformas Digitais",
       en: "Digital Platforms Manager",
@@ -277,7 +277,7 @@ export const experiences: Experience[] = [
   {
     id: "portalr7",
     company: "Portal R7",
-    logo: "/companies/portalr7.avif",
+    logo: "/companies/portalr7.webp",
     role: {
       pt: "Produtor de Conteúdo Digital",
       en: "Digital Content Producer",
@@ -320,7 +320,7 @@ export const experiences: Experience[] = [
   {
     id: "tvcultura",
     company: "TV Cultura",
-    logo: "/companies/tvcultura.avif",
+    logo: "/companies/tvcultura.webp",
     role: {
       pt: "Produtor de Conteúdo Digital",
       en: "Digital Content Producer",
@@ -372,7 +372,7 @@ export const experiences: Experience[] = [
   {
     id: "tvmundomaior",
     company: "TV Mundo Maior",
-    logo: "/companies/tvmundomaior.avif",
+    logo: "/companies/tvmundomaior.webp",
     role: {
       pt: "Coordenador de Produção",
       en: "Production Coordinator",
@@ -427,7 +427,7 @@ export const experiences: Experience[] = [
   {
     id: "redeboanova",
     company: "Rádio Boa Nova",
-    logo: "/companies/redeboanova.avif",
+    logo: "/companies/redeboanova.webp",
     role: {
       pt: "Produtor Executivo",
       en: "Executive Producer",

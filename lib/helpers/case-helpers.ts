@@ -165,14 +165,14 @@ export function getMetricIcon(label: string) {
  * Path: /public/companies/{logo}
  */
 export const companyLogos: Record<string, string> = {
-  "Octagon": "octagon.avif",
-  "A+E Networks": "aenetworks.avif",
-  "Jellysmack": "jellysmack.avif",
-  "Playground": "playground.avif",
-  "Portal R7": "portalr7.avif",
-  "Rede Boa Nova": "redeboanova.avif",
-  "TV Cultura": "tvcultura.avif",
-  "TV Mundo Maior": "tvmundomaior.avif",
+  "Octagon": "octagon.webp",
+  "A+E Networks": "aenetworks.webp",
+  "Jellysmack": "jellysmack.webp",
+  "Playground": "playground.webp",
+  "Portal R7": "portalr7.webp",
+  "Rede Boa Nova": "redeboanova.webp",
+  "TV Cultura": "tvcultura.webp",
+  "TV Mundo Maior": "tvmundomaior.webp",
 };
 
 /**

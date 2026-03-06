@@ -90,6 +90,7 @@ export function ExperienceSection() {
                       height={64}
                       className="w-12 h-12 sm:w-16 sm:h-16 rounded object-contain"
                       unoptimized={true}
+                      loading="lazy"
                     />
                   </div>
 
@@ -243,6 +244,7 @@ export function ExperienceSection() {
                             height={64}
                             className="w-12 h-12 sm:w-16 sm:h-16 rounded object-contain"
                             unoptimized={true}
+                            loading="lazy"
                           />
                         </div>
 

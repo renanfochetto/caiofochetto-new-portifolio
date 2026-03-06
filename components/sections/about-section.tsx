@@ -61,7 +61,7 @@ export function AboutSection() {
                 onMouseLeave={() => setIsHovered(false)}
               >
                 <Image
-                  src="/images/foto_caio.avif"
+                  src="/images/foto_caio.webp"
                   alt={t.about.imageAlt}
                   width={380}
                   height={475}
@@ -71,6 +71,7 @@ export function AboutSection() {
                   "
                   unoptimized={true}
                   priority={false}
+                  loading="lazy"
                 />
               </div>
             </div>

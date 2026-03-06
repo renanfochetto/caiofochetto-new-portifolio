@@ -1,40 +1,27 @@
 'use client'
-
 import Image from 'next/image'
 import { useTheme } from '@/components/providers/theme-provider'
 
 interface LogoProps {
-  name: string
-  alt: string
-  width?: number
-  height?: number
-  className?: string
-  style?: React.CSSProperties
+  name: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  className?: string;
+  style?: React.CSSProperties;
+  loading?: 'lazy' | 'eager'; // ← ADICIONAR
+  priority?: boolean; // ← ADICIONAR
 }
 
-/**
- * Logo Component
- *
- * Wrapper around next/image que aplica CSS filter baseado no theme
- * para trocar a cor do SVG (dark = branco, light = preto)
- *
- * @param name - Nome do arquivo SVG (sem extensão) ex: "betfair"
- * @param alt - Alt text para acessibilidade
- * @param width - Largura em pixels
- * @param height - Altura em pixels
- * @param className - Classes CSS adicionais
- * @param style - Inline styles adicionais
- *
- * @example
- * <Logo name="betfair" alt="Betfair logo" width={64} height={64} />
- */
 export function Logo({
                        name,
                        alt,
                        width = 64,
                        height = 64,
                        className = '',
-                       style
+                       style,
+                       loading = 'lazy', // ← DEFAULT: lazy
+                       priority = false, // ← DEFAULT: false
                      }: LogoProps) {
   const { theme } = useTheme()
 
@@ -47,6 +34,8 @@ export function Logo({
       className={`${className} ${theme === 'dark' ? 'logo-white' : 'logo-black'}`}
       style={style}
       unoptimized
+      loading={loading} // ← USAR PROP
+      priority={priority} // ← USAR PROP
     />
   )
 }
