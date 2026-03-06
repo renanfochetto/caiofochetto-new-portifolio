@@ -127,7 +127,6 @@ export function ExperienceSection() {
                   {exp.period.duration}
                 </p>
               </div>
-
               {/* BOTÃO EXPANDIR (quando fechado) */}
               {!expandedDetails.has(exp.id) && (
                 <div className="flex justify-center mt-4">
