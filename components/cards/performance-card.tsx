@@ -1,14 +1,21 @@
-// components/case-card.tsx
+// components/cards/performance-card.tsx
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useTheme } from "../providers/theme-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { AnimatedCounter } from "../ui/animated-counter";
 import { trackCaseCardClick } from "@/lib/analytics/track";
-import { Logo } from "@/components/ui/logo"
+import { Logo } from "@/components/ui/logo";
+
+// ✅ SINGLE IMPORT!
+import {
+  CaseData,
+  Locale,
+  getLocalizedField,
+  getLocalizedArray
+} from '@/types';
 
 import {
   ArrowUpRight,
@@ -24,7 +31,7 @@ import {
 } from "@/lib/icons";
 
 const getMetricIcon = (label: string) => {
-  if (!label) return BarChart3; // ✅ Safe check
+  if (!label) return BarChart3;
   const lowerLabel = label.toLowerCase();
   if (lowerLabel.includes("alcance") || lowerLabel.includes("reach")) return Users;
   if (lowerLabel.includes("impressões") || lowerLabel.includes("impressions")) return Eye;
@@ -37,36 +44,13 @@ const getMetricIcon = (label: string) => {
   return BarChart3;
 };
 
-interface CaseCardProps {
-  slug: string;
-  brand: string;
+// ✅ Props simplificadas - recebe objeto completo!
+interface PerformanceCardProps {
+  caseData: CaseData;
   brandLogo?: string;
-  title_pt: string;
-  title_en: string;
-  title_es: string;
-  metrics: Array<{
-    value: string;
-    label_pt: string;
-    label_en: string;
-    label_es: string;
-  }>;
-  tags_pt: string[];
-  tags_en: string[];
-  tags_es: string[];
 }
 
-export function PerformanceCard({
-                           slug,
-                           brand,
-                           brandLogo,
-                           title_pt,
-                           title_en,
-                           title_es,
-                           metrics,
-                           tags_pt,
-                           tags_en,
-                           tags_es,
-                         }: CaseCardProps) {
+export function PerformanceCard({ caseData, brandLogo }: PerformanceCardProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const { t, locale } = useI18n();
@@ -75,27 +59,29 @@ export function PerformanceCard({
     setMounted(true);
   }, []);
 
-  // ✅ Selecionar conteúdo baseado no locale com fallback
-  const title = locale === 'pt' ? title_pt :
-    locale === 'en' ? title_en :
-      title_es || title_en || title_pt; // Fallback chain
+  // ✅ TYPE-SAFE extraction usando utilities
+  const localeTyped = locale as Locale;
 
-  const tags = locale === 'pt' ? tags_pt :
-    locale === 'en' ? tags_en :
-      tags_es || tags_en || tags_pt; // Fallback chain
+  const title = getLocalizedField(caseData, 'title', localeTyped);
+  const tags = getLocalizedArray(caseData, 'tags', localeTyped);
+
+  const brand = Array.isArray(caseData.brand)
+    ? caseData.brand.join(', ')
+    : caseData.brand;
 
   // ✅ HANDLER DE CLIQUE
   const handleClick = () => {
-    trackCaseCardClick(slug, title, 'performance');
+    trackCaseCardClick(caseData.slug, title, 'performance');
   };
 
-  const displayTags = (tags || []).slice(0, 3);
-  const remainingTags = (tags || []).length - 3;
-  const displayMetrics = (metrics || []).slice(0, 3);
+  const displayTags = tags.slice(0, 3);
+  const remainingTags = tags.length - 3;
+  // ✅ CORRIGIDO - metrics diretamente (não results.metrics)
+  const displayMetrics = caseData.metrics.slice(0, 3);
 
   return (
     <Link
-      href={`/${locale}/performance-case/${slug}`}
+      href={`/${locale}/performance-case/${caseData.slug}`}
       onClick={handleClick}
       className="group relative block"
     >
@@ -146,13 +132,13 @@ export function PerformanceCard({
 
         {/* Métricas - 2 colunas no mobile, 3 no tablet+ */}
         <div className="mb-4 sm:mb-6 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-          {displayMetrics.map((metric, index) => {
-            // ✅ Selecionar label baseado no locale com fallback
-            const label = locale === 'pt' ? metric.label_pt :
+          {displayMetrics.map((metric, index: number) => {
+            // ✅ Type-safe label extraction - inline (não usa getLocalizedField pois estrutura diferente)
+            const metricLabel = locale === 'pt' ? metric.label_pt :
               locale === 'en' ? metric.label_en :
-                metric.label_es || metric.label_en || metric.label_pt || ''; // Fallback chain
+                metric.label_es || metric.label_en || metric.label_pt || '';
 
-            const IconComponent = getMetricIcon(label);
+            const IconComponent = getMetricIcon(metricLabel);
 
             return (
               <div key={index} className="flex flex-col gap-1">
@@ -165,7 +151,7 @@ export function PerformanceCard({
                   />
                 </div>
                 <p className="text-xs text-muted-foreground line-clamp-1">
-                  {label}
+                  {metricLabel}
                 </p>
               </div>
             );
@@ -174,7 +160,7 @@ export function PerformanceCard({
 
         {/* Tags */}
         <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-          {displayTags.map((tag, index) => (
+          {displayTags.map((tag, index: number) => (
             <span
               key={index}
               className="rounded-full border border-neutral-600 px-2.5 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-muted-foreground transition-colors duration-200 bg-secondary hover:border-primary hover:text-primary"
@@ -195,7 +181,7 @@ export function PerformanceCard({
               <span className="max-w-0 overflow-hidden whitespace-nowrap transition-all duration-500 group-hover/tag:max-w-[120px] group-hover/tag:ml-1 opacity-0 group-hover/tag:opacity-100">
                 {t.work.more}
               </span>
-              
+
               {/* Efeito de brilho sutil ao redor */}
               <span className="absolute inset-0 rounded-full bg-primary/20 opacity-0 blur-md transition-opacity duration-300 group-hover/tag:opacity-40" />
             </span>

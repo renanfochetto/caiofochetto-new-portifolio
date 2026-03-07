@@ -1,7 +1,6 @@
-// components/production-card.tsx
+// components/cards/production-card.tsx
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useTheme } from "../providers/theme-provider";
@@ -9,37 +8,23 @@ import { useI18n } from "@/components/providers/i18n-provider";
 import { ArrowUpRight, Play } from "@/lib/icons";
 import { AnimatedCounter } from "../ui/animated-counter";
 import { trackCaseCardClick } from "@/lib/analytics/track";
-import { Logo } from "@/components/ui/logo"
+import { Logo } from "@/components/ui/logo";
 
+// ✅ SINGLE IMPORT!
+import {
+  ProductionCase,
+  Locale,
+  getLocalizedField,
+  getLocalizedArray
+} from '@/types';
+
+// ✅ Props simplificadas - recebe objeto completo!
 interface ProductionCardProps {
-  slug: string;
-  brand: string;
+  caseData: ProductionCase;
   brandLogo?: string;
-  title_pt: string;
-  title_en: string;
-  title_es: string;
-  description_pt: string;
-  description_en: string;
-  description_es: string;
-  tags_pt: string[];
-  tags_en: string[];
-  tags_es: string[];
 }
 
-export function ProductionCard({
-                                 slug,
-                                 brand,
-                                 brandLogo,
-                                 title_pt,
-                                 title_en,
-                                 title_es,
-                                 description_pt,
-                                 description_en,
-                                 description_es,
-                                 tags_pt,
-                                 tags_en,
-                                 tags_es,
-                               }: ProductionCardProps) {
+export function ProductionCard({ caseData, brandLogo }: ProductionCardProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const { t, locale } = useI18n();
@@ -48,30 +33,24 @@ export function ProductionCard({
     setMounted(true);
   }, []);
 
-  // ✅ Selecionar conteúdo baseado no locale com fallback
-  const title = locale === 'pt' ? title_pt :
-    locale === 'en' ? title_en :
-      title_es || title_en || title_pt; // Fallback chain
+  // ✅ TYPE-SAFE extraction usando utilities
+  const localeTyped = locale as Locale;
 
-  const description = locale === 'pt' ? description_pt :
-    locale === 'en' ? description_en :
-      description_es || description_en || description_pt; // Fallback chain
-
-  const tags = locale === 'pt' ? tags_pt :
-    locale === 'en' ? tags_en :
-      tags_es || tags_en || tags_pt; // Fallback chain
+  const title = getLocalizedField(caseData, 'title', localeTyped);
+  const description = getLocalizedField(caseData, 'description', localeTyped);
+  const tags = getLocalizedArray(caseData, 'tags', localeTyped);
 
   // ✅ HANDLER DE CLIQUE
   const handleClick = () => {
-    trackCaseCardClick(slug, title, 'production');
+    trackCaseCardClick(caseData.slug, title, 'production');
   };
 
-  const displayTags = (tags || []).slice(0, 3);
-  const remainingTags = (tags || []).length - 3;
+  const displayTags = tags.slice(0, 3);
+  const remainingTags = tags.length - 3;
 
   return (
     <Link
-      href={`/${locale}/production-case/${slug}`}
+      href={`/${locale}/production-case/${caseData.slug}`}
       onClick={handleClick}
       className="group relative block"
     >
@@ -93,7 +72,7 @@ export function ProductionCard({
             <div className="flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-start">
               <Logo
                 name={brandLogo}
-                alt={`${brand} logo`}
+                alt={`${caseData.brand} logo`}
                 width={64}
                 height={64}
                 className="object-contain object-left"
@@ -147,7 +126,7 @@ export function ProductionCard({
               <span className="max-w-0 overflow-hidden whitespace-nowrap transition-all duration-500 group-hover/tag:max-w-[120px] group-hover/tag:ml-1 opacity-0 group-hover/tag:opacity-100">
                 {t.work.more}
               </span>
-              
+
               {/* Efeito de brilho sutil ao redor */}
               <span className="absolute inset-0 rounded-full bg-primary/20 opacity-0 blur-md transition-opacity duration-300 group-hover/tag:opacity-40" />
             </span>

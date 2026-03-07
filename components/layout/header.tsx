@@ -1,3 +1,4 @@
+// components/layout/header.tsx
 "use client";
 
 import Link from "next/link";
@@ -17,53 +18,19 @@ export function Header() {
 
   const handleThemeToggle = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
-    trackThemeToggle(newTheme); // ✅ TRACK
+    trackThemeToggle(newTheme);
     toggleTheme();
   };
 
-  // ✅ HANDLER ESC DEDICADO
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && menuOpen) {
-        e.preventDefault();
-        setMenuOpen(false);
-      }
-    };
-
-    if (menuOpen) {
-      document.addEventListener('keydown', handleEscape, { capture: true });
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape, { capture: true });
-    };
-  }, [menuOpen]);
-
-  // Scroll lock
+  // ✅ SIMPLIFICADO - Scroll lock automático via CSS
   useEffect(() => {
     if (menuOpen) {
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-      const header = document.querySelector('header');
-      if (header) {
-        (header as HTMLElement).style.paddingRight = `${scrollbarWidth}px`;
-      }
     } else {
       document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
-      const header = document.querySelector('header');
-      if (header) {
-        (header as HTMLElement).style.paddingRight = "";
-      }
     }
     return () => {
       document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
-      const header = document.querySelector('header');
-      if (header) {
-        (header as HTMLElement).style.paddingRight = "";
-      }
     };
   }, [menuOpen]);
 
@@ -162,9 +129,8 @@ export function Header() {
           <FocusTrap
             focusTrapOptions={{
               allowOutsideClick: true,
-              escapeDeactivates: false, // ✅ ESC gerenciado manualmente
-              initialFocus: false,
-              returnFocusOnDeactivate: true,
+              // ✅ SIMPLIFICADO - ESC nativo do FocusTrap
+              onDeactivate: () => setMenuOpen(false),
             }}
           >
             <m.div

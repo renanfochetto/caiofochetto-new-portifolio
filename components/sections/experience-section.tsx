@@ -1,13 +1,16 @@
+// components/sections/experience-section.tsx
 "use client";
 
-import { useState, useRef, } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { Briefcase, ChevronDown, ChevronUp, Plus, TrendingUp, Footprints, Clipboard } from "@/lib/icons";
 import { AnimatedSection, AnimatedItem } from "../ui/animated-section";
 import { getFeaturedExperiences, getOlderExperiences } from "@/lib/data/experiences";
 import { m, AnimatePresence } from "framer-motion";
-import type { Locale } from "@/lib/i18n/dictionaries";
+
+// ✅ IMPORT CORRETO
+import { Locale } from '@/types';
 
 export function ExperienceSection() {
   const { t, locale } = useI18n();
@@ -34,16 +37,12 @@ export function ExperienceSection() {
     const nextState = !expandedOlder;
 
     if (!nextState) {
-      // Ao fechar, limpamos os IDs das experiências antigas do set de detalhes expandidos.
-      // Isso dispara as animações de saída (exit) dos accordions internos em paralelo ao fechamento principal.
       setExpandedDetails(prev => {
         const newSet = new Set(prev);
         olderExps.forEach(exp => newSet.delete(exp.id));
         return newSet;
       });
 
-      // Scroll suave para o topo da seção de experiências ao fechar
-      // Isso ajuda a manter o contexto visual sem os "trancos" do intervalo anterior
       const section = document.getElementById("experience");
       if (section) {
         section.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -127,6 +126,7 @@ export function ExperienceSection() {
                   {exp.period.duration}
                 </p>
               </div>
+
               {/* BOTÃO EXPANDIR (quando fechado) */}
               {!expandedDetails.has(exp.id) && (
                 <div className="flex justify-center mt-4">
@@ -220,9 +220,9 @@ export function ExperienceSection() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                transition={{ 
+                transition={{
                   duration: 0.8,
-                  ease: [0.32, 0.23, 0.4, 0.9] 
+                  ease: [0.32, 0.23, 0.4, 0.9]
                 }}
                 className="space-y-0 overflow-hidden"
               >

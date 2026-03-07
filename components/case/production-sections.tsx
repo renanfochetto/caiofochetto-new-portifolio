@@ -1,9 +1,11 @@
-// /components/case/production-sections.tsx
+// components/case/production-sections.tsx
 "use client";
 
 import { BookOpen, User } from "@/lib/icons";
 import { AnimatedSection } from "@/components/ui/animated-section";
-import type { ProductionCase } from "@/types/production-case";
+
+// ✅ SINGLE IMPORT!
+import { ProductionCase, Locale, getLocalizedField } from '@/types';
 
 interface ProductionSectionsProps {
   caseData: ProductionCase;
@@ -11,14 +13,11 @@ interface ProductionSectionsProps {
 }
 
 export function ProductionSections({ caseData, locale }: ProductionSectionsProps) {
-  // Selecionar conteúdo baseado no locale com fallback
-  const what = locale === 'pt' ? caseData.what_pt :
-    locale === 'en' ? caseData.what_en :
-      caseData.what_es || caseData.what_en || caseData.what_pt || '';
+  // ✅ TYPE-SAFE extraction usando utilities
+  const localeTyped = locale as Locale;
 
-  const myRole = locale === 'pt' ? caseData.myRole_pt :
-    locale === 'en' ? caseData.myRole_en :
-      caseData.myRole_es || caseData.myRole_en || caseData.myRole_pt || '';
+  const what = getLocalizedField(caseData, 'what', localeTyped);
+  const myRole = getLocalizedField(caseData, 'myRole', localeTyped);
 
   const sectionLabels = locale === "pt"
     ? {

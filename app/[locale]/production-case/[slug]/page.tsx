@@ -1,14 +1,15 @@
-// /app/[locale]/production-case/[slug]/page.tsx
+// app/[locale]/production-case/[slug]/page.tsx
 "use client";
 
 import { notFound } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useTheme } from "@/components/providers/theme-provider";
 import { CaseTemplate } from "@/components/templates/case-template";
-// ✅ APENAS DADOS
 import { productionCases } from "@/lib/data/production-cases";
-// ✅ APENAS HELPERS GENÉRICOS
 import { getCaseBySlug, getCircularNavigation } from "@/lib/helpers/case-helpers";
+
+// ✅ IMPORT TYPES
+import { ProductionCase, CaseNavigation } from '@/types';
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -26,13 +27,13 @@ export default function ProductionCasePage({ params }: PageProps) {
 
   const { locale, slug } = resolvedParams;
 
-  // ✅ USA HELPER GENÉRICO + DADOS
-  const caseData = getCaseBySlug(productionCases, slug);
+  // ✅ TYPE-SAFE
+  const caseData: ProductionCase | undefined = getCaseBySlug(productionCases, slug);
 
   if (!caseData) notFound();
 
-  // ✅ USA HELPER GENÉRICO + DADOS
-  const navigation = getCircularNavigation(productionCases, slug);
+  // ✅ TYPE-SAFE
+  const navigation: CaseNavigation = getCircularNavigation(productionCases, slug);
 
   return (
     <CaseTemplate

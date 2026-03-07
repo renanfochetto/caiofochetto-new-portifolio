@@ -1,11 +1,13 @@
+// types/performance-case.ts
+
 export interface CaseMetric {
   value: string;
   label_pt: string;
   label_en: string;
   label_es: string;
-  description_pt: string;
-  description_en: string;
-  description_es: string;
+  description_pt?: string;
+  description_en?: string;
+  description_es?: string;
 }
 
 export interface CaseData {
@@ -21,9 +23,9 @@ export interface CaseData {
   role_en: string;
   role_es: string;
   period: string;
-  year_display: string;
-  industry: string;
-  type: string;
+  year_display?: string;
+  industry?: string;
+  type?: string;
   icon?: string;
 
   // Content
@@ -48,17 +50,17 @@ export interface CaseData {
   tags_es: string[];
 
   // Media
-  playlist_url: string;
-  thumbnail: string;
-  hero_type: "video" | "image";
-  hero_placeholder: string;
+  playlist_url?: string;
+  thumbnail?: string;
+  hero_type?: "video" | "image";
+  hero_placeholder?: string;
 
   // SEO
-  meta_title_pt: string;
-  meta_title_en: string;
-  meta_title_es: string;
-  meta_description_pt: string;
-  meta_description_en: string;
-  meta_description_es: string;
-  og_image: string;
+  meta_title_pt?: string;
+  meta_title_en?: string;
+  meta_title_es?: string;
+  meta_description_pt?: string;
+  meta_description_en?: string;
+  meta_description_es?: string;
+  og_image?: string;
 }
