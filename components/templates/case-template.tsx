@@ -232,7 +232,6 @@ export function CaseTemplate({
                   </p>
                 </div>
               </div>
-
               {/* Bloco 2: Logo Brand */}
               {brandLogo && (
                 <div
