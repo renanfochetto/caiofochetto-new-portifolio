@@ -55,11 +55,9 @@ export function useCounter(
 export const heroVariants = {
   hidden: {
     opacity: 1,
-    y: 10
   },
   visible: {
     opacity: 1,
-    y: 0,
     transition: {
       duration: 0.15,
       ease: "easeOut",
