@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = `https://caiofochetto.com/${locale}/production-case/${slug}`
 
   return {
+    metadataBase: new URL('https://caiofochetto.com'),
     title,
     description: metaDescription,
 

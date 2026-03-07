@@ -18,7 +18,7 @@ export function Footer() {
           <a
             href="mailto:caiofochetto@gmail.com"
             onClick={handleEmailClick}
-            className="text-xs text-foreground/70 transition-colors hover:text-primary active:scale-95"
+            className="text-xs text-foreground/80 underline decoration-foreground/30 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary active:scale-95"
           >
             caiofochetto@gmail.com
           </a>
@@ -30,7 +30,7 @@ export function Footer() {
               href="https://renanfochetto.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-foreground/70 transition-colors hover:text-primary active:scale-95"
+              className="text-xs text-foreground/80 underline decoration-foreground/30 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary active:scale-95"
             >
               Renan Fochetto
             </a>
