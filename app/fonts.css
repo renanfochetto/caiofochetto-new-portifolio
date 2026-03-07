@@ -1,32 +1,17 @@
 /* ============================================
    SELF-HOSTED FONTS - CAIO FOCHETTO PORTFOLIO
+   OTIMIZADO - APENAS WEIGHTS USADOS
    ============================================ */
 
 /* Fraunces - Display Font */
+/* ✅ APENAS 400 e 700 usado no hero */
 @font-face {
     font-family: 'Fraunces';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('/fonts/fraunces/fraunces-regular.woff2') format('woff2');
+    src: url('/fonts/fraunces/fraunces-700.woff2') format('woff2');
 }
-
-@font-face {
-    font-family: 'Fraunces';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url('/fonts/fraunces/fraunces-500.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Fraunces';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url('/fonts/fraunces/fraunces-600.woff2') format('woff2');
-}
-
 @font-face {
     font-family: 'Fraunces';
     font-style: normal;
@@ -36,6 +21,7 @@
 }
 
 /* Space Grotesk - Heading Font */
+/* ✅ 400, 600, 700 - Todos usados */
 @font-face {
     font-family: 'Space Grotesk';
     font-style: normal;
@@ -43,15 +29,6 @@
     font-display: swap;
     src: url('/fonts/space-grotesk/space-grotesk-regular.woff2') format('woff2');
 }
-
-@font-face {
-    font-family: 'Space Grotesk';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url('/fonts/space-grotesk/space-grotesk-500.woff2') format('woff2');
-}
-
 @font-face {
     font-family: 'Space Grotesk';
     font-style: normal;
@@ -59,7 +36,6 @@
     font-display: swap;
     src: url('/fonts/space-grotesk/space-grotesk-600.woff2') format('woff2');
 }
-
 @font-face {
     font-family: 'Space Grotesk';
     font-style: normal;
@@ -69,6 +45,7 @@
 }
 
 /* Manrope - Sans/Body Font */
+/* ✅ TODOS (400, 500, 600, 700) - Todos usados */
 @font-face {
     font-family: 'Manrope';
     font-style: normal;
@@ -76,7 +53,6 @@
     font-display: swap;
     src: url('/fonts/manrope/manrope-regular.woff2') format('woff2');
 }
-
 @font-face {
     font-family: 'Manrope';
     font-style: normal;
@@ -84,7 +60,6 @@
     font-display: swap;
     src: url('/fonts/manrope/manrope-500.woff2') format('woff2');
 }
-
 @font-face {
     font-family: 'Manrope';
     font-style: normal;
@@ -92,7 +67,6 @@
     font-display: swap;
     src: url('/fonts/manrope/manrope-600.woff2') format('woff2');
 }
-
 @font-face {
     font-family: 'Manrope';
     font-style: normal;

@@ -132,6 +132,8 @@ export default async function LocaleLayout({
     <head>
       <PersonSchema/>
       <PortfolioWebsiteSchema/>
+      <link rel="preconnect" href="https://cloud.umami.is" />
+      <link rel="preconnect" href="https://api-gateway.umami.dev" />
       <link
         rel="preload"
         href="/fonts/fraunces/fraunces-700.woff2"
