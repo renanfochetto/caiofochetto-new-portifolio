@@ -171,7 +171,7 @@ export default async function LocaleLayout({
       defer
       src={UMAMI_CONFIG.src}
       data-website-id={UMAMI_CONFIG.websiteId}
-      strategy="lazyOnload"
+      strategy="afterInteractive"
     />
     </body>
     </html>
