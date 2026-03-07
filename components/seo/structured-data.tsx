@@ -1,12 +1,27 @@
+// components/seo/structured-data.tsx
 "use client";
 
+// ✅ IMPORTS DINÂMICOS
+import {
+  getWorkHistory,
+  getCurrentPosition,
+  getTotalYearsOfExperience
+} from '@/lib/helpers/schema-helpers';
+
 export function PersonSchema() {
+  // ✅ DADOS DINÂMICOS
+  const workHistory = getWorkHistory();
+  const currentPosition = getCurrentPosition();
+  const yearsOfExperience = getTotalYearsOfExperience();
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Caio Fochetto",
-    "jobTitle": "Líder em Marketing de Influência e Performance Digital",
-    "description": "15+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência.",
+    // ✅ DINÂMICO - cargo atual ou mais recente
+    "jobTitle": currentPosition?.roleName || "Líder em Marketing de Influência e Performance Digital",
+    // ✅ DINÂMICO - anos auto-atualizam
+    "description": `${yearsOfExperience}+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência.`,
     "url": "https://caiofochetto.com",
     "image": "https://caiofochetto.com/images/foto_caio.avif",
     "sameAs": [
@@ -34,26 +49,8 @@ export function PersonSchema() {
         "Social Media Marketing"
       ]
     },
-    "worksFor": [
-      {
-        "@type": "Organization",
-        "name": "Octagon",
-        "startDate": "2023-04",
-        "endDate": "2026-02"
-      },
-      {
-        "@type": "Organization",
-        "name": "Jellysmack",
-        "startDate": "2021-11",
-        "endDate": "2023-04"
-      },
-      {
-        "@type": "Organization",
-        "name": "A+E Networks",
-        "startDate": "2012-02",
-        "endDate": "2019-10"
-      }
-    ],
+    // ✅ DINÂMICO - vem de experiences.ts
+    "worksFor": workHistory,
     "knowsAbout": [
       "Marketing de Influência",
       "Creator Economy",
@@ -77,6 +74,9 @@ export function PersonSchema() {
 }
 
 export function PortfolioWebsiteSchema() {
+  // ✅ DINÂMICO
+  const yearsOfExperience = getTotalYearsOfExperience();
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -86,7 +86,8 @@ export function PortfolioWebsiteSchema() {
       "url": "https://caiofochetto.com"
     },
     "name": "Caio Fochetto | Líder em Marketing de Influência e Performance Digital",
-    "description": "15+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência.",
+    // ✅ DINÂMICO
+    "description": `${yearsOfExperience}+ anos conectando marca, cultura e performance através de estratégias de conteúdo e influência.`,
     "url": "https://caiofochetto.com",
     "inLanguage": ["pt-BR", "en-US", "es-ES"]
   };
