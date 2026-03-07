@@ -23,10 +23,10 @@ export default {
         input: "rgb(var(--input) / <alpha-value>)",
       },
       fontFamily: {
-        // ✅ ATUALIZADO - Usando variáveis CSS do next/font
-        display: ['var(--font-fraunces)', 'serif'],
-        heading: ['var(--font-space-grotesk)', 'sans-serif'],
-        sans: ['var(--font-manrope)', 'system-ui', 'sans-serif'],
+        // ✅ ATUALIZADO - Self-hosted fonts
+        display: ['Fraunces', 'serif'],
+        heading: ['Space Grotesk', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         // Display - Hero e Títulos Muito Grandes
