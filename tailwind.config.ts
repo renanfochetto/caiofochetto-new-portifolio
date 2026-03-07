@@ -27,7 +27,6 @@ export default {
         display: ['Fraunces', 'serif'],
         heading: ['Space Grotesk', 'sans-serif'],
         sans: ['Manrope', 'system-ui', 'sans-serif'],
-        mono: ['Geist Mono', 'monospace'],
       },
       fontSize: {
         // Display - Hero e Títulos Muito Grandes

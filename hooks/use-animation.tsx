@@ -51,6 +51,22 @@ export function useCounter(
   return displayValue;
 }
 
+// Variant rápido para hero (above-fold)
+export const heroVariants = {
+  hidden: {
+    opacity: 0.9,
+    y: 10
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.15,
+      ease: "easeOut",
+    },
+  },
+};
+
 // Animation variants
 export const fadeInUpVariants = {
   hidden: {

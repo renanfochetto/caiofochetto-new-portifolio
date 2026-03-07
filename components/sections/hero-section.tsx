@@ -9,7 +9,7 @@ export function HeroSection() {
 
   return (
     <section className="relative flex min-h-svh flex-col justify-center px-4 py-16 sm:px-6 md:px-8 md:py-20 lg:py-24">
-      <AnimatedSection className="mx-auto w-full max-w-6xl">
+      <AnimatedSection hero className="mx-auto w-full max-w-6xl">
         <div className="flex flex-col gap-6 md:gap-8">
           {/* Badge - AGORA CLICÁVEL */}
           <a

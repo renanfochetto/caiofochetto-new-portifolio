@@ -3,24 +3,35 @@
 import { ReactNode } from "react";
 import { m, useInView } from "framer-motion";
 import { useRef } from "react";
-import { fadeInUpVariants, containerVariants, prefersReducedMotion } from "@/hooks/use-animation";
+import {
+  fadeInUpVariants,
+  containerVariants,
+  heroVariants,
+  prefersReducedMotion
+} from "@/hooks/use-animation";
 
 interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
   staggerChildren?: boolean;
+  hero?: boolean;
 }
 
 export function AnimatedSection({
-  children,
-  className = "",
-  staggerChildren = false,
-}: AnimatedSectionProps) {
+                                  children,
+                                  className = "",
+                                  staggerChildren = false,
+                                  hero = false,
+                                }: AnimatedSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const shouldReduce = prefersReducedMotion();
 
-  const variants = staggerChildren ? containerVariants : fadeInUpVariants;
+  const variants = hero
+    ? heroVariants
+    : staggerChildren
+      ? containerVariants
+      : fadeInUpVariants;
 
   if (shouldReduce) {
     return <div ref={ref} className={className}>{children}</div>;
@@ -39,6 +50,7 @@ export function AnimatedSection({
   );
 }
 
+// ✅ ADICIONAR INTERFACE:
 interface AnimatedItemProps {
   children: ReactNode;
   className?: string;
@@ -46,10 +58,10 @@ interface AnimatedItemProps {
 }
 
 export function AnimatedItem({
-  children,
-  className = "",
-  index = 0,
-}: AnimatedItemProps) {
+                               children,
+                               className = "",
+                               index = 0,
+                             }: AnimatedItemProps) {
   const shouldReduce = prefersReducedMotion();
 
   if (shouldReduce) {

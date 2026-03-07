@@ -6,11 +6,8 @@ import { usePathname } from "next/navigation";
 
 export default function NotFound() {
   const pathname = usePathname();
-
-  // Detectar locale da URL atual
   const locale = pathname?.split('/')[1] || 'pt';
 
-  // Textos por idioma
   const texts = {
     pt: {
       code: "404",
@@ -36,7 +33,10 @@ export default function NotFound() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-6 bg-background text-foreground">
-      <p className="font-mono text-sm text-primary">{t.code}</p>
+      {/* ✅ MUDANÇA: font-mono → font-heading */}
+      <p className="font-heading text-6xl font-bold text-primary tracking-wider">
+        {t.code}
+      </p>
       <h1 className="mt-4 text-3xl font-bold text-foreground md:text-4xl">
         {t.title}
       </h1>
