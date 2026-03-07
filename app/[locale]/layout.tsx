@@ -14,8 +14,8 @@ import Script from "next/script";
 import {UMAMI_CONFIG} from "@/lib/analytics/umami-config";
 import {ScrollDepthTracker} from "@/components/analytics/scroll-depth-tracker";
 import {LazyMotion, domAnimation} from "framer-motion";
+import {fraunces, spaceGrotesk, manrope} from "@/lib/fonts";
 import "../globals.css";
-import "../fonts.css"
 
 const SITE_URL = "https://www.caiofochetto.com";
 
@@ -128,33 +128,13 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       suppressHydrationWarning
+      className={`${fraunces.variable} ${spaceGrotesk.variable} ${manrope.variable}`}
     >
     <head>
       <PersonSchema/>
       <PortfolioWebsiteSchema/>
       <link rel="preconnect" href="https://cloud.umami.is" />
       <link rel="preconnect" href="https://api-gateway.umami.dev" />
-      <link
-        rel="preload"
-        href="/fonts/fraunces/fraunces-700.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
-      <link
-        rel="preload"
-        href="/fonts/space-grotesk/space-grotesk-700.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
-      <link
-        rel="preload"
-        href="/fonts/manrope/manrope-regular.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
     </head>
     <body className="font-sans antialiased">
     <script dangerouslySetInnerHTML={{__html: themeScript}}/>

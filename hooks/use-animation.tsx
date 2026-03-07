@@ -54,7 +54,7 @@ export function useCounter(
 // Variant rápido para hero (above-fold)
 export const heroVariants = {
   hidden: {
-    opacity: 0.9,
+    opacity: 1,
     y: 10
   },
   visible: {
