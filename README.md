@@ -1,7 +1,7 @@
 # 🎯 Caio Fochetto - Portfolio
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15%2B-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 [![Lighthouse](https://img.shields.io/badge/Lighthouse-98%2F100-success?style=flat&logo=lighthouse)](https://developers.google.com/web/tools/lighthouse)
 [![Performance](https://img.shields.io/badge/Performance-98%2F100-success?style=flat)](https://pagespeed.web.dev/)
 
@@ -14,7 +14,7 @@ Portfolio profissional de Caio Fochetto - Líder em Marketing de Influência e P
 ## ✨ Features
 
 ### 🎨 **Design & UX**
-- ✅ Design system customizado (Fraunces, Space Grotesk, Manrope)
+- ✅ Self-hosted fonts (Fraunces, Space Grotesk, Manrope) with preloading
 - ✅ **Dark/Light mode** com persistência (localStorage)
 - ✅ **Dynamic favicon** (muda com theme) 🎨
 - ✅ Animações suaves e performáticas (Framer Motion)
@@ -53,9 +53,9 @@ Portfolio profissional de Caio Fochetto - Líder em Marketing de Influência e P
 ## 🛠️ Tech Stack
 
 ### **Framework & Core**
-- [Next.js 15](https://nextjs.org/) - App Router, Server Components
-- [React 19](https://react.dev/) - RC (canary)
-- [TypeScript 5](https://www.typescriptlang.org/) - Type-safe development
+- [Next.js 16](https://nextjs.org/) - App Router, Server Components
+- [React 19](https://react.dev/) - Stable version
+- [TypeScript 5.7](https://www.typescriptlang.org/) - Type-safe development
 
 ### **Styling & Animation**
 - [Tailwind CSS 3](https://tailwindcss.com/) - Utility-first CSS
@@ -70,10 +70,10 @@ Portfolio profissional de Caio Fochetto - Líder em Marketing de Influência e P
 - Self-hosted with Next.js Font Optimization
 
 ### **Internationalization**
-- Custom i18n implementation
-- Dictionary-based translations (`/lib/i18n/dictionaries`)
-- Locale-specific routing
-- **Auto-detection** via Accept-Language header
+- Custom i18n implementation via middleware
+- Dictionary-based translations (`/messages/*.json`)
+- Locale-specific routing (`/pt`, `/en`, `/es`)
+- **Auto-detection** via Accept-Language header in `middleware.ts`
 
 ### **Analytics & Monitoring**
 - [Umami Analytics](https://umami.is/) - Privacy-focused analytics
@@ -192,9 +192,14 @@ caiofochetto-new-portifolio/
 ├── lib/                          # Utilities & data
 │   ├── data/                     # Static data (cases, experiences)
 │   ├── helpers/                  # Helper functions
-│   ├── i18n/                     # Internationalization
-│   │   └── dictionaries/         # Translation files
+│   ├── i18n/                     # Internationalization configuration
+│   │   └── dictionaries.ts       # Dictionary loader
 │   └── utils.ts                  # Utility functions
+│
+├── messages/                     # Translation files (JSON)
+│   ├── en.json                   # English
+│   ├── es.json                   # Spanish
+│   └── pt.json                   # Portuguese
 │
 ├── types/                        # TypeScript types
 │   ├── index.ts                  # Central exports
@@ -280,9 +285,16 @@ NEXT_PUBLIC_UMAMI_URL=https://cloud.umami.is
 
 Key configurations in `next.config.mjs`:
 - Image optimization (AVIF, WebP)
-- Redirects (`/` → `/pt`)
+- Remote patterns for external assets
 - Bundle analyzer (development)
-- i18n locale detection
+- PostCSS integration (Tailwind)
+
+### i18n Middleware
+
+Routing and locale detection logic is centralized in `middleware.ts`:
+- Locale detection (Accept-Language)
+- Automatic redirection (`/` → `/pt`)
+- Static file exclusion from localized routes
 
 ---
 
@@ -301,22 +313,23 @@ The site automatically detects user language from:
 3. Falls back to Portuguese (default)
 
 ### Adding Translations
+
 ```typescript
-// lib/i18n/dictionaries/pt.ts
-export default {
-  hero: {
-    headline: "Seu texto aqui",
-    // ...
+// messages/pt.json
+{
+  "hero": {
+    "headline": "Seu texto aqui"
   }
 }
 ```
 
 ### Using Translations
+
 ```typescript
 import { getDictionary } from '@/lib/i18n/dictionaries';
 
-const dict = await getDictionary(locale);
-{dict.hero.headline}
+const dict = getDictionary(locale);
+// {dict.hero.headline}
 ```
 
 ---
