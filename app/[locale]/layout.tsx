@@ -90,7 +90,7 @@ const themeScript = `(function() {
       document.documentElement.classList.remove('light');
     }
     
-    // ✅ TAMBÉM ATUALIZAR FAVICON AQUI (antes do React carregar)
+    // Atualizar favicon aqui (antes do React carregar)
     const oldFavicon = document.querySelector("link[rel='icon']");
     if (oldFavicon) {
       document.head.removeChild(oldFavicon);
@@ -112,52 +112,49 @@ const themeScript = `(function() {
 })()`;
 
 export default async function LocaleLayout({
-                                             children,
-                                             params,
-                                           }: {
+  children,
+  params,
+}: {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  const {locale} = await params;
+  const { locale } = await params;
 
   if (!locales.includes(locale as Locale)) {
     notFound();
   }
 
   return (
-    <html
-      lang={locale}
-      suppressHydrationWarning
-    >
-    <head>
-      <PersonSchema/>
-      <PortfolioWebsiteSchema/>
-      <link rel="preconnect" href="https://cloud.umami.is" />
-      <link rel="preconnect" href="https://api-gateway.umami.dev" />
-      <link rel="preload" href="/fonts/fraunces/fraunces-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
-      <link rel="preload" href="/fonts/space-grotesk/space-grotesk-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
-      <link rel="preload" href="/fonts/manrope/manrope-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
-    </head>
-    <body className="font-sans antialiased">
-    <script dangerouslySetInnerHTML={{__html: themeScript}}/>
-    <LazyMotion features={domAnimation} strict>
-      <I18nProvider locale={locale as Locale}>
-        <ThemeProvider>
-          <SkipLink/>
-          <DynamicFavicon/>
-          <ScrollDepthTracker/>
-          <PageTransition>{children}</PageTransition>
-        </ThemeProvider>
-      </I18nProvider>
-    </LazyMotion>
-    <Analytics/>
-    <Script
-      defer
-      src={UMAMI_CONFIG.src}
-      data-website-id={UMAMI_CONFIG.websiteId}
-      strategy="afterInteractive"
-    />
-    </body>
+    <html lang={locale} suppressHydrationWarning>
+      <head>
+        <PersonSchema />
+        <PortfolioWebsiteSchema />
+        <link rel="preconnect" href="https://cloud.umami.is" />
+        <link rel="preconnect" href="https://api-gateway.umami.dev" />
+        <link rel="preload" href="/fonts/fraunces/fraunces-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/space-grotesk/space-grotesk-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/manrope/manrope-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
+      <body className="font-sans antialiased">
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <LazyMotion features={domAnimation} strict>
+          <I18nProvider locale={locale as Locale}>
+            <ThemeProvider>
+              <SkipLink />
+              <DynamicFavicon />
+              <ScrollDepthTracker />
+              <PageTransition>{children}</PageTransition>
+            </ThemeProvider>
+          </I18nProvider>
+        </LazyMotion>
+        <Analytics />
+        <Script
+          defer
+          src={UMAMI_CONFIG.src}
+          data-website-id={UMAMI_CONFIG.websiteId}
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }

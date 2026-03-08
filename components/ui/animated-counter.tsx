@@ -66,7 +66,7 @@ export function AnimatedCounter({
 
   const { number, prefix, suffix, decimals } = parseValue(value);
 
-  // ✅ Passar decimals para o useCounter
+  // Passar decimals para o useCounter
   const displayNumber = useCounter(hasStarted ? number : 0, duration, decimals);
   const shouldReduce = prefersReducedMotion();
 

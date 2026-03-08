@@ -1,12 +1,12 @@
 'use client'
 
-import {useI18n} from '@/components/providers/i18n-provider'
-import {useRouter, usePathname} from 'next/navigation'
-import type {Locale} from '@/lib/i18n/dictionaries'
-import {useState, useRef, useEffect} from 'react'
-import {Check, ChevronDown, Globe} from '@/lib/icons'
-import {m, AnimatePresence} from 'framer-motion'
-import {springTransitions} from '@/hooks/use-animation'
+import { useI18n } from '@/components/providers/i18n-provider'
+import { useRouter, usePathname } from 'next/navigation'
+import type { Locale } from '@/lib/i18n/dictionaries'
+import { useState, useRef, useEffect } from 'react'
+import { Check, ChevronDown, Globe } from '@/lib/icons'
+import { m, AnimatePresence } from 'framer-motion'
+import { springTransitions } from '@/hooks/use-animation'
 import { trackLanguageSwitch } from "@/lib/analytics/track";
 
 interface LanguageOption {
@@ -25,12 +25,12 @@ interface LanguageSwitcherProps {
   variant?: 'desktop' | 'mobile'
 }
 
-export function LanguageSwitcher({variant = 'desktop'}: LanguageSwitcherProps) {
-  const {locale} = useI18n()
+export function LanguageSwitcher({ variant = 'desktop' }: LanguageSwitcherProps) {
+  const { locale } = useI18n()
   const router = useRouter()
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
-  const [focusedIndex, setFocusedIndex] = useState(0) // ✅ NOVO: índice do item focado
+  const [focusedIndex, setFocusedIndex] = useState(0)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
@@ -51,7 +51,7 @@ export function LanguageSwitcher({variant = 'desktop'}: LanguageSwitcherProps) {
     router.push(newPathname)
     setIsOpen(false)
 
-    // ✅ RETORNAR FOCO PARA O BOTÃO
+    // Retornar foco para o botão
     buttonRef.current?.focus()
   }
 
@@ -72,7 +72,7 @@ export function LanguageSwitcher({variant = 'desktop'}: LanguageSwitcherProps) {
     }
   }, [isOpen])
 
-  // ✅ KEYBOARD HANDLER COMPLETO
+  // Keyboard handler completo
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       if (!isOpen) return
@@ -121,10 +121,9 @@ export function LanguageSwitcher({variant = 'desktop'}: LanguageSwitcherProps) {
     }
   }, [isOpen, focusedIndex])
 
-  // ✅ RESETAR FOCO AO ABRIR
+  // Resetar foco ao abrir
   useEffect(() => {
     if (isOpen) {
-      // Encontrar índice do idioma atual
       const currentIndex = languages.findIndex(l => l.code === locale)
       setFocusedIndex(currentIndex >= 0 ? currentIndex : 0)
     }
@@ -214,7 +213,7 @@ export function LanguageSwitcher({variant = 'desktop'}: LanguageSwitcherProps) {
             "
             role="listbox"
             aria-label="Selecionar idioma"
-            aria-activedescendant={`lang-option-${languages[focusedIndex].code}`} // ✅ NOVO: indicar item focado
+            aria-activedescendant={`lang-option-${languages[focusedIndex].code}`}
           >
             <div className="p-1.5">
               {languages.map((lang, index) => (
@@ -224,17 +223,17 @@ export function LanguageSwitcher({variant = 'desktop'}: LanguageSwitcherProps) {
                   onClick={() => handleSelectLanguage(lang.code)}
                   onMouseEnter={() => setFocusedIndex(index)}
                   className={`
-      w-full flex items-center gap-3 px-3 py-2
-      rounded-xl
-      transition-colors duration-150
-      text-left
-      ${index === focusedIndex
-                    ? 'bg-primary/20 text-primary'
-                    : locale === lang.code
-                      ? 'text-primary bg-primary/10'
-                      : 'text-muted-foreground hover:text-primary'
-                  }
-    `}
+                    w-full flex items-center gap-3 px-3 py-2
+                    rounded-xl
+                    transition-colors duration-150
+                    text-left
+                    ${index === focusedIndex
+                      ? 'bg-primary/20 text-primary'
+                      : locale === lang.code
+                        ? 'text-primary bg-primary/10'
+                        : 'text-muted-foreground hover:text-primary'
+                    }
+                  `}
                   role="option"
                   aria-selected={locale === lang.code}
                   aria-label={lang.name}

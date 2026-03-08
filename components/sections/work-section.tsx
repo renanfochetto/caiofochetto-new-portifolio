@@ -11,17 +11,16 @@ import { Award } from "@/lib/icons";
 import { performanceCases } from "@/lib/data/performance-cases";
 import { productionCases } from "@/lib/data/production-cases";
 import { brandLogos } from "@/lib/helpers/case-helpers";
-
-// ✅ IMPORT TYPES para type safety
 import { CaseData, ProductionCase } from '@/types';
 
+// Seção de portfólio (Trabalhos/Cases)
 export function WorkSection() {
   const { t } = useI18n();
 
   // Estado do toggle (default: performance)
   const [view, setView] = useState<"performance" | "production">("performance");
 
-  // ✅ Função para reordenar itens para layout de colunas
+  // Função para reordenar itens para layout de colunas (masonry style)
   const reorderForColumns = <T,>(items: T[]) => {
     if (items.length <= 2) return items;
 
@@ -36,7 +35,7 @@ export function WorkSection() {
     return [...col1, ...col2];
   };
 
-  // ✅ Type-safe arrays
+  // Arrays tipados para exibição
   const displayPerformance: CaseData[] = reorderForColumns(performanceCases);
   const displayProduction: ProductionCase[] = reorderForColumns(productionCases);
 
@@ -65,7 +64,6 @@ export function WorkSection() {
         {/* Cases Grid - Muda baseado no view */}
         <div className="mt-12 columns-1 gap-6 md:columns-2 md:gap-8">
           {view === "performance" ? (
-            // ✅ PERFORMANCE CASES - passa objeto completo!
             <>
               {displayPerformance.map((caseData, idx) => {
                 // Pegar logo do primeiro brand
@@ -90,7 +88,6 @@ export function WorkSection() {
               })}
             </>
           ) : (
-            // ✅ PRODUCTION CASES - passa objeto completo!
             <>
               {displayProduction.map((caseData, idx) => {
                 // Pegar logo da marca

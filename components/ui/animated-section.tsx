@@ -18,11 +18,11 @@ interface AnimatedSectionProps {
 }
 
 export function AnimatedSection({
-                                  children,
-                                  className = "",
-                                  staggerChildren = false,
-                                  hero = false,
-                                }: AnimatedSectionProps) {
+  children,
+  className = "",
+  staggerChildren = false,
+  hero = false,
+}: AnimatedSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const shouldReduce = prefersReducedMotion();
@@ -50,7 +50,7 @@ export function AnimatedSection({
   );
 }
 
-// ✅ ADICIONAR INTERFACE:
+// Componente para itens individuais dentro de uma seção animada
 interface AnimatedItemProps {
   children: ReactNode;
   className?: string;
@@ -58,10 +58,10 @@ interface AnimatedItemProps {
 }
 
 export function AnimatedItem({
-                               children,
-                               className = "",
-                               index = 0,
-                             }: AnimatedItemProps) {
+  children,
+  className = "",
+  index = 0,
+}: AnimatedItemProps) {
   const shouldReduce = prefersReducedMotion();
 
   if (shouldReduce) {

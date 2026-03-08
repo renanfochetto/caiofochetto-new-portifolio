@@ -2,10 +2,7 @@ import dynamic from "next/dynamic";
 import { Header } from "@/components/layout/header";
 import { HeroSection } from "@/components/sections/hero-section";
 
-// ============================================================================
-// LAZY LOADED COMPONENTS (Below-the-fold)
-// ============================================================================
-
+// Lazy loaded components (Below-the-fold)
 const LogoCarousel = dynamic(
   () => import("@/components/ui/logo-carousel").then(mod => ({ default: mod.LogoCarousel })),
   { ssr: true }
@@ -41,10 +38,7 @@ const Footer = dynamic(
   { ssr: true }
 );
 
-// ============================================================================
-// PAGE COMPONENT
-// ============================================================================
-
+// Componente da página inicial
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">

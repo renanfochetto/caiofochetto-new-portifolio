@@ -12,7 +12,10 @@ import {
   BarChart3,
   Star,
   Target,
-  Sparkles
+  Sparkles,
+  Clock,
+  Building2,
+  ThumbsUp
 } from "@/lib/icons";
 
 // ============================================================================
@@ -125,16 +128,26 @@ export function getMetricIcon(label: string) {
     'interações': MessageCircle,
 
     // Sentimento / Sentiment
-    'sentiment': Sparkles,
-    'sentimento': Sparkles,
+    'sentiment': ThumbsUp,
+    'sentimento': ThumbsUp,
+    'positivo': ThumbsUp,
 
-    // CTR
+    // Marcas / Brands
+    'brands': Building2,
+    'marcas': Building2,
+
+    // Tempo / Watch Time
+    'watchtime': Clock,
+    'tempo': Clock,
+    'watch time': Clock,
+
+    // CTR / Cliques
     'ctr': Target,
     'cliques': MousePointerClick,
 
-    // Tempo / Watch Time
-    'watchtime': Play,
-    'tempo': Play,
+    // Uso / Scope
+    'scope': Target,
+    'uso': Target,
 
     // Crescimento / Growth
     'growth': TrendingUp,

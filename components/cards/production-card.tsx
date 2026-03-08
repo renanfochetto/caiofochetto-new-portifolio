@@ -10,7 +10,6 @@ import { AnimatedCounter } from "../ui/animated-counter";
 import { trackCaseCardClick } from "@/lib/analytics/track";
 import { Logo } from "@/components/ui/logo";
 
-// ✅ SINGLE IMPORT!
 import {
   ProductionCase,
   Locale,
@@ -18,12 +17,12 @@ import {
   getLocalizedArray
 } from '@/types';
 
-// ✅ Props simplificadas - recebe objeto completo!
 interface ProductionCardProps {
   caseData: ProductionCase;
   brandLogo?: string;
 }
 
+// Componente de card para cases de produção
 export function ProductionCard({ caseData, brandLogo }: ProductionCardProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -33,14 +32,14 @@ export function ProductionCard({ caseData, brandLogo }: ProductionCardProps) {
     setMounted(true);
   }, []);
 
-  // ✅ TYPE-SAFE extraction usando utilities
+  // Extração de campos localizados
   const localeTyped = locale as Locale;
 
   const title = getLocalizedField(caseData, 'title', localeTyped);
   const description = getLocalizedField(caseData, 'description', localeTyped);
   const tags = getLocalizedArray(caseData, 'tags', localeTyped);
 
-  // ✅ HANDLER DE CLIQUE
+  // Handler de clique para analytics
   const handleClick = () => {
     trackCaseCardClick(caseData.slug, title, 'production');
   };

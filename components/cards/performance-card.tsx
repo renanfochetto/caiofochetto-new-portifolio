@@ -8,8 +8,8 @@ import { useI18n } from "@/components/providers/i18n-provider";
 import { AnimatedCounter } from "../ui/animated-counter";
 import { trackCaseCardClick } from "@/lib/analytics/track";
 import { Logo } from "@/components/ui/logo";
+import { getMetricIcon } from "@/lib/helpers/case-helpers";
 
-// ✅ SINGLE IMPORT!
 import {
   CaseData,
   Locale,
@@ -17,46 +17,14 @@ import {
   getLocalizedArray
 } from '@/types';
 
-import {
-  ArrowUpRight,
-  Users,
-  Eye,
-  Heart,
-  MessageCircle,
-  TrendingUp,
-  DollarSign,
-  MousePointerClick,
-  Play,
-  BarChart3,
-  Clock,
-  Building2,
-  ThumbsUp,
-  Target
-} from "@/lib/icons";
+import { ArrowUpRight, Play } from "@/lib/icons";
 
-const getMetricIcon = (label: string) => {
-  if (!label) return BarChart3;
-  const lowerLabel = label.toLowerCase();
-  if (lowerLabel.includes("alcance") || lowerLabel.includes("reach")) return Users;
-  if (lowerLabel.includes("impressões") || lowerLabel.includes("impressions")) return Eye;
-  if (lowerLabel.includes("engajamento") || lowerLabel.includes("engagement")) return Heart;
-  if (lowerLabel.includes("interações") || lowerLabel.includes("interactions")) return MessageCircle;
-  if (lowerLabel.includes("crescimento") || lowerLabel.includes("growth")) return TrendingUp;
-  if (lowerLabel.includes("receita") || lowerLabel.includes("revenue") || lowerLabel.includes("ingresos")) return DollarSign;
-  if (lowerLabel.includes("cliques") || lowerLabel.includes("ctr")) return MousePointerClick;
-  if (lowerLabel.includes("watch time") || lowerLabel.includes("tempo")) return Clock;
-  if (lowerLabel.includes("marcas") || lowerLabel.includes("brands")) return Building2;
-  if (lowerLabel.includes("sentimento") || lowerLabel.includes("sentiment") || lowerLabel.includes("positivo")) return ThumbsUp;
-  if (lowerLabel.includes("uso") || lowerLabel.includes("scope") || lowerLabel.includes("alcance")) return Target;
-  if (lowerLabel.includes("views") || lowerLabel.includes("visualizações")) return Play;
-  return BarChart3;
-};
-// ✅ Props simplificadas - recebe objeto completo!
 interface PerformanceCardProps {
   caseData: CaseData;
   brandLogo?: string;
 }
 
+// Componente de card para cases de performance
 export function PerformanceCard({ caseData, brandLogo }: PerformanceCardProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -66,7 +34,7 @@ export function PerformanceCard({ caseData, brandLogo }: PerformanceCardProps) {
     setMounted(true);
   }, []);
 
-  // ✅ TYPE-SAFE extraction usando utilities
+  // Extração de campos localizados
   const localeTyped = locale as Locale;
 
   const title = getLocalizedField(caseData, 'title', localeTyped);
@@ -76,14 +44,15 @@ export function PerformanceCard({ caseData, brandLogo }: PerformanceCardProps) {
     ? caseData.brand.join(', ')
     : caseData.brand;
 
-  // ✅ HANDLER DE CLIQUE
+  // Handler de clique para analytics
   const handleClick = () => {
     trackCaseCardClick(caseData.slug, title, 'performance');
   };
 
   const displayTags = tags.slice(0, 3);
   const remainingTags = tags.length - 3;
-  // ✅ CORRIGIDO - metrics diretamente (não results.metrics)
+  
+  // Métricas em destaque
   const displayMetrics = caseData.metrics.slice(0, 3);
 
   return (
