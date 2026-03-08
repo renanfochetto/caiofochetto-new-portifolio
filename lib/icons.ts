@@ -38,4 +38,7 @@ export {
   Moon,
   Sun,
   Star,
+  Clock,
+  Building2,
+  ThumbsUp,
 } from "lucide-react";

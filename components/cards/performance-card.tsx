@@ -27,7 +27,11 @@ import {
   DollarSign,
   MousePointerClick,
   Play,
-  BarChart3
+  BarChart3,
+  Clock,
+  Building2,
+  ThumbsUp,
+  Target
 } from "@/lib/icons";
 
 const getMetricIcon = (label: string) => {
@@ -38,12 +42,15 @@ const getMetricIcon = (label: string) => {
   if (lowerLabel.includes("engajamento") || lowerLabel.includes("engagement")) return Heart;
   if (lowerLabel.includes("interações") || lowerLabel.includes("interactions")) return MessageCircle;
   if (lowerLabel.includes("crescimento") || lowerLabel.includes("growth")) return TrendingUp;
-  if (lowerLabel.includes("receita") || lowerLabel.includes("revenue")) return DollarSign;
+  if (lowerLabel.includes("receita") || lowerLabel.includes("revenue") || lowerLabel.includes("ingresos")) return DollarSign;
   if (lowerLabel.includes("cliques") || lowerLabel.includes("ctr")) return MousePointerClick;
+  if (lowerLabel.includes("watch time") || lowerLabel.includes("tempo")) return Clock;
+  if (lowerLabel.includes("marcas") || lowerLabel.includes("brands")) return Building2;
+  if (lowerLabel.includes("sentimento") || lowerLabel.includes("sentiment") || lowerLabel.includes("positivo")) return ThumbsUp;
+  if (lowerLabel.includes("uso") || lowerLabel.includes("scope") || lowerLabel.includes("alcance")) return Target;
   if (lowerLabel.includes("views") || lowerLabel.includes("visualizações")) return Play;
   return BarChart3;
 };
-
 // ✅ Props simplificadas - recebe objeto completo!
 interface PerformanceCardProps {
   caseData: CaseData;
