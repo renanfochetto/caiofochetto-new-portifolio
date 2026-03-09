@@ -2,8 +2,8 @@
 
 [![Next.js](https://img.shields.io/badge/Next.js-15%2B-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
-[![Lighthouse](https://img.shields.io/badge/Lighthouse-98%2F100-success?style=flat&logo=lighthouse)](https://developers.google.com/web/tools/lighthouse)
-[![Performance](https://img.shields.io/badge/Performance-98%2F100-success?style=flat)](https://pagespeed.web.dev/)
+[![Lighthouse](https://img.shields.io/badge/Lighthouse-100%2F100-success?style=flat&logo=lighthouse)](https://developers.google.com/web/tools/lighthouse)
+[![Performance](https://img.shields.io/badge/Performance-100%2F100-success?style=flat)](https://pagespeed.web.dev/)
 
 Portfolio profissional de Caio Fochetto - Líder em Marketing de Influência e Performance Digital com 15+ anos de experiência conectando marca, cultura e performance através de estratégias de conteúdo e influência.
 
