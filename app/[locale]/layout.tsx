@@ -129,8 +129,7 @@ export default async function LocaleLayout({
       <head>
         <PersonSchema />
         <PortfolioWebsiteSchema />
-        <link rel="preconnect" href="https://cloud.umami.is" />
-        <link rel="preconnect" href="https://api-gateway.umami.dev" />
+        <link rel="preconnect" href="https://analytics.renanfochetto.dev" />
         <link rel="preload" href="/fonts/fraunces/fraunces-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/space-grotesk/space-grotesk-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/manrope/manrope-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
