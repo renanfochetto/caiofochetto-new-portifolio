@@ -17,7 +17,7 @@ import {LazyMotion, domAnimation} from "framer-motion";
 import "../fonts.css";
 import "../globals.css";
 
-const SITE_URL = "https://www.caiofochetto.com";
+const SITE_URL = "https://caiofochetto.com";
 
 type Props = { params: Promise<{ locale: string }> };
 
