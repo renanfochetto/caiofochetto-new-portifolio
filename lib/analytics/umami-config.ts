@@ -1,7 +1,7 @@
 // Umami Analytics Configuration
 export const UMAMI_CONFIG = {
-  websiteId: '3c7f9828-e101-485e-b591-1eaccb69e654',
-  src: 'https://cloud.umami.is/script.js',
+  websiteId: '8050b651-c9bb-4e2b-9bb7-9a809f4fe044',
+  src: 'https://analytics.renanfochetto.dev/script.js',
 
   // Event names (consistência)
   events: {
