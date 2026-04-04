@@ -1,5 +1,4 @@
 import type {Metadata, Viewport} from "next";
-import {Analytics} from "@vercel/analytics/next";
 import {notFound} from "next/navigation";
 import {I18nProvider} from "@/components/providers/i18n-provider";
 import {ThemeProvider} from "@/components/providers/theme-provider";
@@ -42,8 +41,12 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     },
 
     alternates: {
-      canonical: `/${locale}`,
-      languages: {"pt-BR": "/pt", "en-US": "/en", "es-ES": "/es"},
+      canonical: `${SITE_URL}/${locale}`,
+      languages: {
+        "pt-BR": `${SITE_URL}/pt`,
+        "en-US": `${SITE_URL}/en`,
+        "es-ES": `${SITE_URL}/es`
+      },
     },
 
     title: {
@@ -146,7 +149,6 @@ export default async function LocaleLayout({
             </ThemeProvider>
           </I18nProvider>
         </LazyMotion>
-        <Analytics />
         <Script
           defer
           src={UMAMI_CONFIG.src}

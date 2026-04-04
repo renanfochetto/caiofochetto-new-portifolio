@@ -48,7 +48,7 @@ export function middleware(request: NextRequest) {
   // Root path → detect and redirect
   if (pathname === '/') {
     const preferredLocale = getPreferredLocale(request);
-    return NextResponse.redirect(new URL(`/${preferredLocale}`, request.url));
+    return NextResponse.redirect(new URL(`/${preferredLocale}`, request.url), 301);
   }
 
   return NextResponse.next();
