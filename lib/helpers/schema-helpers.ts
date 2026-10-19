@@ -5,6 +5,7 @@
  */
 
 import { experiences } from '@/lib/data/experiences';
+import type { ExperiencePeriod } from '@/types/experience';
 
 /**
  * Extract work history for Schema.org Person
@@ -17,7 +18,7 @@ export function getWorkHistory() {
       "@type": "WorkHistory" as const,
       "startDate": exp.period.start,
       // ✅ CORRIGIDO - Usa data EXATA de experiences.ts
-      "endDate": exp.period.end === "Atual" || exp.period.end === "Present"
+      "endDate": !exp.period.end
         ? undefined  // Omite se ainda trabalha (opcional no Schema.org)
         : exp.period.end,
       "employer": {
@@ -38,7 +39,7 @@ export function getTotalYearsOfExperience(): number {
   const parseDates = experiences.map(exp => {
     const start = parseExperienceDate(exp.period.start);
     // Para cálculo de anos TOTAIS, usamos "hoje" se ainda trabalha
-    const end = exp.period.end === "Atual" || exp.period.end === "Present"
+    const end = !exp.period.end
       ? new Date()
       : parseExperienceDate(exp.period.end!);
 
@@ -59,7 +60,7 @@ export function getTotalYearsOfExperience(): number {
  */
 export function getCurrentPosition() {
   const currentExp = experiences.find(
-    exp => exp.featured && (exp.period.end === "Atual" || exp.period.end === "Present")
+    exp => exp.featured && (!exp.period.end)
   );
 
   if (!currentExp) {
@@ -114,7 +115,27 @@ function parseExperienceDate(dateStr: string): Date {
   };
 
   const month = monthMap[monthStr.toLowerCase()] ?? 0;
-  const year = parseInt('20' + yearStr);
+  const year = parseInt(yearStr.length === 2 ? '20' + yearStr : yearStr);
 
   return new Date(year, month, 1);
+}
+
+/**
+ * Duração da experiência: usa o texto fixo de experiences.ts ou,
+ * se ainda trabalha (end null), calcula até hoje (contando o mês atual, como o LinkedIn)
+ */
+export function getExperienceDuration(period: ExperiencePeriod, now = new Date()): string {
+  if (period.end || period.duration) return period.duration ?? '';
+
+  const start = parseExperienceDate(period.start);
+  const total = (now.getFullYear() - start.getFullYear()) * 12 + now.getMonth() - start.getMonth() + 1;
+  const years = Math.floor(total / 12);
+  const months = total % 12;
+
+  const parts = [
+    years && `${years} ${years === 1 ? 'ano' : 'anos'}`,
+    months && `${months} ${months === 1 ? 'mês' : 'meses'}`,
+  ].filter(Boolean);
+
+  return parts.join(' e ');
 }

@@ -7,7 +7,8 @@ export interface ExperienceDetails {
 export interface ExperiencePeriod {
   start: string;
   end: string | null;
-  duration: string;
+  // Omitir quando end é null: calculada automaticamente (getExperienceDuration)
+  duration?: string;
 }
 
 // lib/types/experience.ts

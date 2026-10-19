@@ -7,6 +7,7 @@ import { useI18n } from "@/components/providers/i18n-provider";
 import { Briefcase, ChevronDown, ChevronUp, Plus, TrendingUp, Footprints, Clipboard } from "@/lib/icons";
 import { AnimatedSection, AnimatedItem } from "../ui/animated-section";
 import { getFeaturedExperiences, getOlderExperiences } from "@/lib/data/experiences";
+import { getExperienceDuration } from "@/lib/helpers/schema-helpers";
 import { m, AnimatePresence } from "framer-motion";
 
 // ✅ IMPORT CORRETO
@@ -111,8 +112,8 @@ export function ExperienceSection() {
                   <p className="font-heading text-sm font-semibold text-primary">
                     {exp.period.start} - {exp.period.end || t.experience.present}
                   </p>
-                  <p className="text-sm text-muted-foreground transition-colors hover:text-primary cursor-default">
-                    {exp.period.duration}
+                  <p className="text-sm text-muted-foreground transition-colors hover:text-primary cursor-default" suppressHydrationWarning>
+                    {getExperienceDuration(exp.period)}
                   </p>
                 </div>
               </div>
@@ -122,8 +123,8 @@ export function ExperienceSection() {
                 <p className="font-heading text-sm font-semibold text-primary">
                   {exp.period.start} - {exp.period.end || t.experience.present}
                 </p>
-                <p className="text-sm text-muted-foreground transition-colors hover:text-primary cursor-default">
-                  {exp.period.duration}
+                <p className="text-sm text-muted-foreground transition-colors hover:text-primary cursor-default" suppressHydrationWarning>
+                  {getExperienceDuration(exp.period)}
                 </p>
               </div>
 
@@ -265,8 +266,8 @@ export function ExperienceSection() {
                         <p className="font-heading text-sm font-semibold text-primary">
                           {exp.period.start} - {exp.period.end || t.experience.present}
                         </p>
-                        <p className="text-sm text-muted-foreground transition-colors hover:text-primary cursor-default">
-                          {exp.period.duration}
+                        <p className="text-sm text-muted-foreground transition-colors hover:text-primary cursor-default" suppressHydrationWarning>
+                          {getExperienceDuration(exp.period)}
                         </p>
                       </div>
                     </div>
@@ -276,8 +277,8 @@ export function ExperienceSection() {
                       <p className="font-heading text-sm font-semibold text-primary">
                         {exp.period.start} - {exp.period.end || t.experience.present}
                       </p>
-                      <p className="text-sm text-muted-foreground transition-colors hover:text-primary cursor-default">
-                        {exp.period.duration}
+                      <p className="text-sm text-muted-foreground transition-colors hover:text-primary cursor-default" suppressHydrationWarning>
+                        {getExperienceDuration(exp.period)}
                       </p>
                     </div>
 

@@ -12,15 +12,6 @@ export function HeroSection() {
     <section className="relative flex min-h-svh flex-col justify-center px-4 py-16 sm:px-6 md:px-8 md:py-20 lg:py-24">
       <AnimatedSection hero className="mx-auto w-full max-w-6xl">
         <div className="flex flex-col gap-6 md:gap-8">
-          {/* Badge de status */}
-          <a
-            href="#contact"
-            className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1.5 md:px-4 md:py-2 hover:bg-primary/15 transition-colors cursor-pointer"
-          >
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
-            <span className="text-xs font-medium text-primary md:text-sm">{t.hero.badge}</span>
-          </a>
-
           {/* Heading principal */}
           <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-foreground text-balance sm:text-5xl md:text-6xl lg:text-7xl">
             {t.hero.headingLine1}

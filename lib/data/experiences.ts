@@ -6,6 +6,63 @@ export const experiences: Experience[] = [
   // ========================================
 
   {
+    id: "estadao",
+    company: "Estadão",
+    logo: "/companies/estadao.webp",
+    role: {
+      pt: "Head de Influência",
+      en: "Head of Influence",
+      es: "Head de Influencia"
+    },
+    period: {
+      start: "Mar/2026",
+      end: null
+    },
+    featured: true,
+    details: {
+      pt: {
+        summary: "Gerente de marketing responsável por liderar e estruturar a área de Influência (Influency) do Estadão Blue Studio, atuando como head da frente e conectando marcas, conteúdo e creators em iniciativas estratégicas orientadas a audiência e impacto de negócio. Atuação na construção e consolidação da área dentro de um dos principais publishers do país, com projetos multiplataforma para marcas globais e locais.",
+        responsibilities: [
+          "Liderança e desenvolvimento do time de marketing de influência",
+          "Estruturação da área, definição de processos e implementação de fluxos para ganho de escala",
+          "Criação e gestão de campanhas com criadores de conteúdo, influenciadores e marcas, do planejamento à execução",
+          "Desenvolvimento de propostas estratégicas e comerciais para anunciantes",
+          "Gestão de relacionamento com agências, clientes e influenciadores",
+          "Definição, acompanhamento e análise de KPIs de performance (alcance, engajamento, conversão e ROI)",
+          "Integração entre áreas internas (comercial, conteúdo, criação e operações)",
+          "Monitoramento de tendências de mercado, creators e plataformas digitais"
+        ]
+      },
+      en: {
+        summary: "Marketing manager responsible for leading and building the Influence division (Influency) at Estadão Blue Studio, heading the practice and connecting brands, content and creators through strategic initiatives focused on audience and business impact. Built and consolidated the division within one of Brazil's leading publishers, delivering multiplatform projects for global and local brands.",
+        responsibilities: [
+          "Leadership and development of the influencer marketing team",
+          "Structuring the division, defining processes and implementing workflows to scale operations",
+          "Creation and management of campaigns with content creators, influencers and brands, from planning to execution",
+          "Development of strategic and commercial proposals for advertisers",
+          "Relationship management with agencies, clients and influencers",
+          "Definition, tracking and analysis of performance KPIs (reach, engagement, conversion and ROI)",
+          "Integration across internal teams (sales, content, creative and operations)",
+          "Monitoring of market trends, creators and digital platforms"
+        ]
+      },
+      es: {
+        summary: "Gerente de marketing responsable de liderar y estructurar el área de Influencia (Influency) de Estadão Blue Studio, actuando como head del área y conectando marcas, contenido y creadores en iniciativas estratégicas orientadas a la audiencia y al impacto de negocio. Participé en la construcción y consolidación del área dentro de uno de los principales publishers de Brasil, con proyectos multiplataforma para marcas globales y locales.",
+        responsibilities: [
+          "Liderazgo y desarrollo del equipo de marketing de influencia",
+          "Estructuración del área, definición de procesos e implementación de flujos para ganar escala",
+          "Creación y gestión de campañas con creadores de contenido, influencers y marcas, desde la planificación hasta la ejecución",
+          "Desarrollo de propuestas estratégicas y comerciales para anunciantes",
+          "Gestión de relaciones con agencias, clientes e influencers",
+          "Definición, seguimiento y análisis de KPIs de performance (alcance, engagement, conversión y ROI)",
+          "Integración entre áreas internas (comercial, contenido, creación y operaciones)",
+          "Monitoreo de tendencias de mercado, creadores y plataformas digitales"
+        ]
+      }
+    }
+  },
+
+  {
     id: "octagon",
     company: "Octagon",
     logo: "/companies/octagon.webp",
