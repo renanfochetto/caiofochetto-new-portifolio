@@ -13,7 +13,6 @@ import type { ExperiencePeriod } from '@/types/experience';
  */
 export function getWorkHistory() {
   return experiences
-    .filter(exp => exp.featured)
     .map(exp => ({
       "@type": "WorkHistory" as const,
       "startDate": exp.period.start,

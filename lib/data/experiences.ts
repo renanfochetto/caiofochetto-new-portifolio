@@ -280,7 +280,7 @@ export const experiences: Experience[] = [
       end: "Out/2019",
       duration: "7 anos e 9 meses"
     },
-    featured: true,
+    featured: false,
     details: {
       pt: {
         summary: "De Coordenador Digital a Gerente de Marketing, integrando TV, digital e novos negócios.",
